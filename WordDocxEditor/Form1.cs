@@ -21,24 +21,24 @@ namespace WordDocxEditor
 
             comboBox_City.SelectedIndex = 0;
 
-            _templates = new RadioButton[(int)E_ClientId.ENUM_LENGTH];
-            _templates[(int)E_ClientId.Mr] = radioButton_Mr;
-            _templates[(int)E_ClientId.Mrs] = radioButton_Mrs;
-            _templates[(int)E_ClientId.Company] = radioButton_Company;
+            _templates = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
+            _templates[(int)E_TemplateId.Mr] = radioButton_Mr;
+            _templates[(int)E_TemplateId.Mrs] = radioButton_Mrs;
+            _templates[(int)E_TemplateId.Company] = radioButton_Company;
         }
 
-        E_ClientId DetectClient(string fullName)
+        E_TemplateId DetectTemplate(string fullName)
         {
             if (fullName.Contains("."))
             {
-                return E_ClientId.Company;
+                return E_TemplateId.Company;
             }
             else
             {
                 var separated = fullName.Split(' ');
                 string firstName = separated[0];
 
-                return firstName.Last() == 'a' ? E_ClientId.Mrs : E_ClientId.Mr;
+                return firstName.Last() == 'a' ? E_TemplateId.Mrs : E_TemplateId.Mr;
             }
         }
 
@@ -48,7 +48,7 @@ namespace WordDocxEditor
 
             if (verifier.VerifyName(textBox_Name.Text))
             {
-                _templates[(int)DetectClient(textBox_Name.Text)].Checked = true;
+                _templates[(int)DetectTemplate(textBox_Name.Text)].Checked = true;
             }
         }
 

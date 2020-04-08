@@ -1,6 +1,6 @@
 ﻿namespace WordDocxEditor
 {
-    public enum E_ClientId
+    public enum E_TemplateId
     {
         Mr,
         Mrs,
