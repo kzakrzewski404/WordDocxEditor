@@ -12,7 +12,7 @@ namespace WordDocxEditor
 {
     public partial class Form1 : Form
     {
-        private RadioButton[] _templates;
+        private RadioButton[] _templatesSelection;
 
 
         public Form1()
@@ -21,10 +21,10 @@ namespace WordDocxEditor
 
             comboBox_City.SelectedIndex = 0;
 
-            _templates = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
-            _templates[(int)E_TemplateId.Mr] = radioButton_Mr;
-            _templates[(int)E_TemplateId.Mrs] = radioButton_Mrs;
-            _templates[(int)E_TemplateId.Company] = radioButton_Company;
+            _templatesSelection = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
+            _templatesSelection[(int)E_TemplateId.Mr] = radioButton_Mr;
+            _templatesSelection[(int)E_TemplateId.Mrs] = radioButton_Mrs;
+            _templatesSelection[(int)E_TemplateId.Company] = radioButton_Company;
         }
 
         E_TemplateId DetectTemplate(string fullName)
@@ -48,7 +48,7 @@ namespace WordDocxEditor
 
             if (verifier.VerifyName(textBox_Name.Text))
             {
-                _templates[(int)DetectTemplate(textBox_Name.Text)].Checked = true;
+                _templatesSelection[(int)DetectTemplate(textBox_Name.Text)].Checked = true;
             }
         }
 
@@ -57,18 +57,23 @@ namespace WordDocxEditor
         {
             DataVerifier verifier = new DataVerifier();
 
-            if (verifier.VerifyName(textBox_Name.Text))
+            if (!verifier.VerifyName(textBox_Name.Text))
             {
                 verifier.ShowErrorName();
             }
-            else if (verifier.VerifyAddress(textBox_Address.Text))
+            else if (!verifier.VerifyAddress(textBox_Address.Text))
             {
                 verifier.ShowErrorAddress();
             }
-            else if (verifier.VerifySelectedClient(_templates))
+            else if (!verifier.VerifySelectedClient(_templatesSelection))
             {
                 verifier.ShowErrorSelectedClient();
             }
+        }
+
+        private void informacjeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Zakrzewski Kamil\n08.04.2020", "Informacje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
