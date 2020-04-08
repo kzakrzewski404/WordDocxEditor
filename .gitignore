@@ -1,0 +1,6 @@
+.vs/*
+WordDocxEditor/bin/*
+WordDocxEditor/obj/*
+
+*.exe
+*.cache
