@@ -16,10 +16,14 @@ namespace WordDocxEditor
         private RadioButton[] _templatesSelection = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
         private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
 
+        private string _outPath = "";
+
 
         public Form1()
         {
             InitializeComponent();
+
+            _outPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
 
             comboBox_City.SelectedIndex = 0;
 
