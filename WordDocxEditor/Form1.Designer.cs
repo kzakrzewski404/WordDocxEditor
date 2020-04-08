@@ -45,9 +45,9 @@
             this.button_SelectTemplateCompany = new System.Windows.Forms.Button();
             this.button_SelectTemplateMrs = new System.Windows.Forms.Button();
             this.button_SelectTemplateMr = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label_templateCompany = new System.Windows.Forms.Label();
+            this.label_templateMrs = new System.Windows.Forms.Label();
+            this.label_templateMr = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,17 +55,15 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button_Generate = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button_Generate = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,14 +220,14 @@
             this.groupBox1.Controls.Add(this.button_SelectTemplateCompany);
             this.groupBox1.Controls.Add(this.button_SelectTemplateMrs);
             this.groupBox1.Controls.Add(this.button_SelectTemplateMr);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label_templateCompany);
+            this.groupBox1.Controls.Add(this.label_templateMrs);
+            this.groupBox1.Controls.Add(this.label_templateMr);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox1.Location = new System.Drawing.Point(12, 36);
+            this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(458, 122);
             this.groupBox1.TabIndex = 26;
@@ -245,6 +243,7 @@
             this.button_SelectTemplateCompany.TabIndex = 34;
             this.button_SelectTemplateCompany.Text = "Wybierz";
             this.button_SelectTemplateCompany.UseVisualStyleBackColor = true;
+            this.button_SelectTemplateCompany.Click += new System.EventHandler(this.button_SelectTemplateCompany_Click);
             // 
             // button_SelectTemplateMrs
             // 
@@ -255,6 +254,7 @@
             this.button_SelectTemplateMrs.TabIndex = 33;
             this.button_SelectTemplateMrs.Text = "Wybierz";
             this.button_SelectTemplateMrs.UseVisualStyleBackColor = true;
+            this.button_SelectTemplateMrs.Click += new System.EventHandler(this.button_SelectTemplateMrs_Click);
             // 
             // button_SelectTemplateMr
             // 
@@ -265,39 +265,40 @@
             this.button_SelectTemplateMr.TabIndex = 27;
             this.button_SelectTemplateMr.Text = "Wybierz";
             this.button_SelectTemplateMr.UseVisualStyleBackColor = true;
+            this.button_SelectTemplateMr.Click += new System.EventHandler(this.button_SelectTemplateMr_Click);
             // 
-            // label11
+            // label_templateCompany
             // 
-            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label11.Location = new System.Drawing.Point(62, 76);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(200, 25);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "<Nie wybrano>";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_templateCompany.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_templateCompany.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_templateCompany.Location = new System.Drawing.Point(62, 76);
+            this.label_templateCompany.Name = "label_templateCompany";
+            this.label_templateCompany.Size = new System.Drawing.Size(200, 25);
+            this.label_templateCompany.TabIndex = 32;
+            this.label_templateCompany.Text = "<Nie wybrano>";
+            this.label_templateCompany.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label10
+            // label_templateMrs
             // 
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label10.Location = new System.Drawing.Point(62, 46);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(200, 25);
-            this.label10.TabIndex = 31;
-            this.label10.Text = "<Nie wybrano>";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_templateMrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_templateMrs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_templateMrs.Location = new System.Drawing.Point(62, 46);
+            this.label_templateMrs.Name = "label_templateMrs";
+            this.label_templateMrs.Size = new System.Drawing.Size(200, 25);
+            this.label_templateMrs.TabIndex = 31;
+            this.label_templateMrs.Text = "<Nie wybrano>";
+            this.label_templateMrs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // label_templateMr
             // 
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label9.Location = new System.Drawing.Point(62, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(200, 25);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "<Nie wybrano>";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_templateMr.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_templateMr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_templateMr.Location = new System.Drawing.Point(62, 16);
+            this.label_templateMr.Name = "label_templateMr";
+            this.label_templateMr.Size = new System.Drawing.Size(200, 25);
+            this.label_templateMr.TabIndex = 30;
+            this.label_templateMr.Text = "<Nie wybrano>";
+            this.label_templateMr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
@@ -339,7 +340,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dateTimePicker_Responded);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox2.Location = new System.Drawing.Point(12, 164);
+            this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(458, 100);
             this.groupBox2.TabIndex = 28;
@@ -359,7 +360,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBox_Address);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox3.Location = new System.Drawing.Point(12, 270);
+            this.groupBox3.Location = new System.Drawing.Point(12, 247);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(458, 176);
             this.groupBox3.TabIndex = 29;
@@ -383,50 +384,35 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox4.Location = new System.Drawing.Point(12, 452);
+            this.groupBox4.Location = new System.Drawing.Point(12, 429);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(458, 92);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Opcje";
             // 
-            // button_Generate
+            // numericUpDown1
             // 
-            this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Generate.Location = new System.Drawing.Point(321, 577);
-            this.button_Generate.Name = "button_Generate";
-            this.button_Generate.Size = new System.Drawing.Size(124, 31);
-            this.button_Generate.TabIndex = 35;
-            this.button_Generate.Text = "Generuj";
-            this.button_Generate.UseVisualStyleBackColor = true;
-            this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informacjeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(482, 24);
-            this.menuStrip1.TabIndex = 31;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // informacjeToolStripMenuItem
-            // 
-            this.informacjeToolStripMenuItem.Name = "informacjeToolStripMenuItem";
-            this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.informacjeToolStripMenuItem.Text = "Informacje";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(10, 37);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(196, 23);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Drukuj po wygenerowaniu";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown1.Location = new System.Drawing.Point(260, 44);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(185, 27);
+            this.numericUpDown1.TabIndex = 29;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label13
             // 
@@ -439,34 +425,45 @@
             this.label13.TabIndex = 28;
             this.label13.Text = "Liczba kopii:";
             // 
-            // numericUpDown1
+            // checkBox1
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(260, 44);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(185, 27);
-            this.numericUpDown1.TabIndex = 29;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox1.Location = new System.Drawing.Point(10, 37);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(196, 23);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Drukuj po wygenerowaniu";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // button_Generate
+            // 
+            this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Generate.Location = new System.Drawing.Point(333, 543);
+            this.button_Generate.Name = "button_Generate";
+            this.button_Generate.Size = new System.Drawing.Size(124, 31);
+            this.button_Generate.TabIndex = 35;
+            this.button_Generate.Text = "Generuj";
+            this.button_Generate.UseVisualStyleBackColor = true;
+            this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Dokumenty Word|*.doc;*.docx";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(482, 620);
+            this.ClientSize = new System.Drawing.Size(482, 596);
             this.Controls.Add(this.button_Generate);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "WordDocxEditor";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil 08.04.2020";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -474,11 +471,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -498,9 +492,9 @@
         private System.Windows.Forms.RadioButton radioButton_Mrs;
         private System.Windows.Forms.RadioButton radioButton_Company;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label_templateCompany;
+        private System.Windows.Forms.Label label_templateMrs;
+        private System.Windows.Forms.Label label_templateMr;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -512,11 +506,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button_Generate;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

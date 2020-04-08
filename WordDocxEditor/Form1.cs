@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WordDocxEditor
 {
     public partial class Form1 : Form
     {
-        private RadioButton[] _templatesSelection;
+        private RadioButton[] _templatesSelection = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
+        private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
 
 
         public Form1()
@@ -21,7 +23,6 @@ namespace WordDocxEditor
 
             comboBox_City.SelectedIndex = 0;
 
-            _templatesSelection = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
             _templatesSelection[(int)E_TemplateId.Mr] = radioButton_Mr;
             _templatesSelection[(int)E_TemplateId.Mrs] = radioButton_Mrs;
             _templatesSelection[(int)E_TemplateId.Company] = radioButton_Company;
@@ -69,11 +70,30 @@ namespace WordDocxEditor
             {
                 verifier.ShowErrorSelectedClient();
             }
+            else
+            {
+                openFileDialog1.ShowDialog();
+            }
         }
 
-        private void informacjeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button_SelectTemplateMr_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Mr, label_templateMr);
+
+        private void button_SelectTemplateMrs_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Mrs, label_templateMrs);
+
+        private void button_SelectTemplateCompany_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Company, label_templateCompany);
+
+        private void SelectTemplateSource(E_TemplateId id, Label targetLabel)
         {
-            MessageBox.Show("Zakrzewski Kamil\n08.04.2020", "Informacje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                _templatesSources[(int)id] = openFileDialog1.FileName;
+                targetLabel.Text = openFileDialog1.SafeFileName;
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano pliku.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
