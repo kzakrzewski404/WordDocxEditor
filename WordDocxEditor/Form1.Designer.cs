@@ -62,12 +62,17 @@
             this.checkBox_doPrint = new System.Windows.Forms.CheckBox();
             this.button_Generate = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wydrukToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CaseId)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -119,7 +124,7 @@
             this.textBox_Name.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Name.Location = new System.Drawing.Point(10, 45);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(185, 27);
+            this.textBox_Name.Size = new System.Drawing.Size(435, 27);
             this.textBox_Name.TabIndex = 1;
             this.textBox_Name.Leave += new System.EventHandler(this.On_textBoxNameFinishedEditing);
             // 
@@ -150,7 +155,7 @@
             this.textBox_Address.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Address.Location = new System.Drawing.Point(10, 109);
             this.textBox_Address.Name = "textBox_Address";
-            this.textBox_Address.Size = new System.Drawing.Size(185, 27);
+            this.textBox_Address.Size = new System.Drawing.Size(435, 27);
             this.textBox_Address.TabIndex = 2;
             // 
             // comboBox_City
@@ -184,7 +189,7 @@
             this.radioButton_Mr.AutoSize = true;
             this.radioButton_Mr.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton_Mr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.radioButton_Mr.Location = new System.Drawing.Point(260, 49);
+            this.radioButton_Mr.Location = new System.Drawing.Point(260, 252);
             this.radioButton_Mr.Name = "radioButton_Mr";
             this.radioButton_Mr.Size = new System.Drawing.Size(51, 23);
             this.radioButton_Mr.TabIndex = 23;
@@ -197,7 +202,7 @@
             this.radioButton_Mrs.AutoSize = true;
             this.radioButton_Mrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton_Mrs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.radioButton_Mrs.Location = new System.Drawing.Point(317, 49);
+            this.radioButton_Mrs.Location = new System.Drawing.Point(317, 252);
             this.radioButton_Mrs.Name = "radioButton_Mrs";
             this.radioButton_Mrs.Size = new System.Drawing.Size(55, 23);
             this.radioButton_Mrs.TabIndex = 24;
@@ -210,7 +215,7 @@
             this.radioButton_Company.AutoSize = true;
             this.radioButton_Company.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton_Company.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.radioButton_Company.Location = new System.Drawing.Point(382, 49);
+            this.radioButton_Company.Location = new System.Drawing.Point(382, 252);
             this.radioButton_Company.Name = "radioButton_Company";
             this.radioButton_Company.Size = new System.Drawing.Size(63, 23);
             this.radioButton_Company.TabIndex = 25;
@@ -230,7 +235,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox1.Location = new System.Drawing.Point(12, 13);
+            this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(458, 122);
             this.groupBox1.TabIndex = 26;
@@ -343,7 +348,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dateTimePicker_Responded);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox2.Location = new System.Drawing.Point(12, 141);
+            this.groupBox2.Location = new System.Drawing.Point(12, 166);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(458, 100);
             this.groupBox2.TabIndex = 28;
@@ -365,9 +370,9 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBox_Address);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox3.Location = new System.Drawing.Point(12, 247);
+            this.groupBox3.Location = new System.Drawing.Point(12, 272);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(458, 224);
+            this.groupBox3.Size = new System.Drawing.Size(458, 295);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
@@ -383,7 +388,7 @@
             0});
             this.numericUpDown_CaseId.Name = "numericUpDown_CaseId";
             this.numericUpDown_CaseId.Size = new System.Drawing.Size(185, 27);
-            this.numericUpDown_CaseId.TabIndex = 31;
+            this.numericUpDown_CaseId.TabIndex = 4;
             this.numericUpDown_CaseId.Value = new decimal(new int[] {
             1,
             0,
@@ -406,7 +411,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label12.Location = new System.Drawing.Point(256, 23);
+            this.label12.Location = new System.Drawing.Point(256, 226);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 19);
             this.label12.TabIndex = 26;
@@ -418,12 +423,12 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.checkBox_doPrint);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox4.Location = new System.Drawing.Point(12, 505);
+            this.groupBox4.Location = new System.Drawing.Point(12, 573);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(458, 92);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Opcje";
+            this.groupBox4.Text = "Wydruk";
             // 
             // numericUpDown_NumberOfCopies
             // 
@@ -466,17 +471,17 @@
             this.checkBox_doPrint.Location = new System.Drawing.Point(10, 37);
             this.checkBox_doPrint.Name = "checkBox_doPrint";
             this.checkBox_doPrint.Size = new System.Drawing.Size(196, 23);
-            this.checkBox_doPrint.TabIndex = 0;
+            this.checkBox_doPrint.TabIndex = 99;
             this.checkBox_doPrint.Text = "Drukuj po wygenerowaniu";
             this.checkBox_doPrint.UseVisualStyleBackColor = true;
             // 
             // button_Generate
             // 
             this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Generate.Location = new System.Drawing.Point(333, 619);
+            this.button_Generate.Location = new System.Drawing.Point(333, 690);
             this.button_Generate.Name = "button_Generate";
             this.button_Generate.Size = new System.Drawing.Size(124, 31);
-            this.button_Generate.TabIndex = 35;
+            this.button_Generate.TabIndex = 5;
             this.button_Generate.Text = "Generuj";
             this.button_Generate.UseVisualStyleBackColor = true;
             this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
@@ -485,17 +490,52 @@
             // 
             this.openFileDialog1.Filter = "Dokumenty Word|*.doc;*.docx";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.informacjeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(482, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // informacjeToolStripMenuItem
+            // 
+            this.informacjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tagiToolStripMenuItem,
+            this.wydrukToolStripMenuItem});
+            this.informacjeToolStripMenuItem.Name = "informacjeToolStripMenuItem";
+            this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.informacjeToolStripMenuItem.Text = "Informacje";
+            // 
+            // tagiToolStripMenuItem
+            // 
+            this.tagiToolStripMenuItem.Name = "tagiToolStripMenuItem";
+            this.tagiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tagiToolStripMenuItem.Text = "Tagi";
+            this.tagiToolStripMenuItem.Click += new System.EventHandler(this.tagiToolStripMenuItem_Click);
+            // 
+            // wydrukToolStripMenuItem
+            // 
+            this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
+            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wydrukToolStripMenuItem.Text = "Wydruk";
+            this.wydrukToolStripMenuItem.Click += new System.EventHandler(this.wydrukToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(482, 664);
+            this.ClientSize = new System.Drawing.Size(482, 741);
             this.Controls.Add(this.button_Generate);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "WordDocxEditor - Zakrzewski Kamil 08.04.2020";
             this.groupBox1.ResumeLayout(false);
@@ -507,7 +547,10 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -547,6 +590,10 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.NumericUpDown numericUpDown_CaseId;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tagiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wydrukToolStripMenuItem;
     }
 }
 
