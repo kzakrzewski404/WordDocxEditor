@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="E_TemplateId.cs" />
+    <Compile Include="DocumentModifier.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
