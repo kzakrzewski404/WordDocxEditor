@@ -19,7 +19,12 @@ namespace WordDocxEditor
         {
             Initialize();
 
-            _outputFilePath = _desktopPath + data.Name;
+            if (!Directory.Exists(_desktopPath))
+            {
+                Directory.CreateDirectory(_desktopPath);
+            }
+
+            _outputFilePath = _desktopPath + "\\" + data.Name + Path.GetExtension(sourceTemplatePath);
             File.Copy(sourceTemplatePath, _outputFilePath);
 
             _document = wordApp.Documents.Open(_outputFilePath, ReadOnly: false);
@@ -31,6 +36,7 @@ namespace WordDocxEditor
             ReplaceTag(TagsConfig.RespondedDate, data.RespondedDate.Date.ToString("dd.MM.yyyy"));
 
             _document.Save();
+            _document.PrintOut(Copies: numberOfCopies);
 
             object missing = System.Reflection.Missing.Value;
             _document.Close(ref missing);
