@@ -1,35 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+
 
 namespace WordDocxEditor
 {
     public partial class Form1 : Form
     {
-        private RadioButton[] _templatesSelection = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
+        private RadioButton[] _templatesRadioButtons = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
         private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
-
-        private string _outPath = "";
 
 
         public Form1()
         {
             InitializeComponent();
 
-            _outPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
-
             comboBox_City.SelectedIndex = 0;
 
-            _templatesSelection[(int)E_TemplateId.Mr] = radioButton_Mr;
-            _templatesSelection[(int)E_TemplateId.Mrs] = radioButton_Mrs;
-            _templatesSelection[(int)E_TemplateId.Company] = radioButton_Company;
+            _templatesRadioButtons[(int)E_TemplateId.Mr] = radioButton_Mr;
+            _templatesRadioButtons[(int)E_TemplateId.Mrs] = radioButton_Mrs;
+            _templatesRadioButtons[(int)E_TemplateId.Company] = radioButton_Company;
         }
 
         E_TemplateId DetectTemplate(string fullName)
@@ -53,15 +43,13 @@ namespace WordDocxEditor
 
             if (verifier.VerifyName(textBox_Name.Text))
             {
-                _templatesSelection[(int)DetectTemplate(textBox_Name.Text)].Checked = true;
+                _templatesRadioButtons[(int)DetectTemplate(textBox_Name.Text)].Checked = true;
             }
         }
 
 
         private void button_Generate_Click(object sender, EventArgs e)
         {
-            //TODO: no number
-
             DataVerifier verifier = new DataVerifier();
 
             if (!verifier.VerifyName(textBox_Name.Text))
@@ -72,14 +60,44 @@ namespace WordDocxEditor
             {
                 verifier.ShowErrorAddress();
             }
-            else if (!verifier.VerifySelectedClient(_templatesSelection))
+            else if (!verifier.VerifySelectedClient(_templatesRadioButtons))
             {
                 verifier.ShowErrorSelectedClient();
             }
             else
             {
-                openFileDialog1.ShowDialog();
+                GeneratorData data = new GeneratorData(name: textBox_Name.Text,
+                                                       address: textBox_Address.Text,
+                                                       city: comboBox_City.SelectedItem.ToString(),
+                                                       caseId: (int)numericUpDown_CaseId.Value,
+                                                       received: dateTimePicker_Received.Value,
+                                                       responded: dateTimePicker_Responded.Value);
+
+                Generator generator = new Generator();
+                generator.Generate(GetActiveTemplate(), data, checkBox_doPrint.Checked, (int)numericUpDown_NumberOfCopies.Value);
+
+                ClearUi();
+                MessageBox.Show($"Wygenerowano dokument: {data.Name}");
             }
+        }
+
+        private void ClearUi()
+        {
+            textBox_Address.Clear();
+            textBox_Name.Clear();
+        }
+
+        private string GetActiveTemplate()
+        {
+            for (int i = 0; i < _templatesRadioButtons.Length; i++)
+            {
+                if (_templatesRadioButtons[i].Checked)
+                {
+                    return _templatesSources[i];
+                }
+            }
+
+            return _templatesSources[0];
         }
 
         private void button_SelectTemplateMr_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Mr, label_templateMr);

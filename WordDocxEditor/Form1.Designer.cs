@@ -53,18 +53,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown_CaseId = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_NumberOfCopies = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox_doPrint = new System.Windows.Forms.CheckBox();
             this.button_Generate = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CaseId)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -136,7 +139,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label4.Location = new System.Drawing.Point(6, 99);
+            this.label4.Location = new System.Drawing.Point(6, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 19);
             this.label4.TabIndex = 7;
@@ -145,7 +148,7 @@
             // textBox_Address
             // 
             this.textBox_Address.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Address.Location = new System.Drawing.Point(10, 121);
+            this.textBox_Address.Location = new System.Drawing.Point(10, 109);
             this.textBox_Address.Name = "textBox_Address";
             this.textBox_Address.Size = new System.Drawing.Size(185, 27);
             this.textBox_Address.TabIndex = 2;
@@ -160,7 +163,7 @@
             "95-061 Dmosin",
             "95-063 Rogów",
             "95-047 Jeżów"});
-            this.comboBox_City.Location = new System.Drawing.Point(260, 121);
+            this.comboBox_City.Location = new System.Drawing.Point(10, 175);
             this.comboBox_City.Name = "comboBox_City";
             this.comboBox_City.Size = new System.Drawing.Size(185, 27);
             this.comboBox_City.TabIndex = 3;
@@ -170,7 +173,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label5.Location = new System.Drawing.Point(256, 99);
+            this.label5.Location = new System.Drawing.Point(6, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 9;
@@ -349,6 +352,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.numericUpDown_CaseId);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.textBox_Name);
@@ -362,10 +367,39 @@
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.groupBox3.Location = new System.Drawing.Point(12, 247);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(458, 176);
+            this.groupBox3.Size = new System.Drawing.Size(458, 224);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
+            // 
+            // numericUpDown_CaseId
+            // 
+            this.numericUpDown_CaseId.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_CaseId.Location = new System.Drawing.Point(260, 175);
+            this.numericUpDown_CaseId.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDown_CaseId.Name = "numericUpDown_CaseId";
+            this.numericUpDown_CaseId.Size = new System.Drawing.Size(185, 27);
+            this.numericUpDown_CaseId.TabIndex = 31;
+            this.numericUpDown_CaseId.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label9.Location = new System.Drawing.Point(256, 153);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 19);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Numer sprawy:";
             // 
             // label12
             // 
@@ -380,35 +414,35 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.numericUpDown1);
+            this.groupBox4.Controls.Add(this.numericUpDown_NumberOfCopies);
             this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.checkBox1);
+            this.groupBox4.Controls.Add(this.checkBox_doPrint);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox4.Location = new System.Drawing.Point(12, 429);
+            this.groupBox4.Location = new System.Drawing.Point(12, 505);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(458, 92);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Opcje";
             // 
-            // numericUpDown1
+            // numericUpDown_NumberOfCopies
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(260, 44);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDown_NumberOfCopies.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_NumberOfCopies.Location = new System.Drawing.Point(260, 44);
+            this.numericUpDown_NumberOfCopies.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDown_NumberOfCopies.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(185, 27);
-            this.numericUpDown1.TabIndex = 29;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDown_NumberOfCopies.Name = "numericUpDown_NumberOfCopies";
+            this.numericUpDown_NumberOfCopies.Size = new System.Drawing.Size(185, 27);
+            this.numericUpDown_NumberOfCopies.TabIndex = 29;
+            this.numericUpDown_NumberOfCopies.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -425,21 +459,21 @@
             this.label13.TabIndex = 28;
             this.label13.Text = "Liczba kopii:";
             // 
-            // checkBox1
+            // checkBox_doPrint
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(10, 37);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(196, 23);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Drukuj po wygenerowaniu";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox_doPrint.AutoSize = true;
+            this.checkBox_doPrint.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_doPrint.Location = new System.Drawing.Point(10, 37);
+            this.checkBox_doPrint.Name = "checkBox_doPrint";
+            this.checkBox_doPrint.Size = new System.Drawing.Size(196, 23);
+            this.checkBox_doPrint.TabIndex = 0;
+            this.checkBox_doPrint.Text = "Drukuj po wygenerowaniu";
+            this.checkBox_doPrint.UseVisualStyleBackColor = true;
             // 
             // button_Generate
             // 
             this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Generate.Location = new System.Drawing.Point(333, 543);
+            this.button_Generate.Location = new System.Drawing.Point(333, 619);
             this.button_Generate.Name = "button_Generate";
             this.button_Generate.Size = new System.Drawing.Size(124, 31);
             this.button_Generate.TabIndex = 35;
@@ -456,7 +490,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(482, 596);
+            this.ClientSize = new System.Drawing.Size(482, 664);
             this.Controls.Add(this.button_Generate);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -469,9 +503,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CaseId)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -506,10 +541,12 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button_Generate;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_NumberOfCopies;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox_doPrint;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_CaseId;
+        private System.Windows.Forms.Label label9;
     }
 }
 
