@@ -60,9 +60,13 @@ namespace WordDocxEditor
             {
                 verifier.ShowErrorAddress();
             }
-            else if (!verifier.VerifySelectedClient(_templatesRadioButtons))
+            else if (!verifier.VerifyIfSelectedTemplate(_templatesRadioButtons))
             {
-                verifier.ShowErrorSelectedClient();
+                verifier.ShowErrorSelectedTemplate();
+            }
+            else if (!verifier.VerifyIfTemplatesAreLoaded(_templatesSources))
+            {
+                verifier.showErrorNoLoadedTemplates();
             }
             else
             {
