@@ -66,7 +66,7 @@ namespace WordDocxEditor
             }
             else if (!verifier.VerifyIfTemplatesAreLoaded(_templatesSources))
             {
-                verifier.showErrorNoLoadedTemplates();
+                verifier.ShowErrorNoLoadedTemplates();
             }
             else
             {
