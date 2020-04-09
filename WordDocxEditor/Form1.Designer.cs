@@ -59,12 +59,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.checkBox_doPrint = new System.Windows.Forms.CheckBox();
             this.button_Generate = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpTags = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpPrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.checkBox_IsStreet = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -463,10 +461,6 @@
             this.button_Generate.UseVisualStyleBackColor = true;
             this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "Dokumenty Word|*.doc;*.docx";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -483,26 +477,22 @@
             this.toolStripMenuItem_HelpTags,
             this.toolStripMenuItem_HelpPrint});
             this.informacjeToolStripMenuItem.Name = "informacjeToolStripMenuItem";
-            this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.informacjeToolStripMenuItem.Text = "Informacje";
+            this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.informacjeToolStripMenuItem.Text = "Pomoc";
             // 
             // toolStripMenuItem_HelpTags
             // 
             this.toolStripMenuItem_HelpTags.Name = "toolStripMenuItem_HelpTags";
-            this.toolStripMenuItem_HelpTags.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem_HelpTags.Text = "Tagi";
+            this.toolStripMenuItem_HelpTags.Size = new System.Drawing.Size(257, 22);
+            this.toolStripMenuItem_HelpTags.Text = "Tagi w dokumencie";
             this.toolStripMenuItem_HelpTags.Click += new System.EventHandler(this.toolStripMenuItem_HelpTags_Click);
             // 
             // toolStripMenuItem_HelpPrint
             // 
             this.toolStripMenuItem_HelpPrint.Name = "toolStripMenuItem_HelpPrint";
-            this.toolStripMenuItem_HelpPrint.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem_HelpPrint.Text = "Wydruk";
+            this.toolStripMenuItem_HelpPrint.Size = new System.Drawing.Size(257, 22);
+            this.toolStripMenuItem_HelpPrint.Text = "Opcja \"Drukuj po wygenerowaniu\"";
             this.toolStripMenuItem_HelpPrint.Click += new System.EventHandler(this.toolStripMenuItem_HelpPrint_Click);
-            // 
-            // folderBrowserDialog1
-            // 
-            this.folderBrowserDialog1.Description = "Wybierz folder z szablonami";
             // 
             // checkBox_IsStreet
             // 
@@ -534,7 +524,7 @@
             this.MaximumSize = new System.Drawing.Size(498, 780);
             this.MinimumSize = new System.Drawing.Size(498, 780);
             this.Name = "Form1";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil 08.04.2020";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.0.1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -581,14 +571,12 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_NumberOfCopies;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox checkBox_doPrint;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.NumericUpDown numericUpDown_CaseId;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpTags;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpPrint;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button_loadTemplates;
         private System.Windows.Forms.CheckBox checkBox_IsStreet;
     }
