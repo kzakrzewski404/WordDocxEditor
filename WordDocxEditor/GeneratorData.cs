@@ -11,10 +11,9 @@ namespace WordDocxEditor
         public int CaseId { get; private set; }
         public DateTime ReceivedDate { get; private set; }
         public DateTime RespondedDate { get; private set; }
-        public string TemplateName { get; private set; }
 
-        public GeneratorData(string name, string address, string city, int caseId, DateTime received, DateTime responded, 
-                             string templateName)
+
+        public GeneratorData(string name, string address, string city, int caseId, DateTime received, DateTime responded)
         {
             Name = name;
             Address = address;
@@ -22,7 +21,6 @@ namespace WordDocxEditor
             CaseId = caseId;
             ReceivedDate = received;
             RespondedDate = responded;
-            TemplateName = templateName;
         }
     }
 }
