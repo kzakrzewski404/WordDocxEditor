@@ -19,6 +19,22 @@ namespace WordDocxEditor
         {
             Initialize();
 
+            PrepareOutputDirectory();
+            CopyTemplate();
+            
+            bool isEditSuccessful = EditWordFile();
+
+            if (!isEditSuccessful)
+            {
+                HandlePrinter();
+                CloseWordFile();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
             if (!Directory.Exists(_desktopPath))
             {
                 Directory.CreateDirectory(_desktopPath);
