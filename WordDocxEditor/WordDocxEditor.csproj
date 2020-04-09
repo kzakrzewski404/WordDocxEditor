@@ -94,6 +94,7 @@
     <Compile Include="TagsConfig.cs" />
     <Compile Include="TemplatesLoader.cs" />
     <Compile Include="TemplatesLoaderSummary.cs" />
+    <Compile Include="UiHelp.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

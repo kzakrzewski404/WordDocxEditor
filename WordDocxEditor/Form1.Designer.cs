@@ -62,8 +62,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wydrukToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_HelpTags = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_HelpPrint = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -478,25 +478,25 @@
             // informacjeToolStripMenuItem
             // 
             this.informacjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tagiToolStripMenuItem,
-            this.wydrukToolStripMenuItem});
+            this.toolStripMenuItem_HelpTags,
+            this.toolStripMenuItem_HelpPrint});
             this.informacjeToolStripMenuItem.Name = "informacjeToolStripMenuItem";
             this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.informacjeToolStripMenuItem.Text = "Informacje";
             // 
-            // tagiToolStripMenuItem
+            // toolStripMenuItem_HelpTags
             // 
-            this.tagiToolStripMenuItem.Name = "tagiToolStripMenuItem";
-            this.tagiToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.tagiToolStripMenuItem.Text = "Tagi";
-            this.tagiToolStripMenuItem.Click += new System.EventHandler(this.tagiToolStripMenuItem_Click);
+            this.toolStripMenuItem_HelpTags.Name = "toolStripMenuItem_HelpTags";
+            this.toolStripMenuItem_HelpTags.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_HelpTags.Text = "Tagi";
+            this.toolStripMenuItem_HelpTags.Click += new System.EventHandler(this.toolStripMenuItem_HelpTags_Click);
             // 
-            // wydrukToolStripMenuItem
+            // toolStripMenuItem_HelpPrint
             // 
-            this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
-            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.wydrukToolStripMenuItem.Text = "Wydruk";
-            this.wydrukToolStripMenuItem.Click += new System.EventHandler(this.wydrukToolStripMenuItem_Click);
+            this.toolStripMenuItem_HelpPrint.Name = "toolStripMenuItem_HelpPrint";
+            this.toolStripMenuItem_HelpPrint.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_HelpPrint.Text = "Wydruk";
+            this.toolStripMenuItem_HelpPrint.Click += new System.EventHandler(this.toolStripMenuItem_HelpPrint_Click);
             // 
             // folderBrowserDialog1
             // 
@@ -568,8 +568,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tagiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wydrukToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpTags;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpPrint;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button_loadTemplates;
     }

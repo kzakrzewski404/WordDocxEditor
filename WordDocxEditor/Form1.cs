@@ -10,7 +10,6 @@ namespace WordDocxEditor
         private RadioButton[] _templatesRadioButtons = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
         private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
         private TemplatesLoaderSummary _loadedTemplates;
-       // private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
 
 
         public Form1()
@@ -28,7 +27,7 @@ namespace WordDocxEditor
             _labelsWithTemplateName[(int)E_TemplateId.Company] = label_templateCompany;
         }
 
-        E_TemplateId DetectTemplate(string fullName)
+        private E_TemplateId DetectTemplate(string fullName)
         {
             if (fullName.Contains("."))
             {
@@ -127,24 +126,8 @@ namespace WordDocxEditor
             return _loadedTemplates.FilePaths[0];
         }
 
-        private void wydrukToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Wydruk dokumentu jest wykonywany na domyślnej w systemie drukarce.",
-                            "Wydruk", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        private void toolStripMenuItem_HelpTags_Click(object sender, EventArgs e) => new UiHelp().ShowTags();
 
-        private void tagiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Tagi które są wyszukiwane w dokumencie:\n\n" +
-                "<name> - Imie i nazwisko / nazwa\n" +
-                "<addr> - Adres (ulica i numer budynku)\n" +
-                "<city> - kod pocztowy i miejscowość\n" +
-                "<id> - numer sprawy\n" +
-                "<dateIn> - data przyjęcia pisma\n" +
-                "<dateOut> - data odpowiedzi na pismo",
-                "Tagi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        
+        private void toolStripMenuItem_HelpPrint_Click(object sender, EventArgs e) => new UiHelp().ShowPrint();
     }
 }
