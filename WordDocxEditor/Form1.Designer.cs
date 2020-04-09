@@ -42,9 +42,7 @@
             this.radioButton_Mrs = new System.Windows.Forms.RadioButton();
             this.radioButton_Company = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_SelectTemplateCompany = new System.Windows.Forms.Button();
-            this.button_SelectTemplateMrs = new System.Windows.Forms.Button();
-            this.button_SelectTemplateMr = new System.Windows.Forms.Button();
+            this.button_loadTemplates = new System.Windows.Forms.Button();
             this.label_templateCompany = new System.Windows.Forms.Label();
             this.label_templateMrs = new System.Windows.Forms.Label();
             this.label_templateMr = new System.Windows.Forms.Label();
@@ -66,6 +64,7 @@
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wydrukToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -225,9 +224,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_SelectTemplateCompany);
-            this.groupBox1.Controls.Add(this.button_SelectTemplateMrs);
-            this.groupBox1.Controls.Add(this.button_SelectTemplateMr);
+            this.groupBox1.Controls.Add(this.button_loadTemplates);
             this.groupBox1.Controls.Add(this.label_templateCompany);
             this.groupBox1.Controls.Add(this.label_templateMrs);
             this.groupBox1.Controls.Add(this.label_templateMr);
@@ -242,38 +239,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Szablony";
             // 
-            // button_SelectTemplateCompany
+            // button_loadTemplates
             // 
-            this.button_SelectTemplateCompany.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_SelectTemplateCompany.Location = new System.Drawing.Point(376, 76);
-            this.button_SelectTemplateCompany.Name = "button_SelectTemplateCompany";
-            this.button_SelectTemplateCompany.Size = new System.Drawing.Size(69, 25);
-            this.button_SelectTemplateCompany.TabIndex = 34;
-            this.button_SelectTemplateCompany.Text = "Wybierz";
-            this.button_SelectTemplateCompany.UseVisualStyleBackColor = true;
-            this.button_SelectTemplateCompany.Click += new System.EventHandler(this.button_SelectTemplateCompany_Click);
-            // 
-            // button_SelectTemplateMrs
-            // 
-            this.button_SelectTemplateMrs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_SelectTemplateMrs.Location = new System.Drawing.Point(376, 46);
-            this.button_SelectTemplateMrs.Name = "button_SelectTemplateMrs";
-            this.button_SelectTemplateMrs.Size = new System.Drawing.Size(69, 25);
-            this.button_SelectTemplateMrs.TabIndex = 33;
-            this.button_SelectTemplateMrs.Text = "Wybierz";
-            this.button_SelectTemplateMrs.UseVisualStyleBackColor = true;
-            this.button_SelectTemplateMrs.Click += new System.EventHandler(this.button_SelectTemplateMrs_Click);
-            // 
-            // button_SelectTemplateMr
-            // 
-            this.button_SelectTemplateMr.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_SelectTemplateMr.Location = new System.Drawing.Point(376, 16);
-            this.button_SelectTemplateMr.Name = "button_SelectTemplateMr";
-            this.button_SelectTemplateMr.Size = new System.Drawing.Size(69, 25);
-            this.button_SelectTemplateMr.TabIndex = 27;
-            this.button_SelectTemplateMr.Text = "Wybierz";
-            this.button_SelectTemplateMr.UseVisualStyleBackColor = true;
-            this.button_SelectTemplateMr.Click += new System.EventHandler(this.button_SelectTemplateMr_Click);
+            this.button_loadTemplates.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_loadTemplates.Location = new System.Drawing.Point(376, 19);
+            this.button_loadTemplates.Name = "button_loadTemplates";
+            this.button_loadTemplates.Size = new System.Drawing.Size(69, 25);
+            this.button_loadTemplates.TabIndex = 35;
+            this.button_loadTemplates.Text = "Wybierz";
+            this.button_loadTemplates.UseVisualStyleBackColor = true;
+            this.button_loadTemplates.Click += new System.EventHandler(this.button_loadTemplates_Click);
             // 
             // label_templateCompany
             // 
@@ -281,7 +256,7 @@
             this.label_templateCompany.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label_templateCompany.Location = new System.Drawing.Point(62, 76);
             this.label_templateCompany.Name = "label_templateCompany";
-            this.label_templateCompany.Size = new System.Drawing.Size(200, 25);
+            this.label_templateCompany.Size = new System.Drawing.Size(300, 25);
             this.label_templateCompany.TabIndex = 32;
             this.label_templateCompany.Text = "<Nie wybrano>";
             this.label_templateCompany.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -292,7 +267,7 @@
             this.label_templateMrs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label_templateMrs.Location = new System.Drawing.Point(62, 46);
             this.label_templateMrs.Name = "label_templateMrs";
-            this.label_templateMrs.Size = new System.Drawing.Size(200, 25);
+            this.label_templateMrs.Size = new System.Drawing.Size(300, 25);
             this.label_templateMrs.TabIndex = 31;
             this.label_templateMrs.Text = "<Nie wybrano>";
             this.label_templateMrs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -303,7 +278,7 @@
             this.label_templateMr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label_templateMr.Location = new System.Drawing.Point(62, 16);
             this.label_templateMr.Name = "label_templateMr";
-            this.label_templateMr.Size = new System.Drawing.Size(200, 25);
+            this.label_templateMr.Size = new System.Drawing.Size(300, 25);
             this.label_templateMr.TabIndex = 30;
             this.label_templateMr.Text = "<Nie wybrano>";
             this.label_templateMr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -512,16 +487,20 @@
             // tagiToolStripMenuItem
             // 
             this.tagiToolStripMenuItem.Name = "tagiToolStripMenuItem";
-            this.tagiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tagiToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.tagiToolStripMenuItem.Text = "Tagi";
             this.tagiToolStripMenuItem.Click += new System.EventHandler(this.tagiToolStripMenuItem_Click);
             // 
             // wydrukToolStripMenuItem
             // 
             this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
-            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.wydrukToolStripMenuItem.Text = "Wydruk";
             this.wydrukToolStripMenuItem.Click += new System.EventHandler(this.wydrukToolStripMenuItem_Click);
+            // 
+            // folderBrowserDialog1
+            // 
+            this.folderBrowserDialog1.Description = "Wybierz folder z szablonami";
             // 
             // Form1
             // 
@@ -576,9 +555,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button_SelectTemplateCompany;
-        private System.Windows.Forms.Button button_SelectTemplateMrs;
-        private System.Windows.Forms.Button button_SelectTemplateMr;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
@@ -594,6 +570,8 @@
         private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tagiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wydrukToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button button_loadTemplates;
     }
 }
 

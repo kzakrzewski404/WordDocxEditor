@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-
+using System.IO;
 
 namespace WordDocxEditor
 {
     public partial class Form1 : Form
     {
         private RadioButton[] _templatesRadioButtons = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
+        private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
         private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
 
 
@@ -20,6 +21,10 @@ namespace WordDocxEditor
             _templatesRadioButtons[(int)E_TemplateId.Mr] = radioButton_Mr;
             _templatesRadioButtons[(int)E_TemplateId.Mrs] = radioButton_Mrs;
             _templatesRadioButtons[(int)E_TemplateId.Company] = radioButton_Company;
+
+            _labelsWithTemplateName[(int)E_TemplateId.Mr] = label_templateMr;
+            _labelsWithTemplateName[(int)E_TemplateId.Mrs] = label_templateMrs;
+            _labelsWithTemplateName[(int)E_TemplateId.Company] = label_templateCompany;
         }
 
         E_TemplateId DetectTemplate(string fullName)
@@ -104,26 +109,6 @@ namespace WordDocxEditor
             return _templatesSources[0];
         }
 
-        private void button_SelectTemplateMr_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Mr, label_templateMr);
-
-        private void button_SelectTemplateMrs_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Mrs, label_templateMrs);
-
-        private void button_SelectTemplateCompany_Click(object sender, EventArgs e) => SelectTemplateSource(E_TemplateId.Company, label_templateCompany);
-
-        private void SelectTemplateSource(E_TemplateId id, Label targetLabel)
-        {
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                _templatesSources[(int)id] = openFileDialog1.FileName;
-                targetLabel.Text = openFileDialog1.SafeFileName;
-            }
-            else
-            {
-                MessageBox.Show("Nie wybrano pliku.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void wydrukToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Wydruk dokumentu jest wykonywany na domyślnej w systemie drukarce.",
@@ -140,6 +125,56 @@ namespace WordDocxEditor
                 "<dateIn> - data przyjęcia pisma\n" +
                 "<dateOut> - data odpowiedzi na pismo",
                 "Tagi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button_loadTemplates_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
+                FileInfo[] files = directoryInfo.GetFiles("_*");
+
+                if (!LoadTemplates(files))
+                {
+                    MessageBox.Show("Nie udało się wczytać szablonów.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano folderu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool LoadTemplates(FileInfo[] files)
+        {
+            if (files.Length == 3)
+            {
+                _templatesSources[(int)E_TemplateId.Mr] = FindTemplateFile(files, "_pan_");
+                _templatesSources[(int)E_TemplateId.Mrs] = FindTemplateFile(files, "_pani_");
+                _templatesSources[(int)E_TemplateId.Company] = FindTemplateFile(files, "_firma_");
+
+                for (int i = 0; i < _templatesSources.Length; i++)
+                {
+                    if (_templatesSources[i] == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        _labelsWithTemplateName[i].Text = Path.GetFileName(_templatesSources[i]);
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private string FindTemplateFile(FileInfo[] files, string searchPattern)
+        {
+            return files.Where(x => x.Name.Contains(searchPattern)).Select(x => x.Name).FirstOrDefault();
         }
     }
 }
