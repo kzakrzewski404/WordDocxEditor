@@ -515,6 +515,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(498, 780);
+            this.MinimumSize = new System.Drawing.Size(498, 780);
             this.Name = "Form1";
             this.Text = "WordDocxEditor - Zakrzewski Kamil 08.04.2020";
             this.groupBox1.ResumeLayout(false);

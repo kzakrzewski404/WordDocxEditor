@@ -25,15 +25,23 @@ namespace WordDocxEditor
             return numberOfselected == 1;
         }
 
-        public bool VerifyIfTemplatesAreLoaded(TemplatesLoaderSummary loadedTemplates) => loadedTemplates.IsSuccess;
+        public bool VerifyIfTemplatesAreLoaded(TemplatesLoaderSummary loadedTemplates)
+        {
+            if (loadedTemplates != null)
+            {
+                return loadedTemplates.IsSuccess;
+            }
+
+            return false;
+        }
 
         public void ShowErrorName() => ShowCommonError("Niepoprawne imię lub nazwa.");
 
-        public void ShowErrorSelectedTemplate() => ShowCommonError("Nie wybrano typu szablonu.");
+        public void ShowErrorSelectedTemplate() => ShowCommonError("Nie wybrano typu szablonu (Pan/Pani/Firma).");
 
         public void ShowErrorAddress() => ShowCommonError("Niepoprawny adres lub brak numeru budynku.");
 
-        public void ShowErrorNoLoadedTemplates() => ShowCommonError("Nie wybrano jednego z szablonów.");
+        public void ShowErrorNoLoadedTemplates() => ShowCommonError("Nie wybrano szablonów.");
 
 
         private void ShowCommonError(string error)

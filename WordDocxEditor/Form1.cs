@@ -82,7 +82,8 @@ namespace WordDocxEditor
 
             if (!_loadedTemplates.IsSuccess)
             {
-                MessageBox.Show("Nie udało się wczytać szablonów.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nie udało się wczytać szablonów.\nNie znaleziono 3 szablonów",
+                                "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
