@@ -31,6 +31,7 @@ namespace WordDocxEditor
             {
                 textBox_Address.Clear();
                 textBox_Name.Clear();
+                checkBox_IsStreet.Checked = true;
             }
 
             if (clearLablesWithTemplates)
@@ -129,6 +130,7 @@ namespace WordDocxEditor
             {
                 GeneratorData data = new GeneratorData(name: textBox_Name.Text,
                                                        address: textBox_Address.Text,
+                                                       isStreet: checkBox_IsStreet.Checked,
                                                        city: comboBox_City.SelectedItem.ToString(),
                                                        caseId: (int)numericUpDown_CaseId.Value,
                                                        received: dateTimePicker_Received.Value,
@@ -138,7 +140,8 @@ namespace WordDocxEditor
                 generator.Generate(GetActiveTemplate(), data, checkBox_doPrint.Checked, (int)numericUpDown_NumberOfCopies.Value);
 
                 ClearUi();
-                MessageBox.Show($"Wygenerowano dokument: {data.Name}");
+                MessageBox.Show($"Wygenerowano dokument: {data.Name}", 
+                                 "Generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

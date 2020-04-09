@@ -50,6 +50,7 @@ namespace WordDocxEditor
                     _document = _wordApp.Documents.Open(targetFilePath, ReadOnly: false);
                     ReplaceTag(TagsConfig.Name, data.Name);
                     ReplaceTag(TagsConfig.Address, data.Address);
+                    ReplaceTag(TagsConfig.IsStreet, data.IsStreet ? "ul. " : "");
                     ReplaceTag(TagsConfig.City, data.City);
                     ReplaceTag(TagsConfig.CaseId, data.CaseId.ToString());
                     ReplaceTag(TagsConfig.ReceivedDate, data.ReceivedDate.Date.ToString("dd.MM.yyyy"));

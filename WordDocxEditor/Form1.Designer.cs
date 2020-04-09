@@ -65,6 +65,7 @@
             this.toolStripMenuItem_HelpTags = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpPrint = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.checkBox_IsStreet = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -154,7 +155,7 @@
             this.textBox_Address.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Address.Location = new System.Drawing.Point(10, 109);
             this.textBox_Address.Name = "textBox_Address";
-            this.textBox_Address.Size = new System.Drawing.Size(435, 27);
+            this.textBox_Address.Size = new System.Drawing.Size(362, 27);
             this.textBox_Address.TabIndex = 2;
             // 
             // comboBox_City
@@ -332,6 +333,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox_IsStreet);
             this.groupBox3.Controls.Add(this.numericUpDown_CaseId);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label12);
@@ -502,6 +504,19 @@
             // 
             this.folderBrowserDialog1.Description = "Wybierz folder z szablonami";
             // 
+            // checkBox_IsStreet
+            // 
+            this.checkBox_IsStreet.AutoSize = true;
+            this.checkBox_IsStreet.Checked = true;
+            this.checkBox_IsStreet.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_IsStreet.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_IsStreet.Location = new System.Drawing.Point(384, 111);
+            this.checkBox_IsStreet.Name = "checkBox_IsStreet";
+            this.checkBox_IsStreet.Size = new System.Drawing.Size(61, 23);
+            this.checkBox_IsStreet.TabIndex = 100;
+            this.checkBox_IsStreet.Text = "Ulica";
+            this.checkBox_IsStreet.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,6 +590,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpPrint;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button_loadTemplates;
+        private System.Windows.Forms.CheckBox checkBox_IsStreet;
     }
 }
 
