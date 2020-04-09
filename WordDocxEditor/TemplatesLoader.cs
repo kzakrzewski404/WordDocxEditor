@@ -41,7 +41,7 @@ namespace WordDocxEditor
 
         private string FindTemplateFile(FileInfo[] files, string searchPattern)
         {
-            return files.Where(x => x.Name.Contains(searchPattern)).Select(x => x.Name).FirstOrDefault();
+            return files.Where(x => x.Name.Contains(searchPattern)).Select(x => x.FullName).FirstOrDefault();
         }
     }
 }

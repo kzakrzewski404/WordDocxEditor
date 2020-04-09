@@ -43,9 +43,9 @@
             this.radioButton_Company = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_loadTemplates = new System.Windows.Forms.Button();
-            this.label_templateCompany = new System.Windows.Forms.Label();
-            this.label_templateMrs = new System.Windows.Forms.Label();
-            this.label_templateMr = new System.Windows.Forms.Label();
+            this.label_CompanyTemplate = new System.Windows.Forms.Label();
+            this.label_MrsTemplate = new System.Windows.Forms.Label();
+            this.label_MrTemplate = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -225,9 +225,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button_loadTemplates);
-            this.groupBox1.Controls.Add(this.label_templateCompany);
-            this.groupBox1.Controls.Add(this.label_templateMrs);
-            this.groupBox1.Controls.Add(this.label_templateMr);
+            this.groupBox1.Controls.Add(this.label_CompanyTemplate);
+            this.groupBox1.Controls.Add(this.label_MrsTemplate);
+            this.groupBox1.Controls.Add(this.label_MrTemplate);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -250,38 +250,38 @@
             this.button_loadTemplates.UseVisualStyleBackColor = true;
             this.button_loadTemplates.Click += new System.EventHandler(this.button_loadTemplates_Click);
             // 
-            // label_templateCompany
+            // label_CompanyTemplate
             // 
-            this.label_templateCompany.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_templateCompany.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_templateCompany.Location = new System.Drawing.Point(62, 76);
-            this.label_templateCompany.Name = "label_templateCompany";
-            this.label_templateCompany.Size = new System.Drawing.Size(300, 25);
-            this.label_templateCompany.TabIndex = 32;
-            this.label_templateCompany.Text = "<Nie wybrano>";
-            this.label_templateCompany.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_CompanyTemplate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_CompanyTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_CompanyTemplate.Location = new System.Drawing.Point(62, 76);
+            this.label_CompanyTemplate.Name = "label_CompanyTemplate";
+            this.label_CompanyTemplate.Size = new System.Drawing.Size(300, 25);
+            this.label_CompanyTemplate.TabIndex = 32;
+            this.label_CompanyTemplate.Text = "<Nie wybrano>";
+            this.label_CompanyTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label_templateMrs
+            // label_MrsTemplate
             // 
-            this.label_templateMrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_templateMrs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_templateMrs.Location = new System.Drawing.Point(62, 46);
-            this.label_templateMrs.Name = "label_templateMrs";
-            this.label_templateMrs.Size = new System.Drawing.Size(300, 25);
-            this.label_templateMrs.TabIndex = 31;
-            this.label_templateMrs.Text = "<Nie wybrano>";
-            this.label_templateMrs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_MrsTemplate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_MrsTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_MrsTemplate.Location = new System.Drawing.Point(62, 46);
+            this.label_MrsTemplate.Name = "label_MrsTemplate";
+            this.label_MrsTemplate.Size = new System.Drawing.Size(300, 25);
+            this.label_MrsTemplate.TabIndex = 31;
+            this.label_MrsTemplate.Text = "<Nie wybrano>";
+            this.label_MrsTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label_templateMr
+            // label_MrTemplate
             // 
-            this.label_templateMr.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_templateMr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_templateMr.Location = new System.Drawing.Point(62, 16);
-            this.label_templateMr.Name = "label_templateMr";
-            this.label_templateMr.Size = new System.Drawing.Size(300, 25);
-            this.label_templateMr.TabIndex = 30;
-            this.label_templateMr.Text = "<Nie wybrano>";
-            this.label_templateMr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_MrTemplate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_MrTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_MrTemplate.Location = new System.Drawing.Point(62, 16);
+            this.label_MrTemplate.Name = "label_MrTemplate";
+            this.label_MrTemplate.Size = new System.Drawing.Size(300, 25);
+            this.label_MrTemplate.TabIndex = 30;
+            this.label_MrTemplate.Text = "<Nie wybrano>";
+            this.label_MrTemplate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label8
             // 
@@ -549,9 +549,9 @@
         private System.Windows.Forms.RadioButton radioButton_Mrs;
         private System.Windows.Forms.RadioButton radioButton_Company;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label_templateCompany;
-        private System.Windows.Forms.Label label_templateMrs;
-        private System.Windows.Forms.Label label_templateMr;
+        private System.Windows.Forms.Label label_CompanyTemplate;
+        private System.Windows.Forms.Label label_MrsTemplate;
+        private System.Windows.Forms.Label label_MrTemplate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

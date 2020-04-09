@@ -1,7 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.IO;
+
 
 namespace WordDocxEditor
 {
@@ -18,13 +19,16 @@ namespace WordDocxEditor
 
             comboBox_City.SelectedIndex = 0;
 
-            _templatesRadioButtons[(int)E_TemplateId.Mr] = radioButton_Mr;
-            _templatesRadioButtons[(int)E_TemplateId.Mrs] = radioButton_Mrs;
-            _templatesRadioButtons[(int)E_TemplateId.Company] = radioButton_Company;
+            SaveUiReferences(E_TemplateId.Mr, radioButton_Mr, label_MrTemplate);
+            SaveUiReferences(E_TemplateId.Mrs, radioButton_Mrs, label_MrsTemplate);
+            SaveUiReferences(E_TemplateId.Company, radioButton_Company, label_CompanyTemplate);
+        }
 
-            _labelsWithTemplateName[(int)E_TemplateId.Mr] = label_templateMr;
-            _labelsWithTemplateName[(int)E_TemplateId.Mrs] = label_templateMrs;
-            _labelsWithTemplateName[(int)E_TemplateId.Company] = label_templateCompany;
+
+        private void ClearUi()
+        {
+            textBox_Address.Clear();
+            textBox_Name.Clear();
         }
 
         private E_TemplateId DetectTemplate(string fullName)
@@ -40,6 +44,25 @@ namespace WordDocxEditor
 
                 return firstName.Last() == 'a' ? E_TemplateId.Mrs : E_TemplateId.Mr;
             }
+        }
+
+        private string GetActiveTemplate()
+        {
+            for (int i = 0; i < _templatesRadioButtons.Length; i++)
+            {
+                if (_templatesRadioButtons[i].Checked)
+                {
+                    return _loadedTemplates.FilePaths[i];
+                }
+            }
+
+            return _loadedTemplates.FilePaths[0];
+        }
+
+        private void SaveUiReferences(E_TemplateId id, RadioButton radioButton, Label label)
+        {
+            _templatesRadioButtons[(int)id] = radioButton;
+            _labelsWithTemplateName[(int)id] = label;
         }
 
         private void On_textBoxNameFinishedEditing(object sender, EventArgs e)
@@ -105,25 +128,6 @@ namespace WordDocxEditor
                 ClearUi();
                 MessageBox.Show($"Wygenerowano dokument: {data.Name}");
             }
-        }
-
-        private void ClearUi()
-        {
-            textBox_Address.Clear();
-            textBox_Name.Clear();
-        }
-
-        private string GetActiveTemplate()
-        {
-            for (int i = 0; i < _templatesRadioButtons.Length; i++)
-            {
-                if (_templatesRadioButtons[i].Checked)
-                {
-                    return _loadedTemplates.FilePaths[i];
-                }
-            }
-
-            return _loadedTemplates.FilePaths[0];
         }
 
         private void toolStripMenuItem_HelpTags_Click(object sender, EventArgs e) => new UiHelp().ShowTags();
