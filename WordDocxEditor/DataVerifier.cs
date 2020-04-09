@@ -25,18 +25,7 @@ namespace WordDocxEditor
             return numberOfselected == 1;
         }
 
-        public bool VerifyIfTemplatesAreLoaded(string[] templates)
-        {
-            for (int i = 0; i < templates.Length; i++)
-            {
-                if (String.IsNullOrEmpty(templates[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        public bool VerifyIfTemplatesAreLoaded(TemplatesLoaderSummary loadedTemplates) => loadedTemplates.IsSuccess;
 
         public void ShowErrorName() => ShowCommonError("Niepoprawne imię lub nazwa.");
 

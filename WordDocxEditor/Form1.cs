@@ -9,7 +9,8 @@ namespace WordDocxEditor
     {
         private RadioButton[] _templatesRadioButtons = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
         private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
-        private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
+        private TemplatesLoaderSummary _loadedTemplates;
+       // private string[] _templatesSources = new string[(int)E_TemplateId.ENUM_LENGTH];
 
 
         public Form1()
@@ -52,6 +53,23 @@ namespace WordDocxEditor
             }
         }
 
+        private void button_loadTemplates_Click(object sender, EventArgs e)
+        {
+            TemplatesLoader loader = new TemplatesLoader();
+            _loadedTemplates = loader.Load();
+
+            if (!_loadedTemplates.IsSuccess)
+            {
+                MessageBox.Show("Nie udało się wczytać szablonów.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                for (int i = 0; i < _loadedTemplates.FilePaths.Length; i++)
+                {
+                    _labelsWithTemplateName[i].Text = Path.GetFileName(_loadedTemplates.FilePaths[i]);
+                }
+            }
+        }
 
         private void button_Generate_Click(object sender, EventArgs e)
         {
@@ -69,7 +87,7 @@ namespace WordDocxEditor
             {
                 verifier.ShowErrorSelectedTemplate();
             }
-            else if (!verifier.VerifyIfTemplatesAreLoaded(_templatesSources))
+            else if (!verifier.VerifyIfTemplatesAreLoaded(_loadedTemplates))
             {
                 verifier.ShowErrorNoLoadedTemplates();
             }
@@ -102,11 +120,11 @@ namespace WordDocxEditor
             {
                 if (_templatesRadioButtons[i].Checked)
                 {
-                    return _templatesSources[i];
+                    return _loadedTemplates.FilePaths[i];
                 }
             }
 
-            return _templatesSources[0];
+            return _loadedTemplates.FilePaths[0];
         }
 
         private void wydrukToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,54 +145,6 @@ namespace WordDocxEditor
                 "Tagi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void button_loadTemplates_Click(object sender, EventArgs e)
-        {
-            DialogResult result = folderBrowserDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
-                FileInfo[] files = directoryInfo.GetFiles("_*");
-
-                if (!LoadTemplates(files))
-                {
-                    MessageBox.Show("Nie udało się wczytać szablonów.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nie wybrano folderu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private bool LoadTemplates(FileInfo[] files)
-        {
-            if (files.Length == 3)
-            {
-                _templatesSources[(int)E_TemplateId.Mr] = FindTemplateFile(files, "_pan_");
-                _templatesSources[(int)E_TemplateId.Mrs] = FindTemplateFile(files, "_pani_");
-                _templatesSources[(int)E_TemplateId.Company] = FindTemplateFile(files, "_firma_");
-
-                for (int i = 0; i < _templatesSources.Length; i++)
-                {
-                    if (_templatesSources[i] == null)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        _labelsWithTemplateName[i].Text = Path.GetFileName(_templatesSources[i]);
-                    }
-                }
-
-                return true;
-            }
-
-            return false;
-        }
-
-        private string FindTemplateFile(FileInfo[] files, string searchPattern)
-        {
-            return files.Where(x => x.Name.Contains(searchPattern)).Select(x => x.Name).FirstOrDefault();
-        }
+        
     }
 }
