@@ -62,6 +62,7 @@ namespace WordDocxEditor
                 {
                     if (hasTriedToLocalizeWordApp)
                     {
+                        CloseWordFile();
                         return false;
                     }
                     else
@@ -89,15 +90,18 @@ namespace WordDocxEditor
             if (!_isInitialized)
             {
                 _isInitialized = true;
-
-                _desktopOutputDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-                       + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
-
+                _desktopOutputDirectory = PrepareDesktopOutputDirectory();
                 LocalizeWordApp();
             }
         }
 
         private void LocalizeWordApp() => _wordApp = new Application();
+
+        private string PrepareDesktopOutputDirectory()
+        {
+            return Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                       + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
+        }
 
         private string PrepareTargetFilePath(string templatePath, GeneratorData data)
         {
