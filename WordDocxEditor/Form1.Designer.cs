@@ -357,7 +357,7 @@
             this.numericUpDown_CaseId.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown_CaseId.Location = new System.Drawing.Point(260, 175);
             this.numericUpDown_CaseId.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
