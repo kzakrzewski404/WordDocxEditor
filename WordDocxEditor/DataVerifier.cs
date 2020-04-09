@@ -41,7 +41,7 @@ namespace WordDocxEditor
 
         public void ShowErrorAddress() => ShowCommonError("Niepoprawny adres lub brak numeru budynku.");
 
-        public void ShowErrorNoLoadedTemplates() => ShowCommonError("Nie wybrano szablonów.");
+        public void ShowErrorNoLoadedTemplates() => ShowCommonError("Szablony nie zostały wczytane.");
 
 
         private void ShowCommonError(string error)

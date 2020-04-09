@@ -281,7 +281,7 @@
             this.label_MrTemplate.Size = new System.Drawing.Size(300, 25);
             this.label_MrTemplate.TabIndex = 30;
             this.label_MrTemplate.Text = "<Nie wybrano>";
-            this.label_MrTemplate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label_MrTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 

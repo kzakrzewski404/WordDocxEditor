@@ -25,10 +25,21 @@ namespace WordDocxEditor
         }
 
 
-        private void ClearUi()
+        private void ClearUi(bool clearNameAndAddress = true, bool clearLablesWithTemplates = false)
         {
-            textBox_Address.Clear();
-            textBox_Name.Clear();
+            if (clearNameAndAddress)
+            {
+                textBox_Address.Clear();
+                textBox_Name.Clear();
+            }
+
+            if (clearLablesWithTemplates)
+            {
+                foreach (var item in _labelsWithTemplateName)
+                {
+                    item.Text = "<Nie wybrano>";
+                }
+            }
         }
 
         private E_TemplateId DetectTemplate(string fullName)
@@ -82,8 +93,8 @@ namespace WordDocxEditor
 
             if (!_loadedTemplates.IsSuccess)
             {
-                MessageBox.Show("Nie udało się wczytać szablonów.\nNie znaleziono 3 szablonów",
-                                "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nie znaleziono 3 szablonów", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ClearUi(false, true);
             }
             else
             {
