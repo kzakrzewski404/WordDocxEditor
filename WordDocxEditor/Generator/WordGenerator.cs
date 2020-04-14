@@ -1,18 +1,18 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Office.Interop.Word;
+using WordDocxEditor.Config;
 
-
-namespace WordDocxEditor
+namespace WordDocxEditor.Generator
 {
-    public class Generator
+    public class WordGenerator
     {
         private static string _desktopOutputDirectory = "";
         private static bool _isInitialized;
         private static Application _wordApp;
         private Document _document;
 
-        
+
         public bool Generate(string srcTemplate, GeneratorData data, bool doPrint = false, int numberOfCopies = 0)
         {
             Initialize();

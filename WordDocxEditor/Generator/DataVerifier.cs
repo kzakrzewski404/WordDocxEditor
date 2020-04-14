@@ -1,15 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Forms;
 
 
-namespace WordDocxEditor
+namespace WordDocxEditor.Generator
 {
     public class DataVerifier
     {
-        public bool VerifyName(string name) => !String.IsNullOrEmpty(name);
+        public bool VerifyName(string name) => !string.IsNullOrEmpty(name);
 
-        public bool VerifyAddress(string address) => !String.IsNullOrEmpty(address) && address.Any(char.IsDigit);
+        public bool VerifyAddress(string address) => !string.IsNullOrEmpty(address) && address.Any(char.IsDigit);
 
         public bool VerifyIfSelectedTemplate(RadioButton[] radiobuttons)
         {

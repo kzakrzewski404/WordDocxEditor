@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 using WordDocxEditor.Ui;
-using WordDocxEditor.Templates;
+using WordDocxEditor.Generator;
 
 namespace WordDocxEditor
 {
@@ -149,7 +149,7 @@ namespace WordDocxEditor
                                                        received: dateTimePicker_Received.Value,
                                                        responded: dateTimePicker_Response.Value);
 
-                Generator generator = new Generator();
+                WordGenerator generator = new WordGenerator();
                 generator.Generate(GetActiveTemplate(), data, checkBox_doPrint.Checked, (int)numericUpDown_NumberOfCopies.Value);
 
                 ClearUi();

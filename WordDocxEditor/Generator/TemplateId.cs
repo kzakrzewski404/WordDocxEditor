@@ -1,4 +1,4 @@
-﻿namespace WordDocxEditor
+﻿namespace WordDocxEditor.Generator
 {
     public enum TemplateId
     {

@@ -1,4 +1,4 @@
-﻿namespace WordDocxEditor
+﻿namespace WordDocxEditor.Config
 {
     public static class TagsConfig
     {

@@ -1,4 +1,6 @@
-﻿namespace WordDocxEditor.Ui
+﻿using WordDocxEditor.Generator;
+
+namespace WordDocxEditor.Ui
 {
     public abstract class UiInformationsData
     {

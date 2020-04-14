@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generator\TemplateId.cs" />
-    <Compile Include="Generator\Generator.cs" />
+    <Compile Include="Generator\WordGenerator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
