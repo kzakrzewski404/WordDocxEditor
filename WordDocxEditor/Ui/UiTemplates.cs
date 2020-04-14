@@ -15,13 +15,14 @@ namespace WordDocxEditor.Ui
 
 
         public override bool IsSuccess => CheckIfLoadedSuccessfully();
-        public override Dictionary<TemplateId, string> FilePaths => _filePaths;
 
 
         public void Bind(Dictionary<TemplateId, Label> labels)
         {
             _labels = labels;
         }
+
+        public override string GetFilePath(TemplateId id) => _filePaths.Where(x => x.Key == id).Select(x => x.Value).FirstOrDefault();
 
         public void HandleTemplatesSelectionFromDisk()
         {
