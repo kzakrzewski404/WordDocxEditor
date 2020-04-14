@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 using WordDocxEditor.Ui;
 
@@ -21,7 +22,10 @@ namespace WordDocxEditor
             InitializeComponent();
 
             _uiComponents.BindComponents(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, 
-                                         numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Response);
+                                         numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Response,
+                                         new Dictionary<E_TemplateId, RadioButton> { { E_TemplateId.Mr, radioButton_Mr },
+                                                                                     { E_TemplateId.Mrs, radioButton_Mrs },
+                                                                                     { E_TemplateId.Company, radioButton_Company },});
 
 
             comboBox_City.SelectedIndex = 0;

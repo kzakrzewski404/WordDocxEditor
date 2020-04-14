@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -40,7 +41,8 @@ namespace WordDocxEditor.Ui
                                    city: _city.SelectedItem.ToString(),
                                    caseId: (int)_caseId.Value,
                                    received: _receivedDate.Value,
-                                   response: _responseDate.Value);
+                                   response: _responseDate.Value,
+                                   templateId: _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).FirstOrDefault());
         }
 
 
