@@ -18,7 +18,9 @@ namespace WordDocxEditor.Ui
         public void Bind(DateTimePicker received, DateTimePicker response)
         {
             _receivedDate = received;
+            _receivedDate.ValueChanged += OnInputDateChanged;
             _responseDate = response;
+            _responseDate.ValueChanged += OnInputDateChanged;
         }
 
 
