@@ -1,76 +1,43 @@
-﻿using System.Linq;
-using System.Windows.Forms;
+﻿using System.IO;
+using System.Linq;
 
 using WordDocxEditor.Ui;
 
 
 namespace WordDocxEditor.Generator
 {
-    public class DataVerifierResponse
-    {
-        public bool IsSuccess { get; private set; }
-        public string ErrorMessage { get; private set; }
-
-
-        public DataVerifierResponse() => IsSuccess = true;
-
-        public DataVerifierResponse(string errorMessage)
-        {
-            IsSuccess = false;
-            ErrorMessage = errorMessage;
-        }
-    }
 
     public class DataVerifier
     {
         public DataVerifierResponse Verify(UiInputSummary summary)
         {
-
-        }
-
-
-
-
-        public bool VerifyName(string name) => !string.IsNullOrEmpty(name);
-
-        public bool VerifyAddress(string address) => !string.IsNullOrEmpty(address) && address.Any(char.IsDigit);
-
-        public bool VerifyIfSelectedTemplate(RadioButton[] radiobuttons)
-        {
-            int numberOfselected = 0;
-            foreach (var client in radiobuttons)
+            if (!VerifyName(summary.Name))
             {
-                if (client.Checked)
-                {
-                    numberOfselected++;
-                }
+                return new DataVerifierResponse("Niepoprawne imię lub nazwa.");
+            }
+            if (!VerifyAddress(summary.Address))
+            {
+                return new DataVerifierResponse("Niepoprawny adres lub brak numeru budynku.");
+            }
+            if (!VerifyIfTemplateFilePathIsLoaded(summary.TemplateFilePath))
+            {
+                return new DataVerifierResponse("Błędnie wczytany szablon.");
+            }
+            if (!VerifyIfTemplateExists(summary.TemplateFilePath))
+            {
+                return new DataVerifierResponse("Nie odnaleziono pliku z szablonem.");
             }
 
-            return numberOfselected == 1;
+            return new DataVerifierResponse();
         }
 
-        public bool VerifyIfTemplatesAreLoaded(TemplatesFilePaths loadedTemplates)
-        {
-            if (loadedTemplates != null)
-            {
-                return loadedTemplates.IsSuccess;
-            }
 
-            return false;
-        }
+        private bool VerifyName(string name) => !string.IsNullOrEmpty(name);
 
-        public void ShowErrorName() => ShowCommonError("Niepoprawne imię lub nazwa.");
+        private bool VerifyAddress(string address) => !string.IsNullOrEmpty(address) && address.Any(char.IsDigit);
 
-        public void ShowErrorSelectedTemplate() => ShowCommonError("Nie wybrano typu szablonu (Pan/Pani/Firma).");
+        private bool VerifyIfTemplateFilePathIsLoaded(string filePath) => !string.IsNullOrEmpty(filePath);
 
-        public void ShowErrorAddress() => ShowCommonError("Niepoprawny adres lub brak numeru budynku.");
-
-        public void ShowErrorNoLoadedTemplates() => ShowCommonError("Szablony nie zostały wczytane.");
-
-
-        private void ShowCommonError(string error)
-        {
-            MessageBox.Show(error, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
+        private bool VerifyIfTemplateExists(string filePath) => File.Exists(filePath);
     }
 }

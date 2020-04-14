@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generator\DataVerifierResponse.cs" />
     <Compile Include="Generator\TemplateId.cs" />
     <Compile Include="Generator\WordGenerator.cs" />
     <Compile Include="Form1.cs">
