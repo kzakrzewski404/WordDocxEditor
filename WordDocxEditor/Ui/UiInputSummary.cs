@@ -1,4 +1,7 @@
-﻿namespace WordDocxEditor.Ui
+﻿using WordDocxEditor.Generator;
+
+
+namespace WordDocxEditor.Ui
 {
     public class UiInputSummary
     {
@@ -6,6 +9,9 @@
         public UiDateData Date { get; private set; }
         public UiPrintData Print { get; private set; }
         public UiTemplatesData Templates { get; private set; }
+
+
+        public string SelectedTemplateFilePath => Templates.GetFilePath(Informations.SelectedTemplate);
 
 
         public UiInputSummary(UiInformationsData informations, UiDateData date, UiPrintData print, UiTemplatesData templates)

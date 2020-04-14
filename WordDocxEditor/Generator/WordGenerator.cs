@@ -21,12 +21,12 @@ namespace WordDocxEditor.Generator
             Initialize();
 
             string outputFilePath = GenerateOutputFilePath(data);
-            Copy(data.TemplateFilePath, outputFilePath);
+            Copy(data.SelectedTemplateFilePath, outputFilePath);
             bool isEditSuccessful = EditWordFile(outputFilePath, data);
 
             if (isEditSuccessful)
             {
-                HandlePrinter(data.DoPrint, data.NumberOfCopies);
+                HandlePrinter(data.Print.DoPrint, data.Print.NumberOfCopies);
                 CloseWordFile();
                 return true;
             }
@@ -51,13 +51,13 @@ namespace WordDocxEditor.Generator
                 try
                 {
                     _document = _wordApp.Documents.Open(targetFilePath, ReadOnly: false);
-                    ReplaceTag(TagsConfig.Name, data.Name);
-                    ReplaceTag(TagsConfig.Address, data.Address);
-                    ReplaceTag(TagsConfig.IsStreet, data.IsStreet ? "ul. " : "");
-                    ReplaceTag(TagsConfig.City, data.City);
-                    ReplaceTag(TagsConfig.CaseId, data.CaseId.ToString());
-                    ReplaceTag(TagsConfig.ReceivedDate, data.ReceivedDate.Date.ToString("dd.MM.yyyy"));
-                    ReplaceTag(TagsConfig.RespondedDate, data.ResponseDate.Date.ToString("dd.MM.yyyy"));
+                    ReplaceTag(TagsConfig.Name, data.Informations.Name);
+                    ReplaceTag(TagsConfig.Address, data.Informations.Address);
+                    ReplaceTag(TagsConfig.IsStreet, data.Informations.IsStreet ? "ul. " : "");
+                    ReplaceTag(TagsConfig.City, data.Informations.City);
+                    ReplaceTag(TagsConfig.CaseId, data.Informations.CaseId.ToString());
+                    ReplaceTag(TagsConfig.ReceivedDate, data.Date.Received.Date.ToString("dd.MM.yyyy"));
+                    ReplaceTag(TagsConfig.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
 
                     _document.Save();
                     break;
@@ -110,14 +110,14 @@ namespace WordDocxEditor.Generator
         private string GenerateOutputFilePath(UiInputSummary data)
         {
             //Final FilePath: %Desktop%\Dokumenty - DD.MM.YYY\\template name\\Name.docx
-            string targetDirectory = _desktopOutputDirectory + "\\" + new DirectoryInfo(data.TemplateFilePath).Parent.Name;
+            string targetDirectory = _desktopOutputDirectory + "\\" + new DirectoryInfo(data.SelectedTemplateFilePath).Parent.Name;
 
             if (!Directory.Exists(targetDirectory))
             {
                 Directory.CreateDirectory(targetDirectory);
             }
 
-            return targetDirectory + "\\" + data.Name + Path.GetExtension(data.TemplateFilePath);
+            return targetDirectory + "\\" + data.Informations.Name + Path.GetExtension(data.SelectedTemplateFilePath);
         }
 
         private void ReplaceTag(string tag, string replacedText)

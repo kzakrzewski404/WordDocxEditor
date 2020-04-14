@@ -9,7 +9,7 @@ namespace WordDocxEditor.Ui
     public class UiTemplates : UiTemplatesData
     {
         private Dictionary<TemplateId, Label> _labels;
-        private Dictionary<TemplateId, string> _filePaths;
+        private Dictionary<TemplateId, string> _filePaths = new Dictionary<TemplateId, string>();
         private UiCommon _common = new UiCommon();
         private const string DEFAULT_NOT_SELECTED = "<Nie wybrano>";
 
