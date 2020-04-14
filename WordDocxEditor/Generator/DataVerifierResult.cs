@@ -1,14 +1,14 @@
 ﻿namespace WordDocxEditor.Generator
 {
-    public class DataVerifierResponse
+    public class DataVerifierResult
     {
         public bool IsSuccess { get; private set; }
         public string ErrorMessage { get; private set; }
 
 
-        public DataVerifierResponse() => IsSuccess = true;
+        public DataVerifierResult() => IsSuccess = true;
 
-        public DataVerifierResponse(string errorMessage)
+        public DataVerifierResult(string errorMessage)
         {
             IsSuccess = false;
             ErrorMessage = errorMessage;
