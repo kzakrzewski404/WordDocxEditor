@@ -1,7 +1,10 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Office.Interop.Word;
+
 using WordDocxEditor.Config;
+using WordDocxEditor.Ui;
+
 
 namespace WordDocxEditor.Generator
 {
@@ -13,17 +16,17 @@ namespace WordDocxEditor.Generator
         private Document _document;
 
 
-        public bool Generate(string srcTemplate, GeneratorData data, bool doPrint = false, int numberOfCopies = 0)
+        public bool Generate(UiInputSummary data)
         {
             Initialize();
 
-            string targetFilePath = PrepareTargetFilePath(srcTemplate, data);
-            CopyTemplate(srcTemplate, targetFilePath);
-            bool isEditSuccessful = EditWordFile(targetFilePath, data);
+            string outputFilePath = GenerateOutputFilePath(data);
+            Copy(data.TemplateFilePath, outputFilePath);
+            bool isEditSuccessful = EditWordFile(outputFilePath, data);
 
             if (isEditSuccessful)
             {
-                HandlePrinter(doPrint, numberOfCopies);
+                HandlePrinter(data.DoPrint, data.NumberOfCopies);
                 CloseWordFile();
                 return true;
             }
@@ -38,9 +41,9 @@ namespace WordDocxEditor.Generator
             _document.Close(ref missing);
         }
 
-        private void CopyTemplate(string templateFilePath, string targetFilePath) => File.Copy(templateFilePath, targetFilePath);
+        private void Copy(string templateFilePath, string targetFilePath) => File.Copy(templateFilePath, targetFilePath);
 
-        private bool EditWordFile(string targetFilePath, GeneratorData data)
+        private bool EditWordFile(string targetFilePath, UiInputSummary data)
         {
             bool hasTriedToLocalizeWordApp = false;
             for (int i = 0; i < 2; i++)
@@ -54,7 +57,7 @@ namespace WordDocxEditor.Generator
                     ReplaceTag(TagsConfig.City, data.City);
                     ReplaceTag(TagsConfig.CaseId, data.CaseId.ToString());
                     ReplaceTag(TagsConfig.ReceivedDate, data.ReceivedDate.Date.ToString("dd.MM.yyyy"));
-                    ReplaceTag(TagsConfig.RespondedDate, data.RespondedDate.Date.ToString("dd.MM.yyyy"));
+                    ReplaceTag(TagsConfig.RespondedDate, data.ResponseDate.Date.ToString("dd.MM.yyyy"));
 
                     _document.Save();
                     break;
@@ -104,17 +107,17 @@ namespace WordDocxEditor.Generator
                        + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
         }
 
-        private string PrepareTargetFilePath(string templatePath, GeneratorData data)
+        private string GenerateOutputFilePath(UiInputSummary data)
         {
             //Final FilePath: %Desktop%\Dokumenty - DD.MM.YYY\\template name\\Name.docx
-            string targetDirectory = _desktopOutputDirectory + "\\" + new DirectoryInfo(templatePath).Parent.Name;
+            string targetDirectory = _desktopOutputDirectory + "\\" + new DirectoryInfo(data.TemplateFilePath).Parent.Name;
 
             if (!Directory.Exists(targetDirectory))
             {
                 Directory.CreateDirectory(targetDirectory);
             }
 
-            return targetDirectory + "\\" + data.Name + Path.GetExtension(templatePath);
+            return targetDirectory + "\\" + data.Name + Path.GetExtension(data.TemplateFilePath);
         }
 
         private void ReplaceTag(string tag, string replacedText)

@@ -9,26 +9,26 @@ namespace WordDocxEditor.Generator
 
     public class DataVerifier
     {
-        public DataVerifierResponse Verify(UiInputSummary summary)
+        public DataVerifierResult Verify(UiInputSummary summary)
         {
             if (!VerifyName(summary.Name))
             {
-                return new DataVerifierResponse("Niepoprawne imię lub nazwa.");
+                return new DataVerifierResult("Niepoprawne imię lub nazwa.");
             }
             if (!VerifyAddress(summary.Address))
             {
-                return new DataVerifierResponse("Niepoprawny adres lub brak numeru budynku.");
+                return new DataVerifierResult("Niepoprawny adres lub brak numeru budynku.");
             }
             if (!VerifyIfTemplateFilePathIsLoaded(summary.TemplateFilePath))
             {
-                return new DataVerifierResponse("Błędnie wczytany szablon.");
+                return new DataVerifierResult("Błędnie wczytany szablon.");
             }
             if (!VerifyIfTemplateExists(summary.TemplateFilePath))
             {
-                return new DataVerifierResponse("Nie odnaleziono pliku z szablonem.");
+                return new DataVerifierResult("Nie odnaleziono pliku z szablonem.");
             }
 
-            return new DataVerifierResponse();
+            return new DataVerifierResult();
         }
 
 

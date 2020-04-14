@@ -124,7 +124,6 @@
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(435, 27);
             this.textBox_Name.TabIndex = 1;
-            this.textBox_Name.Leave += new System.EventHandler(this.On_textBoxNameFinishedEditing);
             // 
             // label3
             // 

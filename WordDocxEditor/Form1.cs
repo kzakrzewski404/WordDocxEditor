@@ -16,6 +16,9 @@ namespace WordDocxEditor
         private UiInformations _uiInformations = new UiInformations();
         private UiPrint _uiPrint = new UiPrint();
         private UiTemplates _uiTemplates = new UiTemplates();
+        private UiCommon _uiCommon = new UiCommon();
+        private DataVerifier _dataVerifier = new DataVerifier();
+        private WordGenerator _wordGenerator = new WordGenerator();
 
 
         public Form1()
@@ -38,44 +41,21 @@ namespace WordDocxEditor
 
         private void button_Generate_Click(object sender, EventArgs e)
         {
-            DataVerifier verifier = new DataVerifier();
+            UiInputSummary summary = new UiInputSummary(_uiInformations, _uiDate, _uiPrint, _uiTemplates);
+            DataVerifierResult result = _dataVerifier.Verify(summary);
 
-            //if succes then generate
-            //else show error
-
-
-            if (!verifier.VerifyName(textBox_Name.Text))
+            if (!result.IsSuccess)
             {
-                verifier.ShowErrorName();
-            }
-            else if (!verifier.VerifyAddress(textBox_Address.Text))
-            {
-                verifier.ShowErrorAddress();
-            }
-            else if (!verifier.VerifyIfSelectedTemplate(_templatesRadioButtons))
-            {
-                verifier.ShowErrorSelectedTemplate();
-            }
-            else if (!verifier.VerifyIfTemplatesAreLoaded(_loadedTemplates))
-            {
-                verifier.ShowErrorNoLoadedTemplates();
+                _uiCommon.ShowError(result.ErrorMessage);
             }
             else
             {
-                GeneratorData data = new GeneratorData(name: textBox_Name.Text,
-                                                       address: textBox_Address.Text,
-                                                       isStreet: checkBox_IsStreet.Checked,
-                                                       city: comboBox_City.SelectedItem.ToString(),
-                                                       caseId: (int)numericUpDown_CaseId.Value,
-                                                       received: dateTimePicker_Received.Value,
-                                                       responded: dateTimePicker_Response.Value);
-
-                WordGenerator generator = new WordGenerator();
-                generator.Generate(GetActiveTemplate(), data, checkBox_doPrint.Checked, (int)numericUpDown_NumberOfCopies.Value);
-
-                ClearUi();
-                MessageBox.Show($"Wygenerowano dokument: {data.Name}", 
+                _wordGenerator.Generate(summary);
+                
+                MessageBox.Show($"Wygenerowano dokument: {summary.Informations.Name}",
                                  "Generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                _uiInformations.Clear();
             }
         }
 
