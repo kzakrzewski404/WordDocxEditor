@@ -13,12 +13,12 @@ namespace WordDocxEditor
         private Document _document;
 
         
-        public bool Generate(string templateFilePath, GeneratorData data, bool doPrint = false, int numberOfCopies = 0)
+        public bool Generate(string srcTemplate, GeneratorData data, bool doPrint = false, int numberOfCopies = 0)
         {
             Initialize();
 
-            string targetFilePath = PrepareTargetFilePath(templateFilePath, data);
-            CopyTemplate(templateFilePath, targetFilePath);
+            string targetFilePath = PrepareTargetFilePath(srcTemplate, data);
+            CopyTemplate(srcTemplate, targetFilePath);
             bool isEditSuccessful = EditWordFile(targetFilePath, data);
 
             if (isEditSuccessful)

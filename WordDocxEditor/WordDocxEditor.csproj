@@ -79,19 +79,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="E_TemplateId.cs" />
-    <Compile Include="Generator.cs" />
+    <Compile Include="Generator\TemplateId.cs" />
+    <Compile Include="Generator\Generator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneratorData.cs" />
+    <Compile Include="Generator\GeneratorData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataVerifier.cs" />
-    <Compile Include="TagsConfig.cs" />
+    <Compile Include="Generator\DataVerifier.cs" />
+    <Compile Include="Config\TagsConfig.cs" />
     <Compile Include="Ui\UiHelp.cs" />
     <Compile Include="Ui\UiCommon.cs" />
     <Compile Include="Ui\UiDateData.cs" />
@@ -138,9 +138,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Generator\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

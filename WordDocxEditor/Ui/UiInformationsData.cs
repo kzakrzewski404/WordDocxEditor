@@ -7,6 +7,6 @@
         public abstract bool IsStreet { get; }
         public abstract string City { get; }
         public abstract int CaseId { get; }
-        public abstract E_TemplateId TemplateId { get; }
+        public abstract TemplateId TemplateId { get; }
     }
 }

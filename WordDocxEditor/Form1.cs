@@ -11,8 +11,8 @@ namespace WordDocxEditor
 {
     public partial class Form1 : Form
     {
-        private RadioButton[] _templatesRadioButtons = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
-        private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
+        private RadioButton[] _templatesRadioButtons = new RadioButton[(int)TemplateId.ENUM_LENGTH];
+        private Label[] _labelsWithTemplateName = new Label[(int)TemplateId.ENUM_LENGTH];
         private TemplatesFilePaths _loadedTemplates;
 
         private UiInformations _uiComponents = new UiInformations();
@@ -24,17 +24,17 @@ namespace WordDocxEditor
 
             _uiComponents.BindComponents(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, 
                                          numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Response,
-                                         new Dictionary<E_TemplateId, RadioButton> { { E_TemplateId.Mr, radioButton_Mr },
-                                                                                     { E_TemplateId.Mrs, radioButton_Mrs },
-                                                                                     { E_TemplateId.Company, radioButton_Company },},
+                                         new Dictionary<TemplateId, RadioButton> { { TemplateId.Mr, radioButton_Mr },
+                                                                                     { TemplateId.Mrs, radioButton_Mrs },
+                                                                                     { TemplateId.Company, radioButton_Company },},
                                          checkBox_doPrint, numericUpDown_NumberOfCopies);
 
 
             comboBox_City.SelectedIndex = 0;
 
-            SaveUiReferences(E_TemplateId.Mr, radioButton_Mr, label_MrTemplate);
-            SaveUiReferences(E_TemplateId.Mrs, radioButton_Mrs, label_MrsTemplate);
-            SaveUiReferences(E_TemplateId.Company, radioButton_Company, label_CompanyTemplate);
+            SaveUiReferences(TemplateId.Mr, radioButton_Mr, label_MrTemplate);
+            SaveUiReferences(TemplateId.Mrs, radioButton_Mrs, label_MrsTemplate);
+            SaveUiReferences(TemplateId.Company, radioButton_Company, label_CompanyTemplate);
         }
 
 
@@ -56,18 +56,18 @@ namespace WordDocxEditor
             }
         }
 
-        private E_TemplateId DetectTemplate(string fullName)
+        private TemplateId DetectTemplate(string fullName)
         {
             if (fullName.Contains("."))
             {
-                return E_TemplateId.Company;
+                return TemplateId.Company;
             }
             else
             {
                 var separated = fullName.Split(' ');
                 string firstName = separated[0];
 
-                return firstName.Last() == 'a' ? E_TemplateId.Mrs : E_TemplateId.Mr;
+                return firstName.Last() == 'a' ? TemplateId.Mrs : TemplateId.Mr;
             }
         }
 
@@ -84,7 +84,7 @@ namespace WordDocxEditor
             return _loadedTemplates.FilePaths[0];
         }
 
-        private void SaveUiReferences(E_TemplateId id, RadioButton radioButton, Label label)
+        private void SaveUiReferences(TemplateId id, RadioButton radioButton, Label label)
         {
             _templatesRadioButtons[(int)id] = radioButton;
             _labelsWithTemplateName[(int)id] = label;

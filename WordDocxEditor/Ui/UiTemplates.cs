@@ -8,17 +8,17 @@ namespace WordDocxEditor.Ui
 {
     public class UiTemplates : UiTemplatesData
     {
-        private Dictionary<E_TemplateId, Label> _labels;
-        private Dictionary<E_TemplateId, string> _filePaths;
+        private Dictionary<TemplateId, Label> _labels;
+        private Dictionary<TemplateId, string> _filePaths;
         private UiCommon _common = new UiCommon();
         private const string DEFAULT_NOT_SELECTED = "<Nie wybrano>";
 
 
         public override bool IsSuccess => CheckIfLoadedSuccessfully();
-        public override Dictionary<E_TemplateId, string> FilePaths => _filePaths;
+        public override Dictionary<TemplateId, string> FilePaths => _filePaths;
 
 
-        public void Bind(Dictionary<E_TemplateId, Label> labels)
+        public void Bind(Dictionary<TemplateId, Label> labels)
         {
             _labels = labels;
         }
@@ -34,9 +34,9 @@ namespace WordDocxEditor.Ui
                 DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowser.SelectedPath);
                 FileInfo[] files = directoryInfo.GetFiles("_*");
 
-                _filePaths.Add(E_TemplateId.Mr, FindTemplateFile(files, "_pan_"));
-                _filePaths.Add(E_TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
-                _filePaths.Add(E_TemplateId.Company, FindTemplateFile(files, "_firma_"));
+                _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, "_pan_"));
+                _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
+                _filePaths.Add(TemplateId.Company, FindTemplateFile(files, "_firma_"));
             }
             else
             {

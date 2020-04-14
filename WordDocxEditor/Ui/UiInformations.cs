@@ -12,18 +12,18 @@ namespace WordDocxEditor.Ui
         private CheckBox _isStreet;
         private ComboBox _city;
         private NumericUpDown _caseId;
-        private Dictionary<E_TemplateId, RadioButton> _templateChoice;
+        private Dictionary<TemplateId, RadioButton> _templateChoice;
 
         public override string Name => _name.Text;
         public override string Address => _address.Text;
         public override bool IsStreet => _isStreet.Checked;
         public override string City => _city.SelectedItem.ToString();
         public override int CaseId => (int)_caseId.Value;
-        public override E_TemplateId TemplateId => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
+        public override TemplateId TemplateId => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
 
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
-                         NumericUpDown id, Dictionary<E_TemplateId, RadioButton> templateChoice)
+                         NumericUpDown id, Dictionary<TemplateId, RadioButton> templateChoice)
         {
             _name = name;
             _name.Leave += OnInputNameLeave;
@@ -47,7 +47,7 @@ namespace WordDocxEditor.Ui
         private void OnInputNameLeave(object sender, System.EventArgs e)
         {
             UiInformationsTemplateRecognition recognition = new UiInformationsTemplateRecognition();
-            E_TemplateId id = recognition.RecognizeByName(_name.Text);
+            TemplateId id = recognition.RecognizeByName(_name.Text);
             _templateChoice.Where(x => x.Key == id).Select(x => x.Value.Checked = true);
         }
     }

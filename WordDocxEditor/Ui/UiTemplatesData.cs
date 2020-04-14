@@ -7,6 +7,6 @@ namespace WordDocxEditor.Ui
     {
         public abstract bool IsSuccess { get; }
 
-        public abstract Dictionary<E_TemplateId, string> FilePaths { get; }
+        public abstract Dictionary<TemplateId, string> FilePaths { get; }
     }
 }

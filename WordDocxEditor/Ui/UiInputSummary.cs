@@ -12,13 +12,13 @@ namespace WordDocxEditor.Ui
         public int CaseId { get; private set; }
         public DateTime ReceivedDate { get; private set; }
         public DateTime ResponseDate { get; private set; }
-        public E_TemplateId TemplateId { get; private set; }
+        public TemplateId TemplateId { get; private set; }
         public bool DoPrint { get; private set; }
         public int NumberOfCopies { get; private set; }
 
 
         public UiInputSummary(string name, string address, bool isStreet, string city, int caseId, 
-                           DateTime received, DateTime response, E_TemplateId templateId,
+                           DateTime received, DateTime response, TemplateId templateId,
                            bool doPrint, int numberOfCopies)
         {
             Name = name;
