@@ -1,7 +1,4 @@
-﻿using WordDocxEditor.Generator;
-
-
-namespace WordDocxEditor.Ui
+﻿namespace WordDocxEditor.Ui
 {
     public class UiInputSummary
     {
