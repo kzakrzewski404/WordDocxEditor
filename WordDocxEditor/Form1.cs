@@ -25,7 +25,8 @@ namespace WordDocxEditor
                                          numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Response,
                                          new Dictionary<E_TemplateId, RadioButton> { { E_TemplateId.Mr, radioButton_Mr },
                                                                                      { E_TemplateId.Mrs, radioButton_Mrs },
-                                                                                     { E_TemplateId.Company, radioButton_Company },});
+                                                                                     { E_TemplateId.Company, radioButton_Company },},
+                                         checkBox_doPrint, numericUpDown_NumberOfCopies);
 
 
             comboBox_City.SelectedIndex = 0;

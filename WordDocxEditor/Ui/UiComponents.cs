@@ -25,7 +25,7 @@ namespace WordDocxEditor.Ui
                                    CheckBox doPrint, NumericUpDown printNumberOfCopies)
         {
             _name = name;
-            _name.TextChanged += OnInputNameChanged;
+            _name.Leave += OnInputNameLeave;
             _address = address;
             _isStreet = isStreet;
             _city = city;
@@ -40,7 +40,13 @@ namespace WordDocxEditor.Ui
             _printNumberOfCopies = printNumberOfCopies;
         }
 
-        private void OnInputNameChanged(object sender, System.EventArgs e)
+        public void ClearUi()
+        {
+
+        }
+
+
+        private void OnInputNameLeave(object sender, System.EventArgs e)
         {
             UiTemplateRecognition recognition = new UiTemplateRecognition();
             E_TemplateId id = recognition.RecognizeByName(_name.Text);
@@ -56,7 +62,9 @@ namespace WordDocxEditor.Ui
                                    caseId: (int)_caseId.Value,
                                    received: _receivedDate.Value,
                                    response: _responseDate.Value,
-                                   templateId: _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).FirstOrDefault());
+                                   templateId: _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).FirstOrDefault(),
+                                   doPrint: _doPrint.Checked,
+                                   numberOfCopies: (int)_printNumberOfCopies.Value);
         }
 
 
