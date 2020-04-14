@@ -1,11 +1,44 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 
 namespace WordDocxEditor
 {
     public class UiHelp
     {
-        public void ShowTags()
+        public void templatesReuiremets()
+        {
+            ShowInfo("Do zrobienia", "Opis będzie później.");
+        }
+
+        public void informationsStreet()
+        {
+            ShowInfo("Do zrobienia", "Opis będzie później.");
+        }
+
+        public void informationsAddNumberToFileName()
+        {
+            ShowInfo("Do zrobienia", "Opis będzie później.");
+        }
+
+        public void informationsAddressCorrectness()
+        {
+            ShowInfo("Do zrobienia", "Opis będzie później.");
+        }
+
+        public void informationsAutoTemplateDetection()
+        {
+            ShowInfo("Do zrobienia", "Opis będzie później.");
+        }
+
+        public void printDoPrint()
+        {
+            ShowInfo("Wydruk",
+                     "Dokument zostanie wydrukowany na domyślnej systemowej drukarce.\n" +
+                     "Najczęściej jest to ta, która była ostatnio używana.");
+        }
+
+        public void generatorTags()
         {
             ShowInfo("Tagi",
                      "Aby generator odpowiednio modyfikował pliki,\n" +
@@ -23,11 +56,9 @@ namespace WordDocxEditor
                      "<dateOut> - data odpowiedzi na pismo.");
         }
 
-        public void ShowPrint()
+        public void generatorOutputDirectory()
         {
-            ShowInfo("Wydruk",
-                     "Dokument zostanie wydrukowany na domyślnej systemowej drukarce.\n" +
-                     "Najczęściej jest to ta, która była ostatnio używana.");
+            ShowInfo("Do zrobienia", "Opis będzie później.");
         }
 
 

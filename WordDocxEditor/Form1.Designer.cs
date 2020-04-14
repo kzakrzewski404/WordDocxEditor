@@ -62,9 +62,19 @@
             this.button_Generate = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_HelpTags = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_HelpPrint = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBox_addNumberToFileName = new System.Windows.Forms.CheckBox();
+            this.szablonyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.daneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wydrukToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generowaniePlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drukujPoWygenerowaniuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderDocelowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcjaUlicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.poprawnośćAdresuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automatyczneWykrywanieSzablonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wymaganiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -488,25 +498,13 @@
             // informacjeToolStripMenuItem
             // 
             this.informacjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem_HelpTags,
-            this.toolStripMenuItem_HelpPrint});
+            this.szablonyToolStripMenuItem,
+            this.daneToolStripMenuItem,
+            this.wydrukToolStripMenuItem,
+            this.generowaniePlikuToolStripMenuItem});
             this.informacjeToolStripMenuItem.Name = "informacjeToolStripMenuItem";
             this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.informacjeToolStripMenuItem.Text = "Pomoc";
-            // 
-            // toolStripMenuItem_HelpTags
-            // 
-            this.toolStripMenuItem_HelpTags.Name = "toolStripMenuItem_HelpTags";
-            this.toolStripMenuItem_HelpTags.Size = new System.Drawing.Size(257, 22);
-            this.toolStripMenuItem_HelpTags.Text = "Tagi w dokumencie";
-            this.toolStripMenuItem_HelpTags.Click += new System.EventHandler(this.toolStripMenuItem_HelpTags_Click);
-            // 
-            // toolStripMenuItem_HelpPrint
-            // 
-            this.toolStripMenuItem_HelpPrint.Name = "toolStripMenuItem_HelpPrint";
-            this.toolStripMenuItem_HelpPrint.Size = new System.Drawing.Size(257, 22);
-            this.toolStripMenuItem_HelpPrint.Text = "Opcja \"Drukuj po wygenerowaniu\"";
-            this.toolStripMenuItem_HelpPrint.Click += new System.EventHandler(this.toolStripMenuItem_HelpPrint_Click);
             // 
             // checkBox_addNumberToFileName
             // 
@@ -518,6 +516,98 @@
             this.checkBox_addNumberToFileName.TabIndex = 100;
             this.checkBox_addNumberToFileName.Text = "Dodaj numer w nazwie pliku";
             this.checkBox_addNumberToFileName.UseVisualStyleBackColor = true;
+            // 
+            // szablonyToolStripMenuItem
+            // 
+            this.szablonyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wymaganiaToolStripMenuItem});
+            this.szablonyToolStripMenuItem.Name = "szablonyToolStripMenuItem";
+            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.szablonyToolStripMenuItem.Text = "Szablony";
+            // 
+            // daneToolStripMenuItem
+            // 
+            this.daneToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcjaUlicaToolStripMenuItem,
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem,
+            this.poprawnośćAdresuToolStripMenuItem,
+            this.automatyczneWykrywanieSzablonuToolStripMenuItem});
+            this.daneToolStripMenuItem.Name = "daneToolStripMenuItem";
+            this.daneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.daneToolStripMenuItem.Text = "Dane";
+            // 
+            // wydrukToolStripMenuItem
+            // 
+            this.wydrukToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.drukujPoWygenerowaniuToolStripMenuItem});
+            this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
+            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wydrukToolStripMenuItem.Text = "Wydruk";
+            // 
+            // generowaniePlikuToolStripMenuItem
+            // 
+            this.generowaniePlikuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tagiToolStripMenuItem,
+            this.folderDocelowyToolStripMenuItem});
+            this.generowaniePlikuToolStripMenuItem.Name = "generowaniePlikuToolStripMenuItem";
+            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generowaniePlikuToolStripMenuItem.Text = "Generowanie pliku";
+            // 
+            // tagiToolStripMenuItem
+            // 
+            this.tagiToolStripMenuItem.Name = "tagiToolStripMenuItem";
+            this.tagiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tagiToolStripMenuItem.Text = "Tagi";
+            this.tagiToolStripMenuItem.Click += new System.EventHandler(this.menu_generatorTags_Click);
+            // 
+            // drukujPoWygenerowaniuToolStripMenuItem
+            // 
+            this.drukujPoWygenerowaniuToolStripMenuItem.Name = "drukujPoWygenerowaniuToolStripMenuItem";
+            this.drukujPoWygenerowaniuToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
+            this.drukujPoWygenerowaniuToolStripMenuItem.Text = "Opcja \"Drukuj po wygenerowaniu\"";
+            this.drukujPoWygenerowaniuToolStripMenuItem.Click += new System.EventHandler(this.menu_printDoPrint_Click);
+            // 
+            // folderDocelowyToolStripMenuItem
+            // 
+            this.folderDocelowyToolStripMenuItem.Name = "folderDocelowyToolStripMenuItem";
+            this.folderDocelowyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.folderDocelowyToolStripMenuItem.Text = "Folder docelowy";
+            this.folderDocelowyToolStripMenuItem.Click += new System.EventHandler(this.menu_generatorOutputDirectory_Click);
+            // 
+            // opcjaUlicaToolStripMenuItem
+            // 
+            this.opcjaUlicaToolStripMenuItem.Name = "opcjaUlicaToolStripMenuItem";
+            this.opcjaUlicaToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.opcjaUlicaToolStripMenuItem.Text = "Opcja \"Ulica\"";
+            this.opcjaUlicaToolStripMenuItem.Click += new System.EventHandler(this.menu_informationsStreet_Click);
+            // 
+            // opcjaDodajNumerWNazwiePlikuToolStripMenuItem
+            // 
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem.Name = "opcjaDodajNumerWNazwiePlikuToolStripMenuItem";
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem.Text = "Opcja \"Dodaj numer w nazwie pliku\"";
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem.Click += new System.EventHandler(this.menu_informationsAddNumberToFileName_Click);
+            // 
+            // poprawnośćAdresuToolStripMenuItem
+            // 
+            this.poprawnośćAdresuToolStripMenuItem.Name = "poprawnośćAdresuToolStripMenuItem";
+            this.poprawnośćAdresuToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.poprawnośćAdresuToolStripMenuItem.Text = "Poprawność adresu";
+            this.poprawnośćAdresuToolStripMenuItem.Click += new System.EventHandler(this.menu_informationsAddressCorrectness_Click);
+            // 
+            // automatyczneWykrywanieSzablonuToolStripMenuItem
+            // 
+            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Name = "automatyczneWykrywanieSzablonuToolStripMenuItem";
+            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Text = "Automatyczne wykrywanie szablonu";
+            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Click += new System.EventHandler(this.Menu_informationsAutoTemplateDetection_Click);
+            // 
+            // wymaganiaToolStripMenuItem
+            // 
+            this.wymaganiaToolStripMenuItem.Name = "wymaganiaToolStripMenuItem";
+            this.wymaganiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wymaganiaToolStripMenuItem.Text = "Wymagania";
+            this.wymaganiaToolStripMenuItem.Click += new System.EventHandler(this.menu_templatesRequirements_Click);
             // 
             // Form1
             // 
@@ -531,6 +621,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(498, 780);
@@ -587,11 +678,21 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpTags;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpPrint;
         private System.Windows.Forms.Button button_loadTemplates;
         private System.Windows.Forms.CheckBox checkBox_IsStreet;
         private System.Windows.Forms.CheckBox checkBox_addNumberToFileName;
+        private System.Windows.Forms.ToolStripMenuItem szablonyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wymaganiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem daneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opcjaUlicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opcjaDodajNumerWNazwiePlikuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem poprawnośćAdresuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem automatyczneWykrywanieSzablonuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wydrukToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drukujPoWygenerowaniuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generowaniePlikuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tagiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem folderDocelowyToolStripMenuItem;
     }
 }
 

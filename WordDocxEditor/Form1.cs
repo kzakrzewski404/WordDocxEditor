@@ -60,8 +60,20 @@ namespace WordDocxEditor
             }
         }
 
-        private void toolStripMenuItem_HelpTags_Click(object sender, EventArgs e) => _uiHelp.ShowTags();
+        private void menu_templatesRequirements_Click(object sender, EventArgs e) => _uiHelp.templatesReuiremets();
 
-        private void toolStripMenuItem_HelpPrint_Click(object sender, EventArgs e) => _uiHelp.ShowPrint();
+        private void menu_informationsStreet_Click(object sender, EventArgs e) => _uiHelp.informationsStreet();
+
+        private void menu_informationsAddNumberToFileName_Click(object sender, EventArgs e) => _uiHelp.informationsAddNumberToFileName();
+
+        private void menu_informationsAddressCorrectness_Click(object sender, EventArgs e) => _uiHelp.informationsAddressCorrectness();
+
+        private void Menu_informationsAutoTemplateDetection_Click(object sender, EventArgs e) => _uiHelp.informationsAutoTemplateDetection();
+
+        private void menu_printDoPrint_Click(object sender, EventArgs e) => _uiHelp.printDoPrint();
+
+        private void menu_generatorTags_Click(object sender, EventArgs e) => _uiHelp.generatorTags();
+
+        private void menu_generatorOutputDirectory_Click(object sender, EventArgs e) => _uiHelp.generatorOutputDirectory();
     }
 }
