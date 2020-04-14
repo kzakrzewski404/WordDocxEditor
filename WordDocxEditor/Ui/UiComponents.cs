@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic
+using System.Windows.Forms;
+
 
 namespace WordDocxEditor.Ui
 {
@@ -11,10 +13,12 @@ namespace WordDocxEditor.Ui
         private NumericUpDown _caseId;
         private DateTimePicker _receivedDate;
         private DateTimePicker _responseDate;
+        private Dictionary<E_TemplateId, RadioButton> _templateChoice;
 
 
         public void BindComponents(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
-                                   NumericUpDown id, DateTimePicker receivedDate, DateTimePicker responseTime)
+                                   NumericUpDown id, DateTimePicker receivedDate, DateTimePicker responseTime, 
+                                   Dictionary<E_TemplateId, RadioButton> templateChoice)
         {
             _name = name;
             _address = address;
@@ -22,7 +26,10 @@ namespace WordDocxEditor.Ui
             _city = city;
             _caseId = id;
             _receivedDate = receivedDate;
+            _receivedDate.ValueChanged += OnInputDateChanged;
             _responseDate = responseTime;
+            _responseDate.ValueChanged += OnInputDateChanged;
+            _templateChoice = templateChoice;
         }
 
         public UiInputData GetInputData()
@@ -34,6 +41,24 @@ namespace WordDocxEditor.Ui
                                    caseId: (int)_caseId.Value,
                                    received: _receivedDate.Value,
                                    response: _responseDate.Value);
+        }
+
+
+        private void OnInputDateChanged(object sender, System.EventArgs e)
+        {
+            if (_receivedDate.Value > _responseDate.Value)
+            {
+                ShowError($"Data otrzymania dokumentu nie może być większa od daty odpowiedzi!\n" +
+                          $"Data otrzymania: {_receivedDate.Value.Date.ToString("dd.MM.yyyy")}\n" +
+                          $"Data odpowiedzi: {_responseDate.Value.Date.ToString("dd.MM.yyyy")}");
+
+                _receivedDate.Value = _responseDate.Value;
+            }
+        }
+
+        private void ShowError(string msg, string caption = "Błąd")
+        {
+            MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

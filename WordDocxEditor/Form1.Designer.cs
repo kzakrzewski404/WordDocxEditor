@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_Received = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker_Responded = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_Response = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox_IsStreet = new System.Windows.Forms.CheckBox();
             this.numericUpDown_CaseId = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpTags = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpPrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox_IsStreet = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,16 +95,16 @@
             this.dateTimePicker_Received.TabIndex = 20;
             this.dateTimePicker_Received.TabStop = false;
             // 
-            // dateTimePicker_Responded
+            // dateTimePicker_Response
             // 
-            this.dateTimePicker_Responded.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.dateTimePicker_Responded.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker_Responded.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_Responded.Location = new System.Drawing.Point(260, 47);
-            this.dateTimePicker_Responded.Name = "dateTimePicker_Responded";
-            this.dateTimePicker_Responded.Size = new System.Drawing.Size(185, 27);
-            this.dateTimePicker_Responded.TabIndex = 21;
-            this.dateTimePicker_Responded.TabStop = false;
+            this.dateTimePicker_Response.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.dateTimePicker_Response.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimePicker_Response.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_Response.Location = new System.Drawing.Point(260, 47);
+            this.dateTimePicker_Response.Name = "dateTimePicker_Response";
+            this.dateTimePicker_Response.Size = new System.Drawing.Size(185, 27);
+            this.dateTimePicker_Response.TabIndex = 21;
+            this.dateTimePicker_Response.TabStop = false;
             // 
             // label2
             // 
@@ -320,7 +320,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dateTimePicker_Received);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.dateTimePicker_Responded);
+            this.groupBox2.Controls.Add(this.dateTimePicker_Response);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.groupBox2.Location = new System.Drawing.Point(12, 166);
             this.groupBox2.Name = "groupBox2";
@@ -351,6 +351,19 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
+            // 
+            // checkBox_IsStreet
+            // 
+            this.checkBox_IsStreet.AutoSize = true;
+            this.checkBox_IsStreet.Checked = true;
+            this.checkBox_IsStreet.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_IsStreet.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_IsStreet.Location = new System.Drawing.Point(384, 111);
+            this.checkBox_IsStreet.Name = "checkBox_IsStreet";
+            this.checkBox_IsStreet.Size = new System.Drawing.Size(61, 23);
+            this.checkBox_IsStreet.TabIndex = 100;
+            this.checkBox_IsStreet.Text = "Ulica";
+            this.checkBox_IsStreet.UseVisualStyleBackColor = true;
             // 
             // numericUpDown_CaseId
             // 
@@ -494,19 +507,6 @@
             this.toolStripMenuItem_HelpPrint.Text = "Opcja \"Drukuj po wygenerowaniu\"";
             this.toolStripMenuItem_HelpPrint.Click += new System.EventHandler(this.toolStripMenuItem_HelpPrint_Click);
             // 
-            // checkBox_IsStreet
-            // 
-            this.checkBox_IsStreet.AutoSize = true;
-            this.checkBox_IsStreet.Checked = true;
-            this.checkBox_IsStreet.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_IsStreet.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_IsStreet.Location = new System.Drawing.Point(384, 111);
-            this.checkBox_IsStreet.Name = "checkBox_IsStreet";
-            this.checkBox_IsStreet.Size = new System.Drawing.Size(61, 23);
-            this.checkBox_IsStreet.TabIndex = 100;
-            this.checkBox_IsStreet.Text = "Ulica";
-            this.checkBox_IsStreet.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -545,7 +545,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Received;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_Responded;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Response;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_Name;
         private System.Windows.Forms.Label label3;

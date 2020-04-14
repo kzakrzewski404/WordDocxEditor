@@ -11,9 +11,11 @@ namespace WordDocxEditor.Ui
         public int CaseId { get; private set; }
         public DateTime ReceivedDate { get; private set; }
         public DateTime ResponseDate { get; private set; }
+        public E_TemplateId TemplateId { get; private set; }
 
 
-        public UiInputData(string name, string address, bool isStreet, string city, int caseId, DateTime received, DateTime response)
+        public UiInputData(string name, string address, bool isStreet, string city, int caseId, 
+                           DateTime received, DateTime response, E_TemplateId templateId)
         {
             Name = name;
             Address = address;
@@ -22,6 +24,7 @@ namespace WordDocxEditor.Ui
             CaseId = caseId;
             ReceivedDate = received;
             ResponseDate = response;
+            TemplateId = templateId;
         }
     }
 }

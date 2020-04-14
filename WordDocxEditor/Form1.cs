@@ -21,7 +21,7 @@ namespace WordDocxEditor
             InitializeComponent();
 
             _uiComponents.BindComponents(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, 
-                                         numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Responded);
+                                         numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Response);
 
 
             comboBox_City.SelectedIndex = 0;
@@ -141,7 +141,7 @@ namespace WordDocxEditor
                                                        city: comboBox_City.SelectedItem.ToString(),
                                                        caseId: (int)numericUpDown_CaseId.Value,
                                                        received: dateTimePicker_Received.Value,
-                                                       responded: dateTimePicker_Responded.Value);
+                                                       responded: dateTimePicker_Response.Value);
 
                 Generator generator = new Generator();
                 generator.Generate(GetActiveTemplate(), data, checkBox_doPrint.Checked, (int)numericUpDown_NumberOfCopies.Value);
