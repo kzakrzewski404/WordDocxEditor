@@ -15,13 +15,17 @@ namespace WordDocxEditor.Ui
         private DateTimePicker _receivedDate;
         private DateTimePicker _responseDate;
         private Dictionary<E_TemplateId, RadioButton> _templateChoice;
+        private CheckBox _doPrint;
+        private NumericUpDown _printNumberOfCopies;
 
 
         public void BindComponents(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
                                    NumericUpDown id, DateTimePicker receivedDate, DateTimePicker responseTime, 
-                                   Dictionary<E_TemplateId, RadioButton> templateChoice)
+                                   Dictionary<E_TemplateId, RadioButton> templateChoice,
+                                   CheckBox doPrint, NumericUpDown printNumberOfCopies)
         {
             _name = name;
+            _name.TextChanged += OnInputNameChanged;
             _address = address;
             _isStreet = isStreet;
             _city = city;
@@ -31,6 +35,16 @@ namespace WordDocxEditor.Ui
             _responseDate = responseTime;
             _responseDate.ValueChanged += OnInputDateChanged;
             _templateChoice = templateChoice;
+            _templateChoice.First().Value.Checked = true;
+            _doPrint = doPrint;
+            _printNumberOfCopies = printNumberOfCopies;
+        }
+
+        private void OnInputNameChanged(object sender, System.EventArgs e)
+        {
+            UiTemplateRecognition recognition = new UiTemplateRecognition();
+            E_TemplateId id = recognition.RecognizeByName(_name.Text);
+            _templateChoice.Where(x => x.Key == id).Select(x => x.Value.Checked = true);
         }
 
         public UiInputData GetInputData()
