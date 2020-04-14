@@ -11,14 +11,6 @@ namespace WordDocxEditor.Generator
     {
         public DataVerifierResult Verify(UiInputSummary summary)
         {
-            if (!VerifyName(summary.Informations.Name))
-            {
-                return new DataVerifierResult("Niepoprawne imię lub nazwa.");
-            }
-            if (!VerifyAddress(summary.Informations.Address))
-            {
-                return new DataVerifierResult("Niepoprawny adres lub brak numeru budynku.");
-            }
             if (!VerifyIfTemplateFilePathIsLoaded(summary.Templates.GetFilePath(summary.Informations.SelectedTemplate)))
             {
                 return new DataVerifierResult("Błędnie wczytany szablon.");
@@ -26,6 +18,14 @@ namespace WordDocxEditor.Generator
             if (!VerifyIfTemplateExists(summary.Templates.GetFilePath(summary.Informations.SelectedTemplate)))
             {
                 return new DataVerifierResult("Nie odnaleziono pliku z szablonem.");
+            }
+            if (!VerifyName(summary.Informations.Name))
+            {
+                return new DataVerifierResult("Niepoprawne imię lub nazwa.");
+            }
+            if (!VerifyAddress(summary.Informations.Address))
+            {
+                return new DataVerifierResult("Niepoprawny adres lub brak numeru budynku.");
             }
 
             return new DataVerifierResult();
