@@ -1,15 +1,15 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
+using WordDocxEditor.Templates;
 
 namespace WordDocxEditor
 {
     public class TemplatesLoader
     {
-        public TemplatesLoaderSummary Load()
+        public TemplatesFilePaths Load()
         {
-            TemplatesLoaderSummary summary = new TemplatesLoaderSummary();
+            TemplatesFilePaths summary = new TemplatesFilePaths();
             FolderBrowserDialog folderBrowserDialog = CreateFolderBrowserDialog();
 
             DialogResult result = folderBrowserDialog.ShowDialog();

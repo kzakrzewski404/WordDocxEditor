@@ -1,13 +1,16 @@
-﻿namespace WordDocxEditor
+﻿using System.Collections.Generic;
+
+
+namespace WordDocxEditor.Templates
 {
-    public class TemplatesLoaderSummary
+    public class TemplatesFilePaths
     {
-        public string[] FilePaths { get; private set; }
+        private 
 
         public bool IsSuccess => CheckIfLoadedSuccessfully();
 
 
-        public TemplatesLoaderSummary() => FilePaths = new string[(int)E_TemplateId.ENUM_LENGTH];
+        public TemplatesFilePaths() => FilePaths = new string[(int)E_TemplateId.ENUM_LENGTH];
 
 
         public void AddFilePath(E_TemplateId id, string path) => FilePaths[(int)id] = path;

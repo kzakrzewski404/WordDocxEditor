@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace WordDocxEditor.Ui
 {
-    public class UiTemplateRecognition
+    public class UiInformationsTemplateRecognition
     {
         public E_TemplateId RecognizeByName(string name)
         {

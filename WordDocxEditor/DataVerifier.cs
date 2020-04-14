@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-
+using WordDocxEditor.Templates;
 
 namespace WordDocxEditor
 {
@@ -25,7 +25,7 @@ namespace WordDocxEditor
             return numberOfselected == 1;
         }
 
-        public bool VerifyIfTemplatesAreLoaded(TemplatesLoaderSummary loadedTemplates)
+        public bool VerifyIfTemplatesAreLoaded(TemplatesFilePaths loadedTemplates)
         {
             if (loadedTemplates != null)
             {

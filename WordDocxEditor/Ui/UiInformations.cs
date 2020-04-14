@@ -46,7 +46,7 @@ namespace WordDocxEditor.Ui
 
         private void OnInputNameLeave(object sender, System.EventArgs e)
         {
-            UiTemplateRecognition recognition = new UiTemplateRecognition();
+            UiInformationsTemplateRecognition recognition = new UiInformationsTemplateRecognition();
             E_TemplateId id = recognition.RecognizeByName(_name.Text);
             _templateChoice.Where(x => x.Key == id).Select(x => x.Value.Checked = true);
         }

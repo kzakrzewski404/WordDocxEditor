@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 using WordDocxEditor.Ui;
+using WordDocxEditor.Templates;
 
 namespace WordDocxEditor
 {
@@ -12,7 +13,7 @@ namespace WordDocxEditor
     {
         private RadioButton[] _templatesRadioButtons = new RadioButton[(int)E_TemplateId.ENUM_LENGTH];
         private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
-        private TemplatesLoaderSummary _loadedTemplates;
+        private TemplatesFilePaths _loadedTemplates;
 
         private UiInformations _uiComponents = new UiInformations();
 

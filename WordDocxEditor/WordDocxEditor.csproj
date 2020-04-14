@@ -92,17 +92,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataVerifier.cs" />
     <Compile Include="TagsConfig.cs" />
-    <Compile Include="TemplatesLoader.cs" />
-    <Compile Include="TemplatesLoaderSummary.cs" />
+    <Compile Include="Templates\TemplatesLoader.cs" />
+    <Compile Include="Templates\TemplatesFilePaths.cs" />
     <Compile Include="UiHelp.cs" />
     <Compile Include="Ui\UiCommon.cs" />
     <Compile Include="Ui\UiDateData.cs" />
     <Compile Include="Ui\UiInformations.cs" />
     <Compile Include="Ui\UiDate.cs" />
+    <Compile Include="Ui\UiInformationsData.cs" />
     <Compile Include="Ui\UiInputSummary.cs" />
     <Compile Include="Ui\UiPrint.cs" />
     <Compile Include="Ui\UiPrintData.cs" />
-    <Compile Include="Ui\UiTemplateRecognition.cs" />
+    <Compile Include="Ui\UiInformationsTemplateRecognition.cs" />
+    <Compile Include="Ui\UiTemplates.cs" />
+    <Compile Include="Ui\UiTemplatesData.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
