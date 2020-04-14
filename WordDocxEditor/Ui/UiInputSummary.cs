@@ -1,39 +1,19 @@
-﻿using System;
-using WordDocxEditor.Generator;
-
-namespace WordDocxEditor.Ui
+﻿namespace WordDocxEditor.Ui
 {
     public class UiInputSummary
     {
-        public string Name { get; private set; }
-        public string Address { get; private set; }
-        public bool IsStreet { get; private set; }
-        public string City { get; private set; }
-        public int CaseId { get; private set; }
-        public DateTime ReceivedDate { get; private set; }
-        public DateTime ResponseDate { get; private set; }
-        public TemplateId TemplateId { get; private set; }
-        public bool DoPrint { get; private set; }
-        public int NumberOfCopies { get; private set; }
-        public string TemplateFilePath { get; private set; }
+        public UiInformationsData Informations { get; private set; }
+        public UiDateData Date { get; private set; }
+        public UiPrintData Print { get; private set; }
+        public UiTemplatesData Templates { get; private set; }
 
 
-        public UiInputSummary(string name, string address, bool isStreet, string city, int caseId, 
-                           DateTime received, DateTime response, TemplateId templateId,
-                           bool doPrint, int numberOfCopies,
-                           string templateFilePath)
+        public UiInputSummary(UiInformationsData informations, UiDateData date, UiPrintData print, UiTemplatesData templates)
         {
-            Name = name;
-            Address = address;
-            IsStreet = isStreet;
-            City = city;
-            CaseId = caseId;
-            ReceivedDate = received;
-            ResponseDate = response;
-            TemplateId = templateId;
-            DoPrint = doPrint;
-            NumberOfCopies = numberOfCopies;
-            TemplateFilePath = templateFilePath;
+            Informations = informations;
+            Date = date;
+            Print = print;
+            Templates = templates;
         }
     }
 }
