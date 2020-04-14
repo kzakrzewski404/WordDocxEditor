@@ -63,7 +63,7 @@ namespace WordDocxEditor.Ui
             {
                 foreach (var item in _labels)
                 {
-                    item.Value.Text = _filePaths.Where(x => x.Key == item.Key).Select(x => x.Value).First();
+                    item.Value.Text = Path.GetFileName(_filePaths.Where(x => x.Key == item.Key).Select(x => x.Value).First());
                 }
             }
             else
