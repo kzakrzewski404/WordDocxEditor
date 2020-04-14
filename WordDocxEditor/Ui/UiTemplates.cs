@@ -38,6 +38,11 @@ namespace WordDocxEditor.Ui
                 _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, "_pan_"));
                 _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
                 _filePaths.Add(TemplateId.Company, FindTemplateFile(files, "_firma_"));
+
+                if (_filePaths.Any(x => string.IsNullOrEmpty(x.Value)))
+                {
+                    _common.ShowError("Nie odnaleziono plików z szablonami zaczynających się od:\n_pan_*\n_pani_*\n_firma_*");
+                }
             }
             else
             {
