@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace WordDocxEditor.Ui
 {
-    public class UiInformations
+    public class UiInformations : UiInformationsData
     {
         private TextBox _name;
         private TextBox _address;
@@ -14,9 +14,16 @@ namespace WordDocxEditor.Ui
         private NumericUpDown _caseId;
         private Dictionary<E_TemplateId, RadioButton> _templateChoice;
 
+        public override string Name => _name.Text;
+        public override string Address => _address.Text;
+        public override bool IsStreet => _isStreet.Checked;
+        public override string City => _city.SelectedItem.ToString();
+        public override int CaseId => (int)_caseId.Value;
+        public override E_TemplateId TemplateId => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
+
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
-                                   NumericUpDown id, Dictionary<E_TemplateId, RadioButton> templateChoice)
+                         NumericUpDown id, Dictionary<E_TemplateId, RadioButton> templateChoice)
         {
             _name = name;
             _name.Leave += OnInputNameLeave;
@@ -42,20 +49,6 @@ namespace WordDocxEditor.Ui
             UiTemplateRecognition recognition = new UiTemplateRecognition();
             E_TemplateId id = recognition.RecognizeByName(_name.Text);
             _templateChoice.Where(x => x.Key == id).Select(x => x.Value.Checked = true);
-        }
-
-        public UiInputSummary GetInputData()
-        {
-            return new UiInputSummary(name: _name.Text,
-                                   address: _address.Text,
-                                   isStreet: _isStreet.Checked,
-                                   city: _city.SelectedItem.ToString(),
-                                   caseId: (int)_caseId.Value,
-                                   received: _receivedDate.Value,
-                                   response: _responseDate.Value,
-                                   templateId: _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).FirstOrDefault(),
-                                   doPrint: _doPrint.Checked,
-                                   numberOfCopies: (int)_printNumberOfCopies.Value);
         }
     }
 }
