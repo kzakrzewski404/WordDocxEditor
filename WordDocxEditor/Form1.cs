@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+using WordDocxEditor.Ui;
 
 namespace WordDocxEditor
 {
@@ -12,10 +13,16 @@ namespace WordDocxEditor
         private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
         private TemplatesLoaderSummary _loadedTemplates;
 
+        private UiComponents _uiComponents = new UiComponents();
+
 
         public Form1()
         {
             InitializeComponent();
+
+            _uiComponents.BindComponents(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, 
+                                         numericUpDown_CaseId, dateTimePicker_Received, dateTimePicker_Responded);
+
 
             comboBox_City.SelectedIndex = 0;
 

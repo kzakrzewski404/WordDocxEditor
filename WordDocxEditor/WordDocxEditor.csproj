@@ -95,6 +95,8 @@
     <Compile Include="TemplatesLoader.cs" />
     <Compile Include="TemplatesLoaderSummary.cs" />
     <Compile Include="UiHelp.cs" />
+    <Compile Include="Ui\UiComponents.cs" />
+    <Compile Include="Ui\UiInputData.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
