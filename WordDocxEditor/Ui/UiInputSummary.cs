@@ -2,7 +2,7 @@
 
 namespace WordDocxEditor.Ui
 {
-    public class UiInputData
+    public class UiInputSummary
     {
         public string Name { get; private set; }
         public string Address { get; private set; }
@@ -16,7 +16,7 @@ namespace WordDocxEditor.Ui
         public int NumberOfCopies { get; private set; }
 
 
-        public UiInputData(string name, string address, bool isStreet, string city, int caseId, 
+        public UiInputSummary(string name, string address, bool isStreet, string city, int caseId, 
                            DateTime received, DateTime response, E_TemplateId templateId,
                            bool doPrint, int numberOfCopies)
         {

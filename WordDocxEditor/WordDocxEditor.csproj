@@ -95,8 +95,12 @@
     <Compile Include="TemplatesLoader.cs" />
     <Compile Include="TemplatesLoaderSummary.cs" />
     <Compile Include="UiHelp.cs" />
-    <Compile Include="Ui\UiComponents.cs" />
+    <Compile Include="Ui\UiCommon.cs" />
+    <Compile Include="Ui\UiMainInformations.cs" />
+    <Compile Include="Ui\UiDate.cs" />
     <Compile Include="Ui\UiInputData.cs" />
+    <Compile Include="Ui\UiPrint.cs" />
+    <Compile Include="Ui\UiPrintData.cs" />
     <Compile Include="Ui\UiTemplateRecognition.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

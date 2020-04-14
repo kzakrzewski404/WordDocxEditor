@@ -14,7 +14,7 @@ namespace WordDocxEditor
         private Label[] _labelsWithTemplateName = new Label[(int)E_TemplateId.ENUM_LENGTH];
         private TemplatesLoaderSummary _loadedTemplates;
 
-        private UiComponents _uiComponents = new UiComponents();
+        private UiInformations _uiComponents = new UiInformations();
 
 
         public Form1()
