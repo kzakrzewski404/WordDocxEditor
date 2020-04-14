@@ -117,7 +117,14 @@ namespace WordDocxEditor.Generator
                 Directory.CreateDirectory(targetDirectory);
             }
 
-            return targetDirectory + "\\" + data.Informations.Name + Path.GetExtension(data.SelectedTemplateFilePath);
+            targetDirectory += "\\";
+            if (data.Informations.DoAddCaseIdToFileName)
+            {
+                targetDirectory += data.Informations.CaseId.ToString() + " - ";
+            }
+
+            targetDirectory += data.Informations.Name + Path.GetExtension(data.SelectedTemplateFilePath);
+            return targetDirectory;
         }
 
         private void ReplaceTag(string tag, string replacedText)

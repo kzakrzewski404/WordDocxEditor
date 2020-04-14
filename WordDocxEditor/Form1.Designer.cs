@@ -64,6 +64,7 @@
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpTags = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_HelpPrint = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox_addNumberToFileName = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -165,7 +166,7 @@
             "95-061 Dmosin",
             "95-063 Rogów",
             "95-047 Jeżów"});
-            this.comboBox_City.Location = new System.Drawing.Point(10, 175);
+            this.comboBox_City.Location = new System.Drawing.Point(260, 175);
             this.comboBox_City.Name = "comboBox_City";
             this.comboBox_City.Size = new System.Drawing.Size(185, 27);
             this.comboBox_City.TabIndex = 3;
@@ -177,9 +178,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label5.Location = new System.Drawing.Point(6, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 19);
+            this.label5.Size = new System.Drawing.Size(132, 19);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Miejscowość:";
+            this.label5.Text = "Numer dokumentu:";
             // 
             // radioButton_Mr
             // 
@@ -330,6 +331,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox_addNumberToFileName);
             this.groupBox3.Controls.Add(this.checkBox_IsStreet);
             this.groupBox3.Controls.Add(this.numericUpDown_CaseId);
             this.groupBox3.Controls.Add(this.label9);
@@ -367,7 +369,7 @@
             // numericUpDown_CaseId
             // 
             this.numericUpDown_CaseId.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown_CaseId.Location = new System.Drawing.Point(260, 175);
+            this.numericUpDown_CaseId.Location = new System.Drawing.Point(10, 175);
             this.numericUpDown_CaseId.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -389,9 +391,9 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label9.Location = new System.Drawing.Point(256, 153);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 19);
+            this.label9.Size = new System.Drawing.Size(97, 19);
             this.label9.TabIndex = 30;
-            this.label9.Text = "Numer sprawy:";
+            this.label9.Text = "Miejscowość:";
             // 
             // label12
             // 
@@ -506,6 +508,17 @@
             this.toolStripMenuItem_HelpPrint.Text = "Opcja \"Drukuj po wygenerowaniu\"";
             this.toolStripMenuItem_HelpPrint.Click += new System.EventHandler(this.toolStripMenuItem_HelpPrint_Click);
             // 
+            // checkBox_addNumberToFileName
+            // 
+            this.checkBox_addNumberToFileName.AutoSize = true;
+            this.checkBox_addNumberToFileName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_addNumberToFileName.Location = new System.Drawing.Point(10, 222);
+            this.checkBox_addNumberToFileName.Name = "checkBox_addNumberToFileName";
+            this.checkBox_addNumberToFileName.Size = new System.Drawing.Size(210, 23);
+            this.checkBox_addNumberToFileName.TabIndex = 100;
+            this.checkBox_addNumberToFileName.Text = "Dodaj numer w nazwie pliku";
+            this.checkBox_addNumberToFileName.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,6 +591,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_HelpPrint;
         private System.Windows.Forms.Button button_loadTemplates;
         private System.Windows.Forms.CheckBox checkBox_IsStreet;
+        private System.Windows.Forms.CheckBox checkBox_addNumberToFileName;
     }
 }
 

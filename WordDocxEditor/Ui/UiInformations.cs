@@ -13,6 +13,7 @@ namespace WordDocxEditor.Ui
         private ComboBox _city;
         private NumericUpDown _caseId;
         private Dictionary<TemplateId, RadioButton> _templateChoice;
+        private CheckBox _doAddCaseIdToFileName;
 
         public override string Name => _name.Text;
         public override string Address => _address.Text;
@@ -20,10 +21,12 @@ namespace WordDocxEditor.Ui
         public override string City => _city.SelectedItem.ToString();
         public override int CaseId => (int)_caseId.Value;
         public override TemplateId SelectedTemplate => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
+        public override bool DoAddCaseIdToFileName => _doAddCaseIdToFileName.Checked;
 
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
-                         NumericUpDown id, Dictionary<TemplateId, RadioButton> templateChoice)
+                         NumericUpDown id, Dictionary<TemplateId, RadioButton> templateChoice,
+                         CheckBox doAddCaseIdToFileName)
         {
             _name = name;
             _name.Leave += OnInputNameLeave;
@@ -33,6 +36,7 @@ namespace WordDocxEditor.Ui
             _caseId = id;
             _templateChoice = templateChoice;
             _templateChoice.First().Value.Checked = true;
+            _doAddCaseIdToFileName = doAddCaseIdToFileName;
 
             Clear();
         }

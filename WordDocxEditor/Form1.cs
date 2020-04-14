@@ -34,7 +34,8 @@ namespace WordDocxEditor
             _uiInformations.Bind(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, numericUpDown_CaseId,
                 new Dictionary<TemplateId, RadioButton> { { TemplateId.Mr, radioButton_Mr },
                                                           { TemplateId.Mrs, radioButton_Mrs },
-                                                          { TemplateId.Company, radioButton_Company } });
+                                                          { TemplateId.Company, radioButton_Company } },
+                                 checkBox_addNumberToFileName);
         }
 
         private void button_loadTemplates_Click(object sender, EventArgs e) => _uiTemplates.HandleTemplatesSelectionFromDisk();
