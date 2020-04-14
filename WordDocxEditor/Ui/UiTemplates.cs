@@ -35,13 +35,20 @@ namespace WordDocxEditor.Ui
                 DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowser.SelectedPath);
                 FileInfo[] files = directoryInfo.GetFiles("_*");
 
-                _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, "_pan_"));
-                _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
-                _filePaths.Add(TemplateId.Company, FindTemplateFile(files, "_firma_"));
-
-                if (_filePaths.Any(x => string.IsNullOrEmpty(x.Value)))
+                if (files.Length > (int)TemplateId.ENUM_LENGTH)
                 {
-                    _common.ShowError("Nie odnaleziono plików z szablonami zaczynających się od:\n_pan_*\n_pani_*\n_firma_*");
+                    _common.ShowError($"W wybranym folderze znajduje się więcej niż {(int)TemplateId.ENUM_LENGTH} wymagane pliki.");
+                }
+                else
+                {
+                    _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, "_pan_"));
+                    _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
+                    _filePaths.Add(TemplateId.Company, FindTemplateFile(files, "_firma_"));
+
+                    if (_filePaths.Any(x => string.IsNullOrEmpty(x.Value)))
+                    {
+                        _common.ShowError($"Nie odnaleziono {(int)TemplateId.ENUM_LENGTH} plików z szablonami zaczynających się od:\n_pan_*\n_pani_*\n_firma_*");
+                    }
                 }
             }
             else
