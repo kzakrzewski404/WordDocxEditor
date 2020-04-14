@@ -11,19 +11,19 @@ namespace WordDocxEditor.Generator
     {
         public DataVerifierResult Verify(UiInputSummary summary)
         {
-            if (!VerifyName(summary.Name))
+            if (!VerifyName(summary.Informations.Name))
             {
                 return new DataVerifierResult("Niepoprawne imię lub nazwa.");
             }
-            if (!VerifyAddress(summary.Address))
+            if (!VerifyAddress(summary.Informations.Address))
             {
                 return new DataVerifierResult("Niepoprawny adres lub brak numeru budynku.");
             }
-            if (!VerifyIfTemplateFilePathIsLoaded(summary.TemplateFilePath))
+            if (!VerifyIfTemplateFilePathIsLoaded(summary.Templates.GetFilePath(summary.Informations.SelectedTemplate)))
             {
                 return new DataVerifierResult("Błędnie wczytany szablon.");
             }
-            if (!VerifyIfTemplateExists(summary.TemplateFilePath))
+            if (!VerifyIfTemplateExists(summary.Templates.GetFilePath(summary.Informations.SelectedTemplate)))
             {
                 return new DataVerifierResult("Nie odnaleziono pliku z szablonem.");
             }

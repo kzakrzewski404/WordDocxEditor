@@ -19,7 +19,7 @@ namespace WordDocxEditor.Ui
         public override bool IsStreet => _isStreet.Checked;
         public override string City => _city.SelectedItem.ToString();
         public override int CaseId => (int)_caseId.Value;
-        public override TemplateId TemplateId => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
+        public override TemplateId SelectedTemplate => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
 
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
