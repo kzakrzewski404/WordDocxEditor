@@ -15,11 +15,13 @@ namespace WordDocxEditor.Ui
         public TemplateId TemplateId { get; private set; }
         public bool DoPrint { get; private set; }
         public int NumberOfCopies { get; private set; }
+        public string TemplateFilePath { get; private set; }
 
 
         public UiInputSummary(string name, string address, bool isStreet, string city, int caseId, 
                            DateTime received, DateTime response, TemplateId templateId,
-                           bool doPrint, int numberOfCopies)
+                           bool doPrint, int numberOfCopies,
+                           string templateFilePath)
         {
             Name = name;
             Address = address;
@@ -31,6 +33,7 @@ namespace WordDocxEditor.Ui
             TemplateId = templateId;
             DoPrint = doPrint;
             NumberOfCopies = numberOfCopies;
+            TemplateFilePath = templateFilePath;
         }
     }
 }

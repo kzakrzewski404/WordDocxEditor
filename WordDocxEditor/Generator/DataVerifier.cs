@@ -1,11 +1,36 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
 
+using WordDocxEditor.Ui;
+
 
 namespace WordDocxEditor.Generator
 {
+    public class DataVerifierResponse
+    {
+        public bool IsSuccess { get; private set; }
+        public string ErrorMessage { get; private set; }
+
+
+        public DataVerifierResponse() => IsSuccess = true;
+
+        public DataVerifierResponse(string errorMessage)
+        {
+            IsSuccess = false;
+            ErrorMessage = errorMessage;
+        }
+    }
+
     public class DataVerifier
     {
+        public DataVerifierResponse Verify(UiInputSummary summary)
+        {
+
+        }
+
+
+
+
         public bool VerifyName(string name) => !string.IsNullOrEmpty(name);
 
         public bool VerifyAddress(string address) => !string.IsNullOrEmpty(address) && address.Any(char.IsDigit);
