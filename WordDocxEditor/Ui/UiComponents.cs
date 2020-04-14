@@ -40,9 +40,12 @@ namespace WordDocxEditor.Ui
             _printNumberOfCopies = printNumberOfCopies;
         }
 
-        public void ClearUi()
+        public void Clear()
         {
-
+            _address.Clear();
+            _name.Clear();
+            _isStreet.Checked = true;
+            _city.SelectedIndex = 0;
         }
 
 
