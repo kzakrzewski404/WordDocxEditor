@@ -33,6 +33,8 @@ namespace WordDocxEditor.Ui
             _caseId = id;
             _templateChoice = templateChoice;
             _templateChoice.First().Value.Checked = true;
+
+            Clear();
         }
 
         public void Clear()
@@ -48,7 +50,7 @@ namespace WordDocxEditor.Ui
         {
             UiInformationsTemplateRecognition recognition = new UiInformationsTemplateRecognition();
             TemplateId id = recognition.RecognizeByName(_name.Text);
-            _templateChoice.Where(x => x.Key == id).Select(x => x.Value.Checked = true);
+            _templateChoice.Where(x => x.Key == id).Select(x => x.Value).First().Checked = true;
         }
     }
 }
