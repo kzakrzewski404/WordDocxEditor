@@ -197,7 +197,7 @@
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "HistoryView";
-            this.Text = "HistoryView";
+            this.Text = "Historia wygenerowanych dokumentów";
             this.Load += new System.EventHandler(this.OnFormShowing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
