@@ -1,11 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
 using WordDocxEditor.Ui;
 using WordDocxEditor.Generator;
+
 
 namespace WordDocxEditor
 {
@@ -19,6 +18,7 @@ namespace WordDocxEditor
         private UiCommon _uiCommon = new UiCommon();
         private DataVerifier _dataVerifier = new DataVerifier();
         private WordGenerator _wordGenerator = new WordGenerator();
+        private HistoryView _historyView = new HistoryView();
 
 
         public Form1()
@@ -66,6 +66,8 @@ namespace WordDocxEditor
             }
         }
 
+        private void button_history_Click(object sender, EventArgs e) => _historyView.ShowDialog();
+
         private void menu_templatesRequirements_Click(object sender, EventArgs e) => _uiHelp.templatesReuiremets();
 
         private void menu_informationsStreet_Click(object sender, EventArgs e) => _uiHelp.informationsStreet();
@@ -81,11 +83,5 @@ namespace WordDocxEditor
         private void menu_generatorTags_Click(object sender, EventArgs e) => _uiHelp.generatorTags();
 
         private void menu_generatorOutputDirectory_Click(object sender, EventArgs e) => _uiHelp.generatorOutputDirectory();
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form history = new HistoryView();
-            history.ShowDialog();
-        }
     }
 }
