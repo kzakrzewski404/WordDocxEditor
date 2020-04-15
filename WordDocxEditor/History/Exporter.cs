@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -26,6 +27,9 @@ namespace WordDocxEditor.History
             _processesBeforeExporting = Process.GetProcessesByName("EXCEL");
             string outputFilePath = _desktopOutputDirectory + $"\\Historia wygenerowanych plików - " +
                                                               $"{DateTime.Now.ToString("H.mm.ss - dd.MM.yyyy")}.xlsx";
+
+            Directory.CreateDirectory(_desktopOutputDirectory);
+
             if (TryOpenExcelApp() && TryCreateWorkSheet())
             {
                 try
@@ -61,10 +65,7 @@ namespace WordDocxEditor.History
         {
             try
             {
-                Workbooks books = _excelApp.Workbooks; // <-- The important part
-                Workbook book = books.Add(System.Reflection.Missing.Value);
-
-                //Workbook book = _excelApp.Workbooks.Add(System.Reflection.Missing.Value);
+                Workbook book = _excelApp.Workbooks.Add(System.Reflection.Missing.Value);
                 _workSheet = (Worksheet)book.Worksheets.get_Item(1);
                 return true;
             }
@@ -76,7 +77,7 @@ namespace WordDocxEditor.History
 
         private void CloseExcelApp()
         {
-            _excelApp?.Workbooks.Close();
+            _excelApp?.ActiveWorkbook.Close(false);
             _excelApp?.Quit();
 
             Process[] processesAfterExporting = Process.GetProcessesByName("EXCEL");
