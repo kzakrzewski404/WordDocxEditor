@@ -4,24 +4,23 @@ using System.Windows.Forms;
 
 using Microsoft.Office.Interop.Word;
 
+using WordDocxEditor.Common;
 using WordDocxEditor.Config;
 using WordDocxEditor.Ui;
-using WordDocxEditor.Common;
 
 
 namespace WordDocxEditor.Generator
 {
     public class WordGenerator
     {
-        private static string _desktopOutputDirectory = "";
-        private static bool _isInitialized;
+        private string _desktopOutputDirectory = "";
+        private bool _isInitialized;
         private Document _document;
 
 
         public bool Generate(UiInputSummary data)
         {
             Initialize();
-
             string outputFilePath = GenerateOutputFilePath(data);
 
             if (CanCreateFile(outputFilePath))
@@ -63,6 +62,7 @@ namespace WordDocxEditor.Generator
             {
                 Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                 _document = wordApp.Documents.Open(targetFilePath, ReadOnly: false);
+
                 ReplaceTag(TagsConfig.Name, data.Informations.Name);
                 ReplaceTag(TagsConfig.Address, data.Informations.Address);
                 ReplaceTag(TagsConfig.IsStreet, data.Informations.IsStreet ? "ul. " : "");
@@ -102,7 +102,6 @@ namespace WordDocxEditor.Generator
 
         private string GenerateOutputFilePath(UiInputSummary data)
         {
-            //Final FilePath: %Desktop%\Dokumenty - DD.MM.YYY\\template name\\Name.docx
             string targetDirectory = _desktopOutputDirectory + "\\" + new DirectoryInfo(data.SelectedTemplateFilePath).Parent.Name;
 
             if (!Directory.Exists(targetDirectory))
