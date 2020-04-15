@@ -2,8 +2,8 @@
 using System.IO;
 using System.Windows.Forms;
 
-using WordDocxEditor.Ui;
 using WordDocxEditor.History;
+using WordDocxEditor.Ui;
 
 
 namespace WordDocxEditor
@@ -13,18 +13,13 @@ namespace WordDocxEditor
         public HistoryView()
         {
             InitializeComponent();
-            for (int i = 0; i < 20; i++)
-            {
-                //AddRow(i, "imie", "sloneczna 22", "brzeziny 95-060", DateTime.Now.Date, DateTime.Now.Date, "portal - umowa i formularz", false, 0);
-            }
-            
         }
 
         public void AddEntry(UiInputSummary data)
         {
             InsertIntoTable(data.Informations.CaseId, data.Informations.Name,
-                            data.Informations.IsStreet ? "ul. " + data.Informations.Address : data.Informations.Address,
-                            data.Informations.City, data.Date.Received, data.Date.Response,
+                            data.Informations.Address, data.Informations.City,
+                            data.Date.Received, data.Date.Response,
                             new DirectoryInfo(data.SelectedTemplateFilePath).Parent.Name, 
                             data.Print.DoPrint, data.Print.NumberOfCopies);
         }
@@ -40,8 +35,8 @@ namespace WordDocxEditor
 
         private void button_ExportToExcel_Click(object sender, EventArgs e)
         {
-            Exporter ex = new Exporter();
-            ex.ExportToExcel(dataGridView1);
+            Exporter exporter = new Exporter();
+            exporter.ExportToExcel(dataGridView1);
             MessageBox.Show("Koniec");
         }
     }
