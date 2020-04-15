@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -19,7 +20,6 @@ namespace WordDocxEditor
         private DataVerifier _dataVerifier = new DataVerifier();
         private WordGenerator _wordGenerator = new WordGenerator();
         private HistoryView _historyView = new HistoryView();
-
 
         public Form1()
         {
@@ -51,6 +51,7 @@ namespace WordDocxEditor
             }
             else
             {
+                SwitchButtons(false);
                 bool isSuccess = _wordGenerator.Generate(summary);
 
                 if (isSuccess)
@@ -63,7 +64,16 @@ namespace WordDocxEditor
                 {
                     MessageBox.Show("Wygenerowanie pliku nie powiodło się.", "Generator", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                SwitchButtons(true);
             }
+        }
+
+        private void SwitchButtons(bool mode)
+        {
+            button_Generate.Enabled = mode;
+            button_Generate.BackColor = mode ? Color.FromArgb(0,0,0,0) : Color.Green;
+            button_history.Enabled = mode;
+            button_loadTemplates.Enabled = mode;
         }
 
         private void button_history_Click(object sender, EventArgs e) => _historyView.ShowDialog();
