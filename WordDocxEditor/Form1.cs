@@ -56,6 +56,7 @@ namespace WordDocxEditor
 
                 if (isSuccess)
                 {
+                    _historyView.AddEntry(summary);
                     MessageBox.Show($"Wygenerowano dokument: {summary.Informations.Name}",
                                  "Generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _uiInformations.Clear();

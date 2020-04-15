@@ -46,6 +46,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -103,7 +104,7 @@
             // 
             // dateReceived
             // 
-            this.dateReceived.HeaderText = "Wpłyneło";
+            this.dateReceived.HeaderText = "Wpłynęło";
             this.dateReceived.Name = "dateReceived";
             this.dateReceived.ReadOnly = true;
             this.dateReceived.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -134,7 +135,7 @@
             // 
             // numberOfCopies
             // 
-            this.numberOfCopies.HeaderText = "Kopie";
+            this.numberOfCopies.HeaderText = "Ilość";
             this.numberOfCopies.Name = "numberOfCopies";
             this.numberOfCopies.ReadOnly = true;
             this.numberOfCopies.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -142,7 +143,7 @@
             // 
             // dateOfEntry
             // 
-            this.dateOfEntry.HeaderText = "Data wpisu historii";
+            this.dateOfEntry.HeaderText = "Data wpisu w historii";
             this.dateOfEntry.Name = "dateOfEntry";
             this.dateOfEntry.ReadOnly = true;
             this.dateOfEntry.Resizable = System.Windows.Forms.DataGridViewTriState.False;
