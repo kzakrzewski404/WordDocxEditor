@@ -75,6 +75,7 @@
             this.generowaniePlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderDocelowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -609,12 +610,23 @@
             this.folderDocelowyToolStripMenuItem.Text = "Folder docelowy";
             this.folderDocelowyToolStripMenuItem.Click += new System.EventHandler(this.menu_generatorOutputDirectory_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(89, 712);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(482, 741);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Generate);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -693,6 +705,7 @@
         private System.Windows.Forms.ToolStripMenuItem generowaniePlikuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tagiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem folderDocelowyToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

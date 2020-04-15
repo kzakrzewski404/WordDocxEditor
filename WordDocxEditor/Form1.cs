@@ -75,5 +75,11 @@ namespace WordDocxEditor
         private void menu_generatorTags_Click(object sender, EventArgs e) => _uiHelp.generatorTags();
 
         private void menu_generatorOutputDirectory_Click(object sender, EventArgs e) => _uiHelp.generatorOutputDirectory();
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form history = new HistoryView();
+            history.ShowDialog();
+        }
     }
 }
