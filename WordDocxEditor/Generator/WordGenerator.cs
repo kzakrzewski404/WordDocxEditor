@@ -23,7 +23,7 @@ namespace WordDocxEditor.Generator
 
             string outputFilePath = GenerateOutputFilePath(data);
 
-            if (!IsOverwritingFile(outputFilePath))
+            if (CanCreateFile(outputFilePath))
             {
                 Copy(data.SelectedTemplateFilePath, outputFilePath);
                 bool isEditSuccessful = EditWordFile(outputFilePath, data);
@@ -48,24 +48,22 @@ namespace WordDocxEditor.Generator
 
         private void Copy(string templateFilePath, string targetFilePath) => File.Copy(templateFilePath, targetFilePath);
 
-        private bool IsOverwritingFile(string targetFilePath)
+        private bool CanCreateFile(string targetFilePath)
         {
             if (File.Exists(targetFilePath))
             {
-                DialogResult result = MessageBox.Show($"Już istnieje wygenerowany plik o nazwie {Path.GetFileName(targetFilePath)}\n" +
-                                                      $"Czy nadpisać plik?","Plik już istnieje",
-                                                      MessageBoxButtons.YesNoCancel,
-                                                      MessageBoxIcon.Question);
-                if (result == DialogResult.OK)
+                DialogResult result = MessageBox.Show($"Plik {Path.GetFileName(targetFilePath)} już istnieje, nadpisać?", 
+                                                      "Plik już istnieje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
                     File.Delete(targetFilePath);
-                    return false;
+                    return true;
                 }
 
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         private bool EditWordFile(string targetFilePath, UiInputSummary data)
