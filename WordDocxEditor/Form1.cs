@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
+using WordDocxEditor.Common;
 using WordDocxEditor.Ui;
 using WordDocxEditor.Generator;
 
@@ -94,5 +95,7 @@ namespace WordDocxEditor
         private void menu_generatorTags_Click(object sender, EventArgs e) => _uiHelp.generatorTags();
 
         private void menu_generatorOutputDirectory_Click(object sender, EventArgs e) => _uiHelp.generatorOutputDirectory();
+
+        private void button_outputDir_Click(object sender, EventArgs e) => new DirectoryPaths().OpenOutputDirectoryInExplorer();
     }
 }

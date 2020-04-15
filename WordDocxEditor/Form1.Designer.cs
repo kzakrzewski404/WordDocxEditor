@@ -76,6 +76,7 @@
             this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderDocelowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_history = new System.Windows.Forms.Button();
+            this.button_outputDir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -621,12 +622,24 @@
             this.button_history.UseVisualStyleBackColor = true;
             this.button_history.Click += new System.EventHandler(this.button_history_Click);
             // 
+            // button_outputDir
+            // 
+            this.button_outputDir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_outputDir.Location = new System.Drawing.Point(179, 690);
+            this.button_outputDir.Name = "button_outputDir";
+            this.button_outputDir.Size = new System.Drawing.Size(124, 31);
+            this.button_outputDir.TabIndex = 32;
+            this.button_outputDir.Text = "Folder wyjściowy";
+            this.button_outputDir.UseVisualStyleBackColor = true;
+            this.button_outputDir.Click += new System.EventHandler(this.button_outputDir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(482, 741);
+            this.Controls.Add(this.button_outputDir);
             this.Controls.Add(this.button_history);
             this.Controls.Add(this.button_Generate);
             this.Controls.Add(this.groupBox4);
@@ -640,7 +653,7 @@
             this.MaximumSize = new System.Drawing.Size(498, 780);
             this.MinimumSize = new System.Drawing.Size(498, 726);
             this.Name = "Form1";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.0.3";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.1.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -707,6 +720,7 @@
         private System.Windows.Forms.ToolStripMenuItem tagiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem folderDocelowyToolStripMenuItem;
         private System.Windows.Forms.Button button_history;
+        private System.Windows.Forms.Button button_outputDir;
     }
 }
 
