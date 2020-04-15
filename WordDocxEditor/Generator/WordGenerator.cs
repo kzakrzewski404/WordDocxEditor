@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 
 using Microsoft.Office.Interop.Word;
+using WordApplication = Microsoft.Office.Interop.Word.Application;
 
 using WordDocxEditor.Common;
 using WordDocxEditor.Config;
@@ -16,6 +17,7 @@ namespace WordDocxEditor.Generator
         private string _desktopOutputDirectory = "";
         private bool _isInitialized;
         private Document _document;
+        private WordApplication _wordApp;
 
 
         public bool Generate(UiInputSummary data)
@@ -25,18 +27,29 @@ namespace WordDocxEditor.Generator
 
             if (CanCreateFile(outputFilePath))
             {
-                File.Copy(data.SelectedTemplateFilePath, outputFilePath);
-
-                if (TryGenerateWordFile(outputFilePath, data))
+                if (TryOpenWordApp())
                 {
-                    HandlePrinter(data.Print.DoPrint, data.Print.NumberOfCopies);
-                    return true;
+                    File.Copy(data.SelectedTemplateFilePath, outputFilePath);
+
+                    if (TryGenerateWordFile(outputFilePath, data))
+                    {
+                        HandlePrinter(data.Print.DoPrint, data.Print.NumberOfCopies);
+                        CloseWordApp();
+                        return true;
+                    }
                 }
+
+                CloseWordApp();
             }
 
             return false;
         }
 
+        private void CloseWordApp()
+        {
+            _document?.Close(System.Reflection.Missing.Value);
+            _wordApp?.Quit();
+        }
 
         private bool CanCreateFile(string targetFilePath)
         {
@@ -56,12 +69,24 @@ namespace WordDocxEditor.Generator
             return true;
         }
 
+        private bool TryOpenWordApp()
+        {
+            try
+            {
+                _wordApp = new WordApplication();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         private bool TryGenerateWordFile(string targetFilePath, UiInputSummary data)
         {
             try
             {
-                Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
-                _document = wordApp.Documents.Open(targetFilePath, ReadOnly: false);
+                _document = _wordApp.Documents.Open(targetFilePath, ReadOnly: false);
 
                 ReplaceTag(TagsConfig.Name, data.Informations.Name);
                 ReplaceTag(TagsConfig.Address, data.Informations.Address);
@@ -72,9 +97,6 @@ namespace WordDocxEditor.Generator
                 ReplaceTag(TagsConfig.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
 
                 _document.Save();
-                _document.Close(System.Reflection.Missing.Value);
-                wordApp.Quit();
-
                 return true;
             }
             catch (Exception e)
