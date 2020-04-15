@@ -1,10 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+
 using Microsoft.Office.Interop.Word;
 
 using WordDocxEditor.Config;
 using WordDocxEditor.Ui;
+using WordDocxEditor.Common;
 
 
 namespace WordDocxEditor.Generator
@@ -13,7 +15,6 @@ namespace WordDocxEditor.Generator
     {
         private static string _desktopOutputDirectory = "";
         private static bool _isInitialized;
-        private static Microsoft.Office.Interop.Word.Application _wordApp;
         private Document _document;
 
 
@@ -25,13 +26,11 @@ namespace WordDocxEditor.Generator
 
             if (CanCreateFile(outputFilePath))
             {
-                Copy(data.SelectedTemplateFilePath, outputFilePath);
-                bool isEditSuccessful = EditWordFile(outputFilePath, data);
+                File.Copy(data.SelectedTemplateFilePath, outputFilePath);
 
-                if (isEditSuccessful)
+                if (TryGenerateWordFile(outputFilePath, data))
                 {
                     HandlePrinter(data.Print.DoPrint, data.Print.NumberOfCopies);
-                    CloseWordFile();
                     return true;
                 }
             }
@@ -39,14 +38,6 @@ namespace WordDocxEditor.Generator
             return false;
         }
 
-
-        private void CloseWordFile()
-        {
-            object missing = System.Reflection.Missing.Value;
-            _document.Close(ref missing);
-        }
-
-        private void Copy(string templateFilePath, string targetFilePath) => File.Copy(templateFilePath, targetFilePath);
 
         private bool CanCreateFile(string targetFilePath)
         {
@@ -66,42 +57,30 @@ namespace WordDocxEditor.Generator
             return true;
         }
 
-        private bool EditWordFile(string targetFilePath, UiInputSummary data)
+        private bool TryGenerateWordFile(string targetFilePath, UiInputSummary data)
         {
-            bool hasTriedToLocalizeWordApp = false;
-            for (int i = 0; i < 2; i++)
+            try
             {
-                try
-                {
-                    _document = _wordApp.Documents.Open(targetFilePath, ReadOnly: false);
-                    ReplaceTag(TagsConfig.Name, data.Informations.Name);
-                    ReplaceTag(TagsConfig.Address, data.Informations.Address);
-                    ReplaceTag(TagsConfig.IsStreet, data.Informations.IsStreet ? "ul. " : "");
-                    ReplaceTag(TagsConfig.City, data.Informations.City);
-                    ReplaceTag(TagsConfig.CaseId, data.Informations.CaseId.ToString());
-                    ReplaceTag(TagsConfig.ReceivedDate, data.Date.Received.Date.ToString("dd.MM.yyyy"));
-                    ReplaceTag(TagsConfig.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
+                Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+                _document = wordApp.Documents.Open(targetFilePath, ReadOnly: false);
+                ReplaceTag(TagsConfig.Name, data.Informations.Name);
+                ReplaceTag(TagsConfig.Address, data.Informations.Address);
+                ReplaceTag(TagsConfig.IsStreet, data.Informations.IsStreet ? "ul. " : "");
+                ReplaceTag(TagsConfig.City, data.Informations.City);
+                ReplaceTag(TagsConfig.CaseId, data.Informations.CaseId.ToString());
+                ReplaceTag(TagsConfig.ReceivedDate, data.Date.Received.Date.ToString("dd.MM.yyyy"));
+                ReplaceTag(TagsConfig.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
 
-                    _document.Save();
-                    break;
-                }
-                catch (Exception e)
-                {
-                    if (hasTriedToLocalizeWordApp)
-                    {
-                        CloseWordFile();
-                        return false;
-                    }
-                    else
-                    {
-                        hasTriedToLocalizeWordApp = true;
-                        LocalizeWordApp();
-                        continue;
-                    }
-                }
+                _document.Save();
+                _document.Close(System.Reflection.Missing.Value);
+                wordApp.Quit();
+
+                return true;
             }
-
-            return true;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         private void HandlePrinter(bool doPrint, int numberOfCopies)
@@ -117,17 +96,8 @@ namespace WordDocxEditor.Generator
             if (!_isInitialized)
             {
                 _isInitialized = true;
-                _desktopOutputDirectory = PrepareDesktopOutputDirectory();
-                LocalizeWordApp();
+                _desktopOutputDirectory = new DirectoryPaths().DesktopOutput;
             }
-        }
-
-        private void LocalizeWordApp() => _wordApp = new Microsoft.Office.Interop.Word.Application();
-
-        private string PrepareDesktopOutputDirectory()
-        {
-            return Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-                       + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
         }
 
         private string GenerateOutputFilePath(UiInputSummary data)
