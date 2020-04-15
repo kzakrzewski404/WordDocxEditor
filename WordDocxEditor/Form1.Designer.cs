@@ -625,9 +625,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(498, 780);
-            this.MinimumSize = new System.Drawing.Size(498, 780);
+            this.MinimumSize = new System.Drawing.Size(498, 726);
             this.Name = "Form1";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.0.2";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.0.3";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

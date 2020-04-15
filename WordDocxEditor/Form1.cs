@@ -51,12 +51,18 @@ namespace WordDocxEditor
             }
             else
             {
-                _wordGenerator.Generate(summary);
-                
-                MessageBox.Show($"Wygenerowano dokument: {summary.Informations.Name}",
-                                 "Generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool isSuccess = _wordGenerator.Generate(summary);
 
-                _uiInformations.Clear();
+                if (isSuccess)
+                {
+                    MessageBox.Show($"Wygenerowano dokument: {summary.Informations.Name}",
+                                 "Generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _uiInformations.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Wygenerowanie pliku nie powiodło się.", "Generator", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 

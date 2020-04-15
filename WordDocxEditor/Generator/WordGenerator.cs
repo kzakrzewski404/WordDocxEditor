@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 
 using WordDocxEditor.Config;
@@ -12,7 +13,7 @@ namespace WordDocxEditor.Generator
     {
         private static string _desktopOutputDirectory = "";
         private static bool _isInitialized;
-        private static Application _wordApp;
+        private static Microsoft.Office.Interop.Word.Application _wordApp;
         private Document _document;
 
 
@@ -21,14 +22,18 @@ namespace WordDocxEditor.Generator
             Initialize();
 
             string outputFilePath = GenerateOutputFilePath(data);
-            Copy(data.SelectedTemplateFilePath, outputFilePath);
-            bool isEditSuccessful = EditWordFile(outputFilePath, data);
 
-            if (isEditSuccessful)
+            if (!IsOverwritingFile(outputFilePath))
             {
-                HandlePrinter(data.Print.DoPrint, data.Print.NumberOfCopies);
-                CloseWordFile();
-                return true;
+                Copy(data.SelectedTemplateFilePath, outputFilePath);
+                bool isEditSuccessful = EditWordFile(outputFilePath, data);
+
+                if (isEditSuccessful)
+                {
+                    HandlePrinter(data.Print.DoPrint, data.Print.NumberOfCopies);
+                    CloseWordFile();
+                    return true;
+                }
             }
 
             return false;
@@ -42,6 +47,26 @@ namespace WordDocxEditor.Generator
         }
 
         private void Copy(string templateFilePath, string targetFilePath) => File.Copy(templateFilePath, targetFilePath);
+
+        private bool IsOverwritingFile(string targetFilePath)
+        {
+            if (File.Exists(targetFilePath))
+            {
+                DialogResult result = MessageBox.Show($"Już istnieje wygenerowany plik o nazwie {Path.GetFileName(targetFilePath)}\n" +
+                                                      $"Czy nadpisać plik?","Plik już istnieje",
+                                                      MessageBoxButtons.YesNoCancel,
+                                                      MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    File.Delete(targetFilePath);
+                    return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
 
         private bool EditWordFile(string targetFilePath, UiInputSummary data)
         {
@@ -99,7 +124,7 @@ namespace WordDocxEditor.Generator
             }
         }
 
-        private void LocalizeWordApp() => _wordApp = new Application();
+        private void LocalizeWordApp() => _wordApp = new Microsoft.Office.Interop.Word.Application();
 
         private string PrepareDesktopOutputDirectory()
         {
