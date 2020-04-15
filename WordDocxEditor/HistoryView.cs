@@ -34,8 +34,9 @@ namespace WordDocxEditor
                                      DateTime received, DateTime response, string templateName,
                                      bool wasPrinted, int numberOfCopies)
         {
-            dataGridView1.Rows.Add(id, name, address, city, received.Date.ToShortDateString(), response.Date.ToString("H.mm.ss - dd.MM.yyyy"),
-                                   templateName, wasPrinted ? "Tak" : "", wasPrinted ? numberOfCopies.ToString() : "", DateTime.Now);
+            dataGridView1.Rows.Add(id, name, address, city, received.Date.ToShortDateString(), response.Date.ToShortDateString(),
+                                   templateName, wasPrinted ? "Tak" : "", wasPrinted ? numberOfCopies.ToString() : "", 
+                                   DateTime.Now.ToString("H.mm.ss - dd.MM.yyyy"));
         }
 
         private void button_ExportToExcel_Click(object sender, EventArgs e)
