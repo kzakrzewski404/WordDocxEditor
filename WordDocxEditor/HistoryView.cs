@@ -39,5 +39,7 @@ namespace WordDocxEditor
             exporter.ExportToExcel(dataGridView1);
             MessageBox.Show("Koniec");
         }
+
+        private void OnFormShowing(object sender, EventArgs e) => label_numberOfEntries.Text = dataGridView1.RowCount.ToString();
     }
 }
