@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 
 using WordDocxEditor.Ui;
+using WordDocxEditor.History;
 
 
 namespace WordDocxEditor
@@ -35,6 +36,13 @@ namespace WordDocxEditor
         {
             dataGridView1.Rows.Add(id, name, address, city, received.Date.ToShortDateString(), response.Date.ToShortDateString(),
                                    templateName, wasPrinted ? "Tak" : "", wasPrinted ? numberOfCopies.ToString() : "", DateTime.Now);
+        }
+
+        private void button_ExportToExcel_Click(object sender, EventArgs e)
+        {
+            Exporter ex = new Exporter();
+            ex.ExportToExcel(dataGridView1);
+            MessageBox.Show("Koniec");
         }
     }
 }

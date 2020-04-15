@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button_ExportToExcel = new System.Windows.Forms.Button();
             this.Nr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,17 +68,28 @@
             this.dataGridView1.RowHeadersWidth = 25;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(1010, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(1010, 298);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // button_ExportToExcel
+            // 
+            this.button_ExportToExcel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_ExportToExcel.Location = new System.Drawing.Point(887, 316);
+            this.button_ExportToExcel.Name = "button_ExportToExcel";
+            this.button_ExportToExcel.Size = new System.Drawing.Size(124, 31);
+            this.button_ExportToExcel.TabIndex = 6;
+            this.button_ExportToExcel.Text = "Exportuj do Excel\'a";
+            this.button_ExportToExcel.UseVisualStyleBackColor = true;
+            this.button_ExportToExcel.Click += new System.EventHandler(this.button_ExportToExcel_Click);
             // 
             // Nr
             // 
             this.Nr.HeaderText = "Nr.";
-            this.Nr.MinimumWidth = 30;
+            this.Nr.MinimumWidth = 35;
             this.Nr.Name = "Nr";
             this.Nr.ReadOnly = true;
             this.Nr.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Nr.Width = 40;
+            this.Nr.Width = 35;
             // 
             // name
             // 
@@ -123,7 +135,7 @@
             this.template.HeaderText = "Szablon";
             this.template.Name = "template";
             this.template.ReadOnly = true;
-            this.template.Width = 145;
+            this.template.Width = 150;
             // 
             // wasPrinted
             // 
@@ -155,6 +167,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1034, 361);
+            this.Controls.Add(this.button_ExportToExcel);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "HistoryView";
@@ -167,6 +180,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button_ExportToExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nr;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
