@@ -256,7 +256,7 @@
             this.button_loadTemplates.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_loadTemplates.Location = new System.Drawing.Point(376, 19);
             this.button_loadTemplates.Name = "button_loadTemplates";
-            this.button_loadTemplates.Size = new System.Drawing.Size(69, 25);
+            this.button_loadTemplates.Size = new System.Drawing.Size(70, 31);
             this.button_loadTemplates.TabIndex = 35;
             this.button_loadTemplates.Text = "Wybierz";
             this.button_loadTemplates.UseVisualStyleBackColor = true;
@@ -491,7 +491,7 @@
             // button_Generate
             // 
             this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Generate.Location = new System.Drawing.Point(333, 690);
+            this.button_Generate.Location = new System.Drawing.Point(334, 690);
             this.button_Generate.Name = "button_Generate";
             this.button_Generate.Size = new System.Drawing.Size(124, 31);
             this.button_Generate.TabIndex = 5;
@@ -617,7 +617,7 @@
             this.button_history.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_history.Location = new System.Drawing.Point(23, 690);
             this.button_history.Name = "button_history";
-            this.button_history.Size = new System.Drawing.Size(124, 31);
+            this.button_history.Size = new System.Drawing.Size(70, 31);
             this.button_history.TabIndex = 31;
             this.button_history.Text = "Historia";
             this.button_history.UseVisualStyleBackColor = true;
@@ -626,11 +626,11 @@
             // button_outputDir
             // 
             this.button_outputDir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_outputDir.Location = new System.Drawing.Point(179, 690);
+            this.button_outputDir.Location = new System.Drawing.Point(99, 690);
             this.button_outputDir.Name = "button_outputDir";
-            this.button_outputDir.Size = new System.Drawing.Size(124, 31);
+            this.button_outputDir.Size = new System.Drawing.Size(70, 31);
             this.button_outputDir.TabIndex = 32;
-            this.button_outputDir.Text = "Folder wyjściowy";
+            this.button_outputDir.Text = "Folder";
             this.button_outputDir.UseVisualStyleBackColor = true;
             this.button_outputDir.Click += new System.EventHandler(this.button_outputDir_Click);
             // 

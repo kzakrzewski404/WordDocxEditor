@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryView));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button_ExportToExcel = new System.Windows.Forms.Button();
-            this.label_numberOfEntries = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.Nr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +40,9 @@
             this.wasPrinted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberOfCopies = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfEntry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_ExportToExcel = new System.Windows.Forms.Button();
+            this.label_numberOfEntries = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,39 +73,6 @@
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(1060, 298);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button_ExportToExcel
-            // 
-            this.button_ExportToExcel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_ExportToExcel.Location = new System.Drawing.Point(948, 318);
-            this.button_ExportToExcel.Name = "button_ExportToExcel";
-            this.button_ExportToExcel.Size = new System.Drawing.Size(124, 31);
-            this.button_ExportToExcel.TabIndex = 6;
-            this.button_ExportToExcel.Text = "Exportuj do Excel\'a";
-            this.button_ExportToExcel.UseVisualStyleBackColor = true;
-            this.button_ExportToExcel.Click += new System.EventHandler(this.button_ExportToExcel_Click);
-            // 
-            // label_numberOfEntries
-            // 
-            this.label_numberOfEntries.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_numberOfEntries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_numberOfEntries.Location = new System.Drawing.Point(84, 323);
-            this.label_numberOfEntries.Name = "label_numberOfEntries";
-            this.label_numberOfEntries.Size = new System.Drawing.Size(142, 25);
-            this.label_numberOfEntries.TabIndex = 34;
-            this.label_numberOfEntries.Text = "9999";
-            this.label_numberOfEntries.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label8.Location = new System.Drawing.Point(8, 323);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 25);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Wpisów:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Nr
             // 
@@ -186,6 +153,39 @@
             this.dateOfEntry.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dateOfEntry.Width = 140;
             // 
+            // button_ExportToExcel
+            // 
+            this.button_ExportToExcel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_ExportToExcel.Location = new System.Drawing.Point(948, 318);
+            this.button_ExportToExcel.Name = "button_ExportToExcel";
+            this.button_ExportToExcel.Size = new System.Drawing.Size(124, 31);
+            this.button_ExportToExcel.TabIndex = 6;
+            this.button_ExportToExcel.Text = "Exportuj do Excel\'a";
+            this.button_ExportToExcel.UseVisualStyleBackColor = true;
+            this.button_ExportToExcel.Click += new System.EventHandler(this.button_ExportToExcel_Click);
+            // 
+            // label_numberOfEntries
+            // 
+            this.label_numberOfEntries.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_numberOfEntries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_numberOfEntries.Location = new System.Drawing.Point(84, 323);
+            this.label_numberOfEntries.Name = "label_numberOfEntries";
+            this.label_numberOfEntries.Size = new System.Drawing.Size(142, 25);
+            this.label_numberOfEntries.TabIndex = 34;
+            this.label_numberOfEntries.Text = "9999";
+            this.label_numberOfEntries.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label8.Location = new System.Drawing.Point(8, 323);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 25);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Wpisów:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // HistoryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,8 +196,10 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button_ExportToExcel);
             this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HistoryView";
             this.Text = "Historia wygenerowanych dokumentów";
             this.Load += new System.EventHandler(this.OnFormShowing);
