@@ -13,7 +13,7 @@ namespace WordDocxEditor.CustomCity
             {
                 return new VerifierResult("Nieprawidłowa długość kodu pocztowego.");
             }
-            if (!VerifyPostalCodePattern(postalCode)
+            if (!VerifyPostalCodePattern(postalCode))
             {
                 return new VerifierResult("Kod pocztowy nie jest w formacie \"XX-XXX\".");
             }
