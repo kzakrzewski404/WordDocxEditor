@@ -1,6 +1,8 @@
 .vs/*
 WordDocxEditor/bin/*
 WordDocxEditor/obj/*
+NUnitTests/bin/*
+NUnitTests/obj/*
 
 *.exe
 *.cache
