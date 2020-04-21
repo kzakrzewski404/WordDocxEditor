@@ -11,5 +11,11 @@
             IsCreatedSuccessful = true;
             City = $"{postalCode} {cityName}";
         }
+
+
+        public CustomCityResult()
+        {
+            IsCreatedSuccessful = false;
+        }
     }
 }
