@@ -87,6 +87,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DirectoryPaths.cs" />
+    <Compile Include="CustomCityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomCityForm.Designer.cs">
+      <DependentUpon>CustomCityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCity\CityVerifier.cs" />
+    <Compile Include="CustomCity\CustomCityResult.cs" />
     <Compile Include="Generator\DataVerifierResult.cs" />
     <Compile Include="Generator\TemplateId.cs" />
     <Compile Include="Generator\WordGenerator.cs" />
@@ -119,6 +127,9 @@
     <Compile Include="Ui\UiInformationsTemplateRecognition.cs" />
     <Compile Include="Ui\UiTemplates.cs" />
     <Compile Include="Ui\UiTemplatesData.cs" />
+    <EmbeddedResource Include="CustomCityForm.resx">
+      <DependentUpon>CustomCityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
