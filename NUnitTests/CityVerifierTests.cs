@@ -17,6 +17,7 @@ namespace NUnitTests
             Assert.IsFalse(result.IsSuccess);
         }
 
+        [Test]
         public void Verify_WhitespacePostalCode_ShouldReturnFalse()
         {
             var verifier = new CityVerifier();
@@ -26,6 +27,7 @@ namespace NUnitTests
             Assert.IsFalse(result.IsSuccess);
         }
 
+        [Test]
         public void Verify_WrongPostalCodeLenght_ShouldReturnFalse()
         {
             var verifier = new CityVerifier();
@@ -50,6 +52,7 @@ namespace NUnitTests
             Assert.IsFalse(result.IsSuccess);
         }
 
+        [Test]
         public void Verify_CorrectPostalCode_ShouldReturnTrue()
         {
             var verifier = new CityVerifier();
