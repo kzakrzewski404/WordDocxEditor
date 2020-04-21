@@ -44,7 +44,7 @@ namespace WordDocxEditor
         private void button_Generate_Click(object sender, EventArgs e)
         {
             UiInputSummary summary = new UiInputSummary(_uiInformations, _uiDate, _uiPrint, _uiTemplates);
-            DataVerifierResult result = _dataVerifier.Verify(summary);
+            VerifierResult result = _dataVerifier.Verify(summary);
 
             if (!result.IsSuccess)
             {

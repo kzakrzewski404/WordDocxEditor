@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="CustomCity\CityVerifier.cs" />
     <Compile Include="CustomCity\CustomCityResult.cs" />
-    <Compile Include="Generator\DataVerifierResult.cs" />
+    <Compile Include="Common\VerifierResult.cs" />
     <Compile Include="Generator\TemplateId.cs" />
     <Compile Include="Generator\WordGenerator.cs" />
     <Compile Include="Form1.cs">
