@@ -53,13 +53,33 @@ namespace NUnitTests
         }
 
         [Test]
-        public void Verify_CorrectPostalCode_ShouldReturnTrue()
+        public void Verify_CorrectPostalCodeAndCity_ShouldReturnTrue()
         {
             var verifier = new CityVerifier();
 
             var result = verifier.Verify("95-060", "city");
 
             Assert.IsTrue(result.IsSuccess);
+        }
+
+        [Test]
+        public void Verify_NullCityString_ShouldReturnFalse()
+        {
+            var verifier = new CityVerifier();
+
+            var result = verifier.Verify("95-060", null);
+
+            Assert.IsFalse(result.IsSuccess);
+        }
+
+        [Test]
+        public void Verify_WhiteSpaceCity_ShouldReturnFalse()
+        {
+            var verifier = new CityVerifier();
+
+            var result = verifier.Verify("95-060", "    ");
+
+            Assert.IsFalse(result.IsSuccess);
         }
     }
 }
