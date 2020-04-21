@@ -72,16 +72,16 @@
             // 
             this.textBox_City.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_City.Location = new System.Drawing.Point(141, 40);
-            this.textBox_City.MaxLength = 6;
+            this.textBox_City.MaxLength = 32;
             this.textBox_City.Name = "textBox_City";
-            this.textBox_City.Size = new System.Drawing.Size(100, 27);
+            this.textBox_City.Size = new System.Drawing.Size(164, 27);
             this.textBox_City.TabIndex = 10;
             this.textBox_City.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button_Add
             // 
             this.button_Add.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Add.Location = new System.Drawing.Point(141, 113);
+            this.button_Add.Location = new System.Drawing.Point(205, 113);
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(100, 31);
             this.button_Add.TabIndex = 33;
@@ -105,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(253, 156);
+            this.ClientSize = new System.Drawing.Size(317, 156);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Add);
             this.Controls.Add(this.label1);
