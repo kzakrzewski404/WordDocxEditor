@@ -9,7 +9,7 @@
         public CustomCityResult(string postalCode, string cityName)
         {
             IsCreatedSuccessful = true;
-            City = $"{postalCode} - {cityName}";
+            City = $"{postalCode} {cityName}";
         }
     }
 }
