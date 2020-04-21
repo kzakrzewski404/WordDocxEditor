@@ -1225,6 +1225,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "WordDocxEditor/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/WordDocxEditor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WordDocxEditor.dll": {}
+        }
       }
     }
   },
@@ -4569,12 +4578,18 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "WordDocxEditor/1.0.0": {
+      "type": "project",
+      "path": "../WordDocxEditor/WordDocxEditor.csproj",
+      "msbuildProject": "../WordDocxEditor/WordDocxEditor.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "NUnit3TestAdapter >= 3.15.1",
+      "WordDocxEditor >= 1.0.0",
       "nunit >= 3.12.0"
     ]
   },
@@ -4607,7 +4622,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj": {
+              "projectPath": "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

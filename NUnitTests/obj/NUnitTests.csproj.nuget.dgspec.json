@@ -29,7 +29,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj": {
+                "projectPath": "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -71,6 +75,17 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj",
+        "projectName": "WordDocxEditor",
+        "projectPath": "H:\\Programowanie\\Github\\WordDocxEditor\\WordDocxEditor\\WordDocxEditor.csproj"
+      },
+      "frameworks": {
+        "net45": {}
       }
     }
   }
