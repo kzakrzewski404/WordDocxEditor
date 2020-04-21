@@ -86,10 +86,6 @@ namespace WordDocxEditor
 
         private void menu_informationsAddNumberToFileName_Click(object sender, EventArgs e) => _uiHelp.informationsAddNumberToFileName();
 
-        private void menu_informationsAddressCorrectness_Click(object sender, EventArgs e) => _uiHelp.informationsAddressCorrectness();
-
-        private void Menu_informationsAutoTemplateDetection_Click(object sender, EventArgs e) => _uiHelp.informationsAutoTemplateDetection();
-
         private void menu_printDoPrint_Click(object sender, EventArgs e) => _uiHelp.printDoPrint();
 
         private void menu_generatorTags_Click(object sender, EventArgs e) => _uiHelp.generatorTags();

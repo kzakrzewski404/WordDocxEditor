@@ -69,8 +69,6 @@
             this.daneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcjaUlicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.poprawnośćAdresuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.automatyczneWykrywanieSzablonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wydrukToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drukujPoWygenerowaniuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generowaniePlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -526,13 +524,13 @@
             this.szablonyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wymaganiaToolStripMenuItem});
             this.szablonyToolStripMenuItem.Name = "szablonyToolStripMenuItem";
-            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.szablonyToolStripMenuItem.Text = "Szablony";
             // 
             // wymaganiaToolStripMenuItem
             // 
             this.wymaganiaToolStripMenuItem.Name = "wymaganiaToolStripMenuItem";
-            this.wymaganiaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.wymaganiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.wymaganiaToolStripMenuItem.Text = "Wymagania";
             this.wymaganiaToolStripMenuItem.Click += new System.EventHandler(this.menu_templatesRequirements_Click);
             // 
@@ -540,11 +538,9 @@
             // 
             this.daneToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opcjaUlicaToolStripMenuItem,
-            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem,
-            this.poprawnośćAdresuToolStripMenuItem,
-            this.automatyczneWykrywanieSzablonuToolStripMenuItem});
+            this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem});
             this.daneToolStripMenuItem.Name = "daneToolStripMenuItem";
-            this.daneToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.daneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.daneToolStripMenuItem.Text = "Dane";
             // 
             // opcjaUlicaToolStripMenuItem
@@ -561,26 +557,12 @@
             this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem.Text = "Opcja \"Dodaj numer w nazwie pliku\"";
             this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem.Click += new System.EventHandler(this.menu_informationsAddNumberToFileName_Click);
             // 
-            // poprawnośćAdresuToolStripMenuItem
-            // 
-            this.poprawnośćAdresuToolStripMenuItem.Name = "poprawnośćAdresuToolStripMenuItem";
-            this.poprawnośćAdresuToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.poprawnośćAdresuToolStripMenuItem.Text = "Poprawność adresu";
-            this.poprawnośćAdresuToolStripMenuItem.Click += new System.EventHandler(this.menu_informationsAddressCorrectness_Click);
-            // 
-            // automatyczneWykrywanieSzablonuToolStripMenuItem
-            // 
-            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Name = "automatyczneWykrywanieSzablonuToolStripMenuItem";
-            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
-            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Text = "Automatyczne wykrywanie szablonu";
-            this.automatyczneWykrywanieSzablonuToolStripMenuItem.Click += new System.EventHandler(this.Menu_informationsAutoTemplateDetection_Click);
-            // 
             // wydrukToolStripMenuItem
             // 
             this.wydrukToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.drukujPoWygenerowaniuToolStripMenuItem});
             this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
-            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.wydrukToolStripMenuItem.Text = "Wydruk";
             // 
             // drukujPoWygenerowaniuToolStripMenuItem
@@ -596,7 +578,7 @@
             this.tagiToolStripMenuItem,
             this.folderDocelowyToolStripMenuItem});
             this.generowaniePlikuToolStripMenuItem.Name = "generowaniePlikuToolStripMenuItem";
-            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.generowaniePlikuToolStripMenuItem.Text = "Generowanie pliku";
             // 
             // tagiToolStripMenuItem
@@ -715,8 +697,6 @@
         private System.Windows.Forms.ToolStripMenuItem daneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opcjaUlicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opcjaDodajNumerWNazwiePlikuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem poprawnośćAdresuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem automatyczneWykrywanieSzablonuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wydrukToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drukujPoWygenerowaniuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generowaniePlikuToolStripMenuItem;
