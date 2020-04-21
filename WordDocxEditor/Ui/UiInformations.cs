@@ -35,6 +35,7 @@ namespace WordDocxEditor.Ui
             _address = address;
             _isStreet = isStreet;
             _city = city;
+            _city.SelectedIndexChanged += OnCitySelected;
             _caseId = id;
             _templateChoice = templateChoice;
             _templateChoice.First().Value.Checked = true;
@@ -57,6 +58,25 @@ namespace WordDocxEditor.Ui
             UiInformationsTemplateRecognition recognition = new UiInformationsTemplateRecognition();
             TemplateId id = recognition.RecognizeByName(_name.Text);
             _templateChoice.Where(x => x.Key == id).Select(x => x.Value).First().Checked = true;
+        }
+
+        private void OnCitySelected(object sender, System.EventArgs e)
+        {
+            if (_city.SelectedIndex == _city.Items.Count - 1)
+            {
+                CustomCityForm customCityForm = new CustomCityForm();
+                customCityForm.ShowDialog();
+
+                if (customCityForm.Result.IsCreatedSuccessful)
+                {
+                    _city.Items.Add(_city.Items[_city.SelectedIndex]);
+                    _city.Items[_city.SelectedIndex] = customCityForm.Result.City;
+                }
+                else
+                {
+                    _city.SelectedIndex = 0;
+                }
+            }
         }
     }
 }
