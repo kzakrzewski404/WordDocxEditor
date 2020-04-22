@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-using WordDocxEditor.Common;
+using WordDocxEditor.Shared.Data;
 
 
 namespace WordDocxEditor.CustomCity
