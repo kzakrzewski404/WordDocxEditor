@@ -43,13 +43,7 @@
             this.radioButton_Mrs = new System.Windows.Forms.RadioButton();
             this.radioButton_Company = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_loadTemplates = new System.Windows.Forms.Button();
-            this.label_CompanyTemplate = new System.Windows.Forms.Label();
-            this.label_MrsTemplate = new System.Windows.Forms.Label();
-            this.label_MrTemplate = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox_Templates = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox_addNumberToFileName = new System.Windows.Forms.CheckBox();
@@ -235,97 +229,24 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_loadTemplates);
-            this.groupBox1.Controls.Add(this.label_CompanyTemplate);
-            this.groupBox1.Controls.Add(this.label_MrsTemplate);
-            this.groupBox1.Controls.Add(this.label_MrTemplate);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.comboBox_Templates);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(458, 122);
+            this.groupBox1.Size = new System.Drawing.Size(458, 80);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Szablony";
             // 
-            // button_loadTemplates
+            // comboBox_Templates
             // 
-            this.button_loadTemplates.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_loadTemplates.Location = new System.Drawing.Point(376, 19);
-            this.button_loadTemplates.Name = "button_loadTemplates";
-            this.button_loadTemplates.Size = new System.Drawing.Size(70, 31);
-            this.button_loadTemplates.TabIndex = 35;
-            this.button_loadTemplates.Text = "Wybierz";
-            this.button_loadTemplates.UseVisualStyleBackColor = true;
-            this.button_loadTemplates.Click += new System.EventHandler(this.button_loadTemplates_Click);
-            // 
-            // label_CompanyTemplate
-            // 
-            this.label_CompanyTemplate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_CompanyTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_CompanyTemplate.Location = new System.Drawing.Point(62, 76);
-            this.label_CompanyTemplate.Name = "label_CompanyTemplate";
-            this.label_CompanyTemplate.Size = new System.Drawing.Size(300, 25);
-            this.label_CompanyTemplate.TabIndex = 32;
-            this.label_CompanyTemplate.Text = "<Nie wybrano>";
-            this.label_CompanyTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label_MrsTemplate
-            // 
-            this.label_MrsTemplate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_MrsTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_MrsTemplate.Location = new System.Drawing.Point(62, 46);
-            this.label_MrsTemplate.Name = "label_MrsTemplate";
-            this.label_MrsTemplate.Size = new System.Drawing.Size(300, 25);
-            this.label_MrsTemplate.TabIndex = 31;
-            this.label_MrsTemplate.Text = "<Nie wybrano>";
-            this.label_MrsTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label_MrTemplate
-            // 
-            this.label_MrTemplate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_MrTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_MrTemplate.Location = new System.Drawing.Point(62, 16);
-            this.label_MrTemplate.Name = "label_MrTemplate";
-            this.label_MrTemplate.Size = new System.Drawing.Size(300, 25);
-            this.label_MrTemplate.TabIndex = 30;
-            this.label_MrTemplate.Text = "<Nie wybrano>";
-            this.label_MrTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label8.Location = new System.Drawing.Point(6, 76);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 25);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Firma:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label7.Location = new System.Drawing.Point(6, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 25);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Pani:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label6.Location = new System.Drawing.Point(6, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 25);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Pan:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.comboBox_Templates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Templates.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_Templates.FormattingEnabled = true;
+            this.comboBox_Templates.Location = new System.Drawing.Point(10, 26);
+            this.comboBox_Templates.Name = "comboBox_Templates";
+            this.comboBox_Templates.Size = new System.Drawing.Size(435, 27);
+            this.comboBox_Templates.TabIndex = 36;
             // 
             // groupBox2
             // 
@@ -334,7 +255,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dateTimePicker_Response);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox2.Location = new System.Drawing.Point(12, 166);
+            this.groupBox2.Location = new System.Drawing.Point(12, 124);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(458, 100);
             this.groupBox2.TabIndex = 28;
@@ -358,7 +279,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBox_Address);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox3.Location = new System.Drawing.Point(12, 272);
+            this.groupBox3.Location = new System.Drawing.Point(12, 230);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(458, 295);
             this.groupBox3.TabIndex = 29;
@@ -435,7 +356,7 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.checkBox_doPrint);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox4.Location = new System.Drawing.Point(12, 573);
+            this.groupBox4.Location = new System.Drawing.Point(12, 531);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(458, 92);
             this.groupBox4.TabIndex = 30;
@@ -444,6 +365,7 @@
             // 
             // numericUpDown_NumberOfCopies
             // 
+            this.numericUpDown_NumberOfCopies.AutoSize = true;
             this.numericUpDown_NumberOfCopies.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown_NumberOfCopies.Location = new System.Drawing.Point(260, 44);
             this.numericUpDown_NumberOfCopies.Maximum = new decimal(new int[] {
@@ -490,7 +412,7 @@
             // button_Generate
             // 
             this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Generate.Location = new System.Drawing.Point(334, 690);
+            this.button_Generate.Location = new System.Drawing.Point(333, 642);
             this.button_Generate.Name = "button_Generate";
             this.button_Generate.Size = new System.Drawing.Size(124, 31);
             this.button_Generate.TabIndex = 5;
@@ -524,13 +446,13 @@
             this.szablonyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wymaganiaToolStripMenuItem});
             this.szablonyToolStripMenuItem.Name = "szablonyToolStripMenuItem";
-            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.szablonyToolStripMenuItem.Text = "Szablony";
             // 
             // wymaganiaToolStripMenuItem
             // 
             this.wymaganiaToolStripMenuItem.Name = "wymaganiaToolStripMenuItem";
-            this.wymaganiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wymaganiaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.wymaganiaToolStripMenuItem.Text = "Wymagania";
             this.wymaganiaToolStripMenuItem.Click += new System.EventHandler(this.menu_templatesRequirements_Click);
             // 
@@ -540,7 +462,7 @@
             this.opcjaUlicaToolStripMenuItem,
             this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem});
             this.daneToolStripMenuItem.Name = "daneToolStripMenuItem";
-            this.daneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.daneToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.daneToolStripMenuItem.Text = "Dane";
             // 
             // opcjaUlicaToolStripMenuItem
@@ -562,7 +484,7 @@
             this.wydrukToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.drukujPoWygenerowaniuToolStripMenuItem});
             this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
-            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.wydrukToolStripMenuItem.Text = "Wydruk";
             // 
             // drukujPoWygenerowaniuToolStripMenuItem
@@ -578,7 +500,7 @@
             this.tagiToolStripMenuItem,
             this.folderDocelowyToolStripMenuItem});
             this.generowaniePlikuToolStripMenuItem.Name = "generowaniePlikuToolStripMenuItem";
-            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.generowaniePlikuToolStripMenuItem.Text = "Generowanie pliku";
             // 
             // tagiToolStripMenuItem
@@ -598,7 +520,7 @@
             // button_history
             // 
             this.button_history.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_history.Location = new System.Drawing.Point(23, 690);
+            this.button_history.Location = new System.Drawing.Point(22, 642);
             this.button_history.Name = "button_history";
             this.button_history.Size = new System.Drawing.Size(70, 31);
             this.button_history.TabIndex = 31;
@@ -609,7 +531,7 @@
             // button_outputDir
             // 
             this.button_outputDir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_outputDir.Location = new System.Drawing.Point(99, 690);
+            this.button_outputDir.Location = new System.Drawing.Point(98, 642);
             this.button_outputDir.Name = "button_outputDir";
             this.button_outputDir.Size = new System.Drawing.Size(70, 31);
             this.button_outputDir.TabIndex = 32;
@@ -617,12 +539,12 @@
             this.button_outputDir.UseVisualStyleBackColor = true;
             this.button_outputDir.Click += new System.EventHandler(this.button_outputDir_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(482, 741);
+            this.ClientSize = new System.Drawing.Size(482, 691);
             this.Controls.Add(this.button_outputDir);
             this.Controls.Add(this.button_history);
             this.Controls.Add(this.button_Generate);
@@ -635,10 +557,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(498, 780);
-            this.MinimumSize = new System.Drawing.Size(498, 726);
-            this.Name = "Form1";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.0.4";
+            this.Name = "MainForm";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.0.5";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -671,12 +591,6 @@
         private System.Windows.Forms.RadioButton radioButton_Mrs;
         private System.Windows.Forms.RadioButton radioButton_Company;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label_CompanyTemplate;
-        private System.Windows.Forms.Label label_MrsTemplate;
-        private System.Windows.Forms.Label label_MrTemplate;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
@@ -689,7 +603,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
-        private System.Windows.Forms.Button button_loadTemplates;
         private System.Windows.Forms.CheckBox checkBox_IsStreet;
         private System.Windows.Forms.CheckBox checkBox_addNumberToFileName;
         private System.Windows.Forms.ToolStripMenuItem szablonyToolStripMenuItem;
@@ -704,6 +617,7 @@
         private System.Windows.Forms.ToolStripMenuItem folderDocelowyToolStripMenuItem;
         private System.Windows.Forms.Button button_history;
         private System.Windows.Forms.Button button_outputDir;
+        private System.Windows.Forms.ComboBox comboBox_Templates;
     }
 }
 

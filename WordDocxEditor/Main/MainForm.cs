@@ -36,9 +36,7 @@ namespace WordDocxEditor.Main
 
             _dateUiController.Bind(dateTimePicker_Received, dateTimePicker_Response);
             _printUiController.Bind(checkBox_doPrint, numericUpDown_NumberOfCopies);
-            _templatesUiController.Bind(new Dictionary<TemplateId, Label> { { TemplateId.Mr, label_MrTemplate },
-                                                                  { TemplateId.Mrs, label_MrsTemplate },
-                                                                  { TemplateId.Company, label_CompanyTemplate } });
+            _templatesUiController.Bind(comboBox_Templates);
 
             _basicInformationsUiController.Bind(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, numericUpDown_CaseId,
                 new Dictionary<TemplateId, RadioButton> { { TemplateId.Mr, radioButton_Mr },
@@ -46,8 +44,6 @@ namespace WordDocxEditor.Main
                                                           { TemplateId.Company, radioButton_Company } },
                                                 checkBox_addNumberToFileName);
         }
-
-        private void button_loadTemplates_Click(object sender, EventArgs e) => _templatesUiController.HandleTemplatesSelectionFromDisk();
 
         private void button_Generate_Click(object sender, EventArgs e)
         {
@@ -84,7 +80,6 @@ namespace WordDocxEditor.Main
             button_Generate.Enabled = mode;
             button_Generate.BackColor = mode ? Color.FromArgb(0, 0, 0, 0) : Color.Green;
             button_history.Enabled = mode;
-            button_loadTemplates.Enabled = mode;
         }
 
         private void button_history_Click(object sender, EventArgs e) => _historyDialog.ShowDialog();
