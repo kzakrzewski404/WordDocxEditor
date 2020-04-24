@@ -46,7 +46,6 @@
             this.comboBox_Templates = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.checkBox_addNumberToFileName = new System.Windows.Forms.CheckBox();
             this.checkBox_IsStreet = new System.Windows.Forms.CheckBox();
             this.numericUpDown_CaseId = new System.Windows.Forms.NumericUpDown();
@@ -269,7 +268,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.checkBox_addNumberToFileName);
             this.groupBox3.Controls.Add(this.checkBox_IsStreet);
             this.groupBox3.Controls.Add(this.numericUpDown_CaseId);
@@ -291,15 +289,6 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(86, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 101;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // checkBox_addNumberToFileName
             // 
@@ -666,7 +655,6 @@
         private System.Windows.Forms.ComboBox comboBox_Templates;
         private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aktualizujToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem cEIDGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kRSToolStripMenuItem;
     }
