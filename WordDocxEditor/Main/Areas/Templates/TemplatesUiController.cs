@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,104 +11,74 @@ namespace WordDocxEditor.Main.Areas.Templates
 {
     public class TemplatesUiController : TemplatesData
     {
-        private Dictionary<TemplateId, Label> _labels;
-        private Dictionary<TemplateId, string> _filePaths = new Dictionary<TemplateId, string>();
-        private UiMessages _common = new UiMessages();
-        private const string DEFAULT_NOT_SELECTED = "<Nie wybrano>";
+        private ComboBox _comboBoxTemplates;
+        private List<LoadedTemplates> _loadedTemplates = new List<LoadedTemplates>();
+        private UiMessages _uiMessages = new UiMessages();
 
 
-        public override bool IsSuccess => CheckIfLoadedSuccessfully();
+        private int SelectedId => _comboBoxTemplates.SelectedIndex;
 
 
-        public void Bind(Dictionary<TemplateId, Label> labels)
+        public void Bind(ComboBox templatesComboBox)
         {
-            _labels = labels;
+            _comboBoxTemplates = templatesComboBox;
+
+            AutoLoadTemplates();
+            if (_comboBoxTemplates.Items.Count > 0)
+            {
+                _comboBoxTemplates.SelectedIndex = 0;
+            }
         }
 
-        public override string GetFilePath(TemplateId id) => _filePaths.Where(x => x.Key == id).Select(x => x.Value).FirstOrDefault();
-
-        public void HandleTemplatesSelectionFromDisk()
+        public override string GetFilePath(TemplateId id)
         {
-            _filePaths.Clear();
-            FolderBrowserDialog folderBrowser = CreateFolderBrowser();
+            return SelectedId >= 0 ? _loadedTemplates[SelectedId].GetFilePath(id) : null;
+        }
 
-            DialogResult result = folderBrowser.ShowDialog();
-            if (result == DialogResult.OK)
+
+        private bool CheckIfDirectoryContainsValidTemplates(string fullPath)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(fullPath);
+            FileInfo[] files = directoryInfo.GetFiles("_*");
+
+            return (files.Any(x => x.Name.Contains("_pan_")) &&
+                    files.Any(x => x.Name.Contains("_pani_")) &&
+                    files.Any(x => x.Name.Contains("_firma_")));
+        }
+
+        private void AutoLoadTemplates()
+        {
+            if (Directory.Exists("Szablony"))
             {
-                DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowser.SelectedPath);
-                FileInfo[] files = directoryInfo.GetFiles("_*");
-
-                if (files.Length > (int)TemplateId.ENUM_LENGTH)
+                DirectoryInfo[] templatesDirs = new DirectoryInfo("Szablony").GetDirectories();
+                if (templatesDirs.Length != 0)
                 {
-                    _common.ShowError($"W wybranym folderze znajduje się więcej niż {(int)TemplateId.ENUM_LENGTH} wymagane pliki.");
+                    _comboBoxTemplates.Items.Clear();
+                    _loadedTemplates.Clear();
+
+                    foreach (var dir in templatesDirs)
+                    {
+                        if (CheckIfDirectoryContainsValidTemplates(dir.FullName))
+                        {
+                            _loadedTemplates.Add(new LoadedTemplates(dir.FullName));
+                            _comboBoxTemplates.Items.Add(dir.Name);
+                        }
+                        else
+                        {
+                            _uiMessages.ShowError($"W szablonie \"{dir.Name}\" nie odnaleziono {(int)TemplateId.ENUM_LENGTH} " +
+                                $"wymaganych plików z szablonami zaczynających się od:\n_pan_*\n_pani_*\n_firma_*");
+                        }
+                    }
                 }
                 else
                 {
-                    _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, "_pan_"));
-                    _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
-                    _filePaths.Add(TemplateId.Company, FindTemplateFile(files, "_firma_"));
-
-                    if (_filePaths.Any(x => string.IsNullOrEmpty(x.Value)))
-                    {
-                        _common.ShowError($"Nie odnaleziono {(int)TemplateId.ENUM_LENGTH} plików z szablonami zaczynających się od:\n_pan_*\n_pani_*\n_firma_*");
-                    }
+                    _uiMessages.ShowError("W folderze \"Szablony\" nie znaleziono żadnych folderów.");
                 }
             }
             else
             {
-                _common.ShowError("Nie wybrano folderu.");
+                _uiMessages.ShowError("Nie znaleziono folderu \"Szablony\".");
             }
-
-            RefreshUiLabels();
-        }
-
-        private string FindTemplateFile(FileInfo[] files, string searchPattern)
-        {
-            return files.Where(x => x.Name.Contains(searchPattern)).Select(x => x.FullName).FirstOrDefault();
-        }
-
-        private void RefreshUiLabels()
-        {
-            if (IsSuccess)
-            {
-                foreach (var item in _labels)
-                {
-                    item.Value.Text = Path.GetFileName(_filePaths.Where(x => x.Key == item.Key).Select(x => x.Value).First());
-                }
-            }
-            else
-            {
-                foreach (var item in _labels)
-                {
-                    item.Value.Text = DEFAULT_NOT_SELECTED;
-                }
-            }
-        }
-
-        private FolderBrowserDialog CreateFolderBrowser()
-        {
-            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-            folderBrowser.Description = "Wybierz folder z trzema szablonami";
-
-            return folderBrowser;
-        }
-
-        private bool CheckIfLoadedSuccessfully()
-        {
-            if (_filePaths.Count != 3)
-            {
-                return false;
-            }
-
-            foreach (var item in _filePaths)
-            {
-                if (item.Value == null)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }
