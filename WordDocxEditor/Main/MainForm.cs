@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 using WordDocxEditor.History;
@@ -97,5 +98,15 @@ namespace WordDocxEditor.Main
         private void menu_generatorOutputDirectory_Click(object sender, EventArgs e) => _helpMessages.generatorOutputDirectory();
 
         private void button_outputDir_Click(object sender, EventArgs e) => new DirectoryPaths().OpenOutputDirectoryInExplorer();
+
+        private void cEIDGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://prod.ceidg.gov.pl/CEIDG/CEIDG.Public.UI/Search.aspx");
+        }
+
+        private void kRSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://ekrs.ms.gov.pl/web/wyszukiwarka-krs/strona-glowna/index.html");
+        }
     }
 }
