@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Main\Areas\Templates\LoadedTemplates.cs" />
     <Compile Include="Shared\Data\DirectoryPaths.cs" />
     <Compile Include="CustomCity\CustomCityDialog.cs">
       <SubType>Form</SubType>
