@@ -16,7 +16,16 @@ namespace WordDocxEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            if (Application.ExecutablePath[0] == '\\')
+            {
+                MessageBox.Show("Aplikacja nie może zostać uruchomiona ze ścieżki sieciowej!", "Nie można uruchomić",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Application.Run(new MainForm());
+            }
         }
     }
 }
