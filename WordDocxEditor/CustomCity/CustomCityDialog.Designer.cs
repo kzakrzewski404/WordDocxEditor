@@ -101,7 +101,7 @@
             this.button_Cancel.UseVisualStyleBackColor = true;
             this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
             // 
-            // CustomCityForm
+            // CustomCityDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,9 +113,11 @@
             this.Controls.Add(this.textBox_City);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox_PostalCode);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CustomCityForm";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "CustomCityDialog";
             this.Text = "Niestandardowe miasto";
             this.ResumeLayout(false);
             this.PerformLayout();
