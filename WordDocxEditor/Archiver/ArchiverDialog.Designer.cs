@@ -224,7 +224,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ArchiverDialog";
-            this.Text = "ArchiverDialog";
+            this.Text = "Archiwizowanie";
             this.Load += new System.EventHandler(this.ArchiverDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
