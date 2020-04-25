@@ -1,6 +1,6 @@
 ﻿namespace WordDocxEditor.Shared.Config
 {
-    public static class TagsConfig
+    public static class WordTagsCfg
     {
         public static string Name = "<name>";
         public static string Address = "<addr>";

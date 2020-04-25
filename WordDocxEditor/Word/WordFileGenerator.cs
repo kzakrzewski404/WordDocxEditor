@@ -88,13 +88,13 @@ namespace WordDocxEditor.Word
             {
                 _document = _wordApp.Documents.Open(targetFilePath, ReadOnly: false);
 
-                ReplaceTag(TagsConfig.Name, data.BasicInformations.Name);
-                ReplaceTag(TagsConfig.Address, data.BasicInformations.Address);
-                ReplaceTag(TagsConfig.IsStreet, data.BasicInformations.IsStreet ? "ul. " : "");
-                ReplaceTag(TagsConfig.City, data.BasicInformations.City);
-                ReplaceTag(TagsConfig.CaseId, data.BasicInformations.CaseId.ToString());
-                ReplaceTag(TagsConfig.ReceivedDate, data.Date.Received.Date.ToString("dd.MM.yyyy"));
-                ReplaceTag(TagsConfig.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
+                ReplaceTag(WordTagsCfg.Name, data.BasicInformations.Name);
+                ReplaceTag(WordTagsCfg.Address, data.BasicInformations.Address);
+                ReplaceTag(WordTagsCfg.IsStreet, data.BasicInformations.IsStreet ? "ul. " : "");
+                ReplaceTag(WordTagsCfg.City, data.BasicInformations.City);
+                ReplaceTag(WordTagsCfg.CaseId, data.BasicInformations.CaseId.ToString());
+                ReplaceTag(WordTagsCfg.ReceivedDate, data.Date.Received.Date.ToString("dd.MM.yyyy"));
+                ReplaceTag(WordTagsCfg.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
 
                 _document.Save();
                 return true;
