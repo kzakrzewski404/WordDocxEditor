@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Archiver\ArchiverDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archiver\ArchiverDialog.Designer.cs">
+      <DependentUpon>ArchiverDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Areas\Templates\LoadedTemplates.cs" />
     <Compile Include="Shared\Config\DirectoriesCfg.cs" />
     <Compile Include="Shared\Config\TemplatesCfg.cs" />
@@ -130,6 +136,9 @@
     <Compile Include="Main\Areas\BasicInformations\TemplateRecognition.cs" />
     <Compile Include="Main\Areas\Templates\TemplatesUiController.cs" />
     <Compile Include="Main\Areas\Templates\TemplatesData.cs" />
+    <EmbeddedResource Include="Archiver\ArchiverDialog.resx">
+      <DependentUpon>ArchiverDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomCity\CustomCityDialog.resx">
       <DependentUpon>CustomCityDialog.cs</DependentUpon>
     </EmbeddedResource>
