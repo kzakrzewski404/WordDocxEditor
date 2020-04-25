@@ -2,6 +2,8 @@
 using System.IO;
 using System.Linq;
 
+using WordDocxEditor.Shared.Config;
+
 
 namespace WordDocxEditor.Main.Areas.Templates
 {
@@ -18,9 +20,9 @@ namespace WordDocxEditor.Main.Areas.Templates
             DirectoryInfo directoryInfo = new DirectoryInfo(templateDirectoryPath);
             FileInfo[] files = directoryInfo.GetFiles("_*");
 
-            _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, "_pan_"));
-            _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, "_pani_"));
-            _filePaths.Add(TemplateId.Company, FindTemplateFile(files, "_firma_"));
+            _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, TemplatesCfg.MrHeader));
+            _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, TemplatesCfg.MrsHeader));
+            _filePaths.Add(TemplateId.Company, FindTemplateFile(files, TemplatesCfg.CompanyHeader));
 
             Name = directoryInfo.Name;
         }

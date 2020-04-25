@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+using WordDocxEditor.Shared.Config;
 using WordDocxEditor.Shared.UI;
 
 
@@ -41,16 +42,16 @@ namespace WordDocxEditor.Main.Areas.Templates
             DirectoryInfo directoryInfo = new DirectoryInfo(fullPath);
             FileInfo[] files = directoryInfo.GetFiles("_*");
 
-            return (files.Any(x => x.Name.Contains("_pan_")) &&
-                    files.Any(x => x.Name.Contains("_pani_")) &&
-                    files.Any(x => x.Name.Contains("_firma_")));
+            return (files.Any(x => x.Name.Contains(TemplatesCfg.MrHeader)) &&
+                    files.Any(x => x.Name.Contains(TemplatesCfg.MrsHeader)) &&
+                    files.Any(x => x.Name.Contains(TemplatesCfg.CompanyHeader)));
         }
 
         private void AutoLoadTemplates()
         {
             if (Directory.Exists("Szablony"))
             {
-                DirectoryInfo[] templatesDirs = new DirectoryInfo("Szablony").GetDirectories();
+                DirectoryInfo[] templatesDirs = new DirectoryInfo(DirectoriesCfg.Templates).GetDirectories();
                 if (templatesDirs.Length != 0)
                 {
                     _comboBoxTemplates.Items.Clear();
