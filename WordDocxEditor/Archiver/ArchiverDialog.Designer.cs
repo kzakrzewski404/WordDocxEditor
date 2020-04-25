@@ -42,6 +42,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label_FilesFailedToArchive = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.button_OpenArchiveDir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -116,12 +117,13 @@
             // button_Archive
             // 
             this.button_Archive.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Archive.Location = new System.Drawing.Point(435, 464);
+            this.button_Archive.Location = new System.Drawing.Point(856, 464);
             this.button_Archive.Name = "button_Archive";
             this.button_Archive.Size = new System.Drawing.Size(140, 31);
             this.button_Archive.TabIndex = 16;
             this.button_Archive.Text = "Archiwizuj";
             this.button_Archive.UseVisualStyleBackColor = true;
+            this.button_Archive.Click += new System.EventHandler(this.button_Archive_Click);
             // 
             // label3
             // 
@@ -136,25 +138,23 @@
             // 
             // label_FilesToArchive
             // 
-            this.label_FilesToArchive.AutoSize = true;
             this.label_FilesToArchive.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_FilesToArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label_FilesToArchive.Location = new System.Drawing.Point(72, 434);
             this.label_FilesToArchive.Name = "label_FilesToArchive";
-            this.label_FilesToArchive.Size = new System.Drawing.Size(41, 19);
+            this.label_FilesToArchive.Size = new System.Drawing.Size(100, 19);
             this.label_FilesToArchive.TabIndex = 18;
-            this.label_FilesToArchive.Text = "9999";
+            this.label_FilesToArchive.Text = "-";
             // 
             // label_FilesArchived
             // 
-            this.label_FilesArchived.AutoSize = true;
             this.label_FilesArchived.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_FilesArchived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label_FilesArchived.Location = new System.Drawing.Point(412, 434);
             this.label_FilesArchived.Name = "label_FilesArchived";
-            this.label_FilesArchived.Size = new System.Drawing.Size(41, 19);
+            this.label_FilesArchived.Size = new System.Drawing.Size(100, 19);
             this.label_FilesArchived.TabIndex = 20;
-            this.label_FilesArchived.Text = "9999";
+            this.label_FilesArchived.Text = "-";
             // 
             // label7
             // 
@@ -169,14 +169,13 @@
             // 
             // label_FilesFailedToArchive
             // 
-            this.label_FilesFailedToArchive.AutoSize = true;
             this.label_FilesFailedToArchive.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_FilesFailedToArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label_FilesFailedToArchive.Location = new System.Drawing.Point(752, 434);
             this.label_FilesFailedToArchive.Name = "label_FilesFailedToArchive";
-            this.label_FilesFailedToArchive.Size = new System.Drawing.Size(41, 19);
+            this.label_FilesFailedToArchive.Size = new System.Drawing.Size(100, 19);
             this.label_FilesFailedToArchive.TabIndex = 22;
-            this.label_FilesFailedToArchive.Text = "9999";
+            this.label_FilesFailedToArchive.Text = "-";
             // 
             // label9
             // 
@@ -189,12 +188,24 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Plików:";
             // 
+            // button_OpenArchiveDir
+            // 
+            this.button_OpenArchiveDir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_OpenArchiveDir.Location = new System.Drawing.Point(16, 464);
+            this.button_OpenArchiveDir.Name = "button_OpenArchiveDir";
+            this.button_OpenArchiveDir.Size = new System.Drawing.Size(140, 31);
+            this.button_OpenArchiveDir.TabIndex = 23;
+            this.button_OpenArchiveDir.Text = "Otwórz folder archiwum";
+            this.button_OpenArchiveDir.UseVisualStyleBackColor = true;
+            this.button_OpenArchiveDir.Click += new System.EventHandler(this.button_OpenArchiveDir_Click);
+            // 
             // ArchiverDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1014, 507);
+            this.Controls.Add(this.button_OpenArchiveDir);
             this.Controls.Add(this.label_FilesFailedToArchive);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label_FilesArchived);
@@ -234,5 +245,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label_FilesFailedToArchive;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button_OpenArchiveDir;
     }
 }
