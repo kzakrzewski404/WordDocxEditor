@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 
+using WordDocxEditor.Archiver;
 using WordDocxEditor.History;
 using WordDocxEditor.Main.Areas.BasicInformations;
 using WordDocxEditor.Main.Areas.Date;
@@ -84,6 +85,8 @@ namespace WordDocxEditor.Main
         }
 
         private void button_history_Click(object sender, EventArgs e) => _historyDialog.ShowDialog();
+
+        private void button_Archiver_Click(object sender, EventArgs e) => new ArchiverDialog().ShowDialog();
 
         private void menu_templatesRequirements_Click(object sender, EventArgs e) => _helpMessages.templatesReuiremets();
 

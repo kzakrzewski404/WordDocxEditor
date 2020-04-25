@@ -57,6 +57,10 @@
             this.checkBox_doPrint = new System.Windows.Forms.CheckBox();
             this.button_Generate = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cEIDGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kRSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktualizujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.szablonyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wymaganiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,12 +72,9 @@
             this.generowaniePlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderDocelowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aktualizujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_history = new System.Windows.Forms.Button();
             this.button_outputDir = new System.Windows.Forms.Button();
-            this.cEIDGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kRSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button_Archiver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -437,6 +438,34 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // cEIDGToolStripMenuItem
+            // 
+            this.cEIDGToolStripMenuItem.Name = "cEIDGToolStripMenuItem";
+            this.cEIDGToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.cEIDGToolStripMenuItem.Text = "CEIDG";
+            this.cEIDGToolStripMenuItem.Click += new System.EventHandler(this.cEIDGToolStripMenuItem_Click);
+            // 
+            // kRSToolStripMenuItem
+            // 
+            this.kRSToolStripMenuItem.Name = "kRSToolStripMenuItem";
+            this.kRSToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.kRSToolStripMenuItem.Text = "KRS";
+            this.kRSToolStripMenuItem.Click += new System.EventHandler(this.kRSToolStripMenuItem_Click);
+            // 
+            // ustawieniaToolStripMenuItem
+            // 
+            this.ustawieniaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aktualizujToolStripMenuItem});
+            this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
+            // 
+            // aktualizujToolStripMenuItem
+            // 
+            this.aktualizujToolStripMenuItem.Name = "aktualizujToolStripMenuItem";
+            this.aktualizujToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aktualizujToolStripMenuItem.Text = "Aktualizuj";
+            // 
             // informacjeToolStripMenuItem
             // 
             this.informacjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -453,7 +482,7 @@
             this.szablonyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wymaganiaToolStripMenuItem});
             this.szablonyToolStripMenuItem.Name = "szablonyToolStripMenuItem";
-            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.szablonyToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.szablonyToolStripMenuItem.Text = "Szablony";
             // 
             // wymaganiaToolStripMenuItem
@@ -469,7 +498,7 @@
             this.opcjaUlicaToolStripMenuItem,
             this.opcjaDodajNumerWNazwiePlikuToolStripMenuItem});
             this.daneToolStripMenuItem.Name = "daneToolStripMenuItem";
-            this.daneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.daneToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.daneToolStripMenuItem.Text = "Dane";
             // 
             // opcjaUlicaToolStripMenuItem
@@ -491,7 +520,7 @@
             this.wydrukToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.drukujPoWygenerowaniuToolStripMenuItem});
             this.wydrukToolStripMenuItem.Name = "wydrukToolStripMenuItem";
-            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wydrukToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.wydrukToolStripMenuItem.Text = "Wydruk";
             // 
             // drukujPoWygenerowaniuToolStripMenuItem
@@ -507,7 +536,7 @@
             this.tagiToolStripMenuItem,
             this.folderDocelowyToolStripMenuItem});
             this.generowaniePlikuToolStripMenuItem.Name = "generowaniePlikuToolStripMenuItem";
-            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generowaniePlikuToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.generowaniePlikuToolStripMenuItem.Text = "Generowanie pliku";
             // 
             // tagiToolStripMenuItem
@@ -523,20 +552,6 @@
             this.folderDocelowyToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.folderDocelowyToolStripMenuItem.Text = "Folder docelowy";
             this.folderDocelowyToolStripMenuItem.Click += new System.EventHandler(this.menu_generatorOutputDirectory_Click);
-            // 
-            // ustawieniaToolStripMenuItem
-            // 
-            this.ustawieniaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aktualizujToolStripMenuItem});
-            this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
-            // 
-            // aktualizujToolStripMenuItem
-            // 
-            this.aktualizujToolStripMenuItem.Name = "aktualizujToolStripMenuItem";
-            this.aktualizujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aktualizujToolStripMenuItem.Text = "Aktualizuj";
             // 
             // button_history
             // 
@@ -560,19 +575,16 @@
             this.button_outputDir.UseVisualStyleBackColor = true;
             this.button_outputDir.Click += new System.EventHandler(this.button_outputDir_Click);
             // 
-            // cEIDGToolStripMenuItem
+            // button_Archiver
             // 
-            this.cEIDGToolStripMenuItem.Name = "cEIDGToolStripMenuItem";
-            this.cEIDGToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.cEIDGToolStripMenuItem.Text = "CEIDG";
-            this.cEIDGToolStripMenuItem.Click += new System.EventHandler(this.cEIDGToolStripMenuItem_Click);
-            // 
-            // kRSToolStripMenuItem
-            // 
-            this.kRSToolStripMenuItem.Name = "kRSToolStripMenuItem";
-            this.kRSToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.kRSToolStripMenuItem.Text = "KRS";
-            this.kRSToolStripMenuItem.Click += new System.EventHandler(this.kRSToolStripMenuItem_Click);
+            this.button_Archiver.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Archiver.Location = new System.Drawing.Point(174, 642);
+            this.button_Archiver.Name = "button_Archiver";
+            this.button_Archiver.Size = new System.Drawing.Size(70, 31);
+            this.button_Archiver.TabIndex = 33;
+            this.button_Archiver.Text = "Archiwizuj";
+            this.button_Archiver.UseVisualStyleBackColor = true;
+            this.button_Archiver.Click += new System.EventHandler(this.button_Archiver_Click);
             // 
             // MainForm
             // 
@@ -580,6 +592,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(482, 691);
+            this.Controls.Add(this.button_Archiver);
             this.Controls.Add(this.button_outputDir);
             this.Controls.Add(this.button_history);
             this.Controls.Add(this.button_Generate);
@@ -657,6 +670,7 @@
         private System.Windows.Forms.ToolStripMenuItem aktualizujToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cEIDGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kRSToolStripMenuItem;
+        private System.Windows.Forms.Button button_Archiver;
     }
 }
 
