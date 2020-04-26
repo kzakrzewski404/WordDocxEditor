@@ -29,7 +29,7 @@ namespace WordDocxEditor.Shared.Config
             }
         }
 
-        private string GetValue(IniEntryId id) => _entries.Where(x => x.Id == IniEntryId.MrHeader).Select(x => x.Value).FirstOrDefault();
+        private string GetValue(IniEntryId id) => _entries.Where(x => x.Id == id).Select(x => x.Value).FirstOrDefault();
 
         private void InitializeDefaults()
         {
