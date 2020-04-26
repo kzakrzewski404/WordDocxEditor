@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -40,7 +39,7 @@ namespace WordDocxEditor.Main.Areas.Templates
         private bool CheckIfDirectoryContainsValidTemplates(string fullPath)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(fullPath);
-            FileInfo[] files = directoryInfo.GetFiles("_*");
+            FileInfo[] files = directoryInfo.GetFiles();
 
             return (files.Any(x => x.Name.Contains(TemplatesCfg.MrHeader)) &&
                     files.Any(x => x.Name.Contains(TemplatesCfg.MrsHeader)) &&
@@ -49,7 +48,7 @@ namespace WordDocxEditor.Main.Areas.Templates
 
         private void AutoLoadTemplates()
         {
-            if (Directory.Exists("Szablony"))
+            if (Directory.Exists(DirectoriesCfg.Templates))
             {
                 DirectoryInfo[] templatesDirs = new DirectoryInfo(DirectoriesCfg.Templates).GetDirectories();
                 if (templatesDirs.Length != 0)
@@ -67,18 +66,19 @@ namespace WordDocxEditor.Main.Areas.Templates
                         else
                         {
                             _uiMessages.ShowError($"W szablonie \"{dir.Name}\" nie odnaleziono {(int)TemplateId.ENUM_LENGTH} " +
-                                $"wymaganych plików z szablonami zaczynających się od:\n_pan_*\n_pani_*\n_firma_*");
+                                $"wymaganych plików z szablonami zaczynających się od:\n" +
+                                $"{TemplatesCfg.MrHeader}*\n{TemplatesCfg.MrsHeader}*\n{TemplatesCfg.CompanyHeader}*");
                         }
                     }
                 }
                 else
                 {
-                    _uiMessages.ShowError("W folderze \"Szablony\" nie znaleziono żadnych folderów.");
+                    _uiMessages.ShowError($"W folderze \"{DirectoriesCfg.Templates}\" nie znaleziono żadnych folderów.");
                 }
             }
             else
             {
-                _uiMessages.ShowError("Nie znaleziono folderu \"Szablony\".");
+                _uiMessages.ShowError($"Nie znaleziono folderu \"{DirectoriesCfg.Templates}\".");
             }
         }
     }

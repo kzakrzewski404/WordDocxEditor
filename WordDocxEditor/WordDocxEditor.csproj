@@ -96,7 +96,7 @@
     <Compile Include="Main\Areas\Templates\LoadedTemplates.cs" />
     <Compile Include="Shared\Config\DirectoriesCfg.cs" />
     <Compile Include="Shared\Config\TemplatesCfg.cs" />
-    <Compile Include="Shared\Data\DirectoryPaths.cs" />
+    <Compile Include="Shared\Data\OutputDirectory.cs" />
     <Compile Include="CustomCity\CustomCityDialog.cs">
       <SubType>Form</SubType>
     </Compile>

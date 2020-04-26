@@ -18,7 +18,7 @@ namespace WordDocxEditor.Main.Areas.Templates
         public LoadedTemplates(string templateDirectoryPath)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(templateDirectoryPath);
-            FileInfo[] files = directoryInfo.GetFiles("_*");
+            FileInfo[] files = directoryInfo.GetFiles();
 
             _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, TemplatesCfg.MrHeader));
             _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, TemplatesCfg.MrsHeader));
