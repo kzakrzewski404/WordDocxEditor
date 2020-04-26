@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="Main\Areas\Templates\LoadedTemplates.cs" />
     <Compile Include="Shared\Config\DirectoriesCfg.cs" />
+    <Compile Include="Shared\Config\IniCfg.cs" />
     <Compile Include="Shared\Config\TemplatesCfg.cs" />
     <Compile Include="Shared\Data\OutputDirectory.cs" />
     <Compile Include="CustomCity\CustomCityDialog.cs">
