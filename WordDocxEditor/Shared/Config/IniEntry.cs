@@ -2,12 +2,12 @@
 {
     public class IniEntry
     {
-        public IniEntry_Id Id { get; private set; }
+        public IniEntryId Id { get; private set; }
         public string Entry { get; private set; }
         public string Value { get; private set; }
 
 
-        public IniEntry(IniEntry_Id id, string entry, string value)
+        public IniEntry(IniEntryId id, string entry, string value)
         {
             Id = id;
             Entry = entry;

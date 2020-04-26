@@ -11,12 +11,12 @@ namespace WordDocxEditor.Shared.Config
         private static bool _isLoaded;
         private static List<IniEntry> _entries;
 
-        public string MrHeader => GetValue(IniEntry_Id.MrHeader);
-        public string MrsHeader => GetValue(IniEntry_Id.MrsHeader);
-        public string CompanyHeader => GetValue(IniEntry_Id.CompanyHeader);
-        public string ArchivableTemplateName => GetValue(IniEntry_Id.ArchivableTemplateName);
-        public string Templates => GetValue(IniEntry_Id.TemplatesDir);
-        public string Archive => GetValue(IniEntry_Id.ArchiveDir);
+        public string MrTemplateHeader => GetValue(IniEntryId.MrHeader);
+        public string MrsTemplateHeader => GetValue(IniEntryId.MrsHeader);
+        public string CompanyTemplateHeader => GetValue(IniEntryId.CompanyHeader);
+        public string ArchivableTemplateNameHeader => GetValue(IniEntryId.ArchivableTemplateName);
+        public string TemplatesDirectory => GetValue(IniEntryId.TemplatesDir);
+        public string ArchiveDirectory => GetValue(IniEntryId.ArchiveDir);
 
 
         public IniCfg()
@@ -29,17 +29,17 @@ namespace WordDocxEditor.Shared.Config
             }
         }
 
-        private string GetValue(IniEntry_Id id) => _entries.Where(x => x.Id == IniEntry_Id.MrHeader).Select(x => x.Value).FirstOrDefault();
+        private string GetValue(IniEntryId id) => _entries.Where(x => x.Id == IniEntryId.MrHeader).Select(x => x.Value).FirstOrDefault();
 
         private void InitializeDefaults()
         {
             _entries = new List<IniEntry>();
-            _entries.Add(new IniEntry(IniEntry_Id.MrHeader, "sMrFileHeader", "mr_"));
-            _entries.Add(new IniEntry(IniEntry_Id.MrsHeader, "sMrsFileHeader", "mrs_"));
-            _entries.Add(new IniEntry(IniEntry_Id.CompanyHeader, "sCompanyFileHeader", "company_"));
-            _entries.Add(new IniEntry(IniEntry_Id.TemplatesDir, "sTemplatesDirectory", "Templates"));
-            _entries.Add(new IniEntry(IniEntry_Id.ArchiveDir, "sArchiveDirectory", "C:\\Archive"));
-            _entries.Add(new IniEntry(IniEntry_Id.ArchivableTemplateName, "sArchivableTemplateHeader", "praca.gov.pl"));
+            _entries.Add(new IniEntry(IniEntryId.MrHeader, "sMrFileHeader", "mr_"));
+            _entries.Add(new IniEntry(IniEntryId.MrsHeader, "sMrsFileHeader", "mrs_"));
+            _entries.Add(new IniEntry(IniEntryId.CompanyHeader, "sCompanyFileHeader", "company_"));
+            _entries.Add(new IniEntry(IniEntryId.TemplatesDir, "sTemplatesDirectory", "Templates"));
+            _entries.Add(new IniEntry(IniEntryId.ArchiveDir, "sArchiveDirectory", "C:\\Archive"));
+            _entries.Add(new IniEntry(IniEntryId.ArchivableTemplateName, "sArchivableTemplateHeader", "praca.gov.pl"));
         }
 
         private void LoadIni()

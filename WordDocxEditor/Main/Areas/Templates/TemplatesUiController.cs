@@ -14,6 +14,7 @@ namespace WordDocxEditor.Main.Areas.Templates
         private ComboBox _comboBoxTemplates;
         private List<LoadedTemplates> _loadedTemplates = new List<LoadedTemplates>();
         private UiMessages _uiMessages = new UiMessages();
+        private IniCfg _cfg = new IniCfg();
 
 
         private int SelectedId => _comboBoxTemplates.SelectedIndex;
@@ -41,16 +42,16 @@ namespace WordDocxEditor.Main.Areas.Templates
             DirectoryInfo directoryInfo = new DirectoryInfo(fullPath);
             FileInfo[] files = directoryInfo.GetFiles();
 
-            return (files.Any(x => x.Name.Contains(TemplatesCfg.MrHeader)) &&
-                    files.Any(x => x.Name.Contains(TemplatesCfg.MrsHeader)) &&
-                    files.Any(x => x.Name.Contains(TemplatesCfg.CompanyHeader)));
+            return (files.Any(x => x.Name.Contains(_cfg.MrTemplateHeader)) &&
+                    files.Any(x => x.Name.Contains(_cfg.MrsTemplateHeader)) &&
+                    files.Any(x => x.Name.Contains(_cfg.CompanyTemplateHeader)));
         }
 
         private void AutoLoadTemplates()
         {
-            if (Directory.Exists(DirectoriesCfg.Templates))
+            if (Directory.Exists(_cfg.TemplatesDirectory))
             {
-                DirectoryInfo[] templatesDirs = new DirectoryInfo(DirectoriesCfg.Templates).GetDirectories();
+                DirectoryInfo[] templatesDirs = new DirectoryInfo(_cfg.TemplatesDirectory).GetDirectories();
                 if (templatesDirs.Length != 0)
                 {
                     _comboBoxTemplates.Items.Clear();
@@ -67,18 +68,18 @@ namespace WordDocxEditor.Main.Areas.Templates
                         {
                             _uiMessages.ShowError($"W szablonie \"{dir.Name}\" nie odnaleziono {(int)TemplateId.ENUM_LENGTH} " +
                                 $"wymaganych plików z szablonami zaczynających się od:\n" +
-                                $"{TemplatesCfg.MrHeader}*\n{TemplatesCfg.MrsHeader}*\n{TemplatesCfg.CompanyHeader}*");
+                                $"{_cfg.MrTemplateHeader}*\n{_cfg.MrsTemplateHeader}*\n{_cfg.CompanyTemplateHeader}*");
                         }
                     }
                 }
                 else
                 {
-                    _uiMessages.ShowError($"W folderze \"{DirectoriesCfg.Templates}\" nie znaleziono żadnych folderów.");
+                    _uiMessages.ShowError($"W folderze \"{_cfg.TemplatesDirectory}\" nie znaleziono żadnych folderów.");
                 }
             }
             else
             {
-                _uiMessages.ShowError($"Nie znaleziono folderu \"{DirectoriesCfg.Templates}\".");
+                _uiMessages.ShowError($"Nie znaleziono folderu \"{_cfg.TemplatesDirectory}\".");
             }
         }
     }

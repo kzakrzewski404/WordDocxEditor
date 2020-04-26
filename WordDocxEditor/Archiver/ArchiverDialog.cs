@@ -18,6 +18,7 @@ namespace WordDocxEditor.Archiver
     {
         private List<ArchiverData> _data;
         private UiMessages _messages = new UiMessages();
+        private IniCfg _cfg = new IniCfg();
 
 
         public ArchiverDialog()
@@ -47,7 +48,7 @@ namespace WordDocxEditor.Archiver
             if (Directory.Exists(generatedFilesDirectory))
             {
                 DirectoryInfo[] allTemplates = new DirectoryInfo(generatedFilesDirectory).GetDirectories();
-                List<DirectoryInfo> archivableTemplates = allTemplates.Where(x => x.Name.Contains(TemplatesCfg.ArchivableTemplateName)).ToList();
+                List<DirectoryInfo> archivableTemplates = allTemplates.Where(x => x.Name.Contains(_cfg.ArchivableTemplateNameHeader)).ToList();
 
 
                 if (archivableTemplates.Count > 0)
@@ -113,7 +114,7 @@ namespace WordDocxEditor.Archiver
             int succesFiles = 0;
             int totalFiles = 0;
             InsertArchivedHeader("Rozpoczynam archiwizację...");
-            if (Directory.Exists(DirectoriesCfg.Archive))
+            if (Directory.Exists(_cfg.ArchiveDirectory))
             {
                 foreach (var template in _data)
                 {
@@ -125,7 +126,7 @@ namespace WordDocxEditor.Archiver
                         {
                             string name = Path.GetFileNameWithoutExtension(item);
                             string nameExt = Path.GetFileName(item);
-                            string archiveTarget = $"{DirectoriesCfg.Archive}\\{name}";
+                            string archiveTarget = $"{_cfg.ArchiveDirectory}\\{name}";
                             totalFiles++;
 
                             if (Directory.Exists(archiveTarget))
@@ -156,7 +157,7 @@ namespace WordDocxEditor.Archiver
             }
             else
             {
-                InsertArchivedError($"Nie można wykonać archiwizacji, {DirectoriesCfg.Archive} jest nieosiągalny.");
+                InsertArchivedError($"Nie można wykonać archiwizacji, {_cfg.ArchiveDirectory} jest nieosiągalny.");
             }
 
             InsertArchivedHeader($"Zakończono archiwizację, przeniesiono {succesFiles} z {totalFiles} plików.");
@@ -164,13 +165,13 @@ namespace WordDocxEditor.Archiver
 
         private void button_OpenArchiveDir_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(DirectoriesCfg.Archive))
+            if (Directory.Exists(_cfg.ArchiveDirectory))
             {
-                Process.Start(DirectoriesCfg.Archive);
+                Process.Start(_cfg.ArchiveDirectory);
             }
             else
             {
-                _messages.ShowError($"Nie można odnaleźć ścieżki {DirectoriesCfg.Archive}");
+                _messages.ShowError($"Nie można odnaleźć ścieżki {_cfg.ArchiveDirectory}");
             }
             
         }

@@ -12,6 +12,7 @@ using WordDocxEditor.Main.Areas.Help;
 using WordDocxEditor.Main.Areas.Print;
 using WordDocxEditor.Main.Areas.Templates;
 using WordDocxEditor.Main.Data;
+using WordDocxEditor.Shared.Config;
 using WordDocxEditor.Shared.Data;
 using WordDocxEditor.Shared.UI;
 using WordDocxEditor.Word;
@@ -35,6 +36,7 @@ namespace WordDocxEditor.Main
         public MainForm()
         {
             InitializeComponent();
+            IniCfg forceLoadIni = new IniCfg();
 
             _dateUiController.Bind(dateTimePicker_Received, dateTimePicker_Response);
             _printUiController.Bind(checkBox_doPrint, numericUpDown_NumberOfCopies);

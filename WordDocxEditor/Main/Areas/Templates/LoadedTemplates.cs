@@ -10,6 +10,7 @@ namespace WordDocxEditor.Main.Areas.Templates
     public class LoadedTemplates
     {
         private Dictionary<TemplateId, string> _filePaths = new Dictionary<TemplateId, string>();
+        private IniCfg _cfg = new IniCfg();
 
 
         public string Name { get; private set; }
@@ -20,9 +21,9 @@ namespace WordDocxEditor.Main.Areas.Templates
             DirectoryInfo directoryInfo = new DirectoryInfo(templateDirectoryPath);
             FileInfo[] files = directoryInfo.GetFiles();
 
-            _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, TemplatesCfg.MrHeader));
-            _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, TemplatesCfg.MrsHeader));
-            _filePaths.Add(TemplateId.Company, FindTemplateFile(files, TemplatesCfg.CompanyHeader));
+            _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, _cfg.MrTemplateHeader));
+            _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, _cfg.MrsTemplateHeader));
+            _filePaths.Add(TemplateId.Company, FindTemplateFile(files, _cfg.CompanyTemplateHeader));
 
             Name = directoryInfo.Name;
         }
