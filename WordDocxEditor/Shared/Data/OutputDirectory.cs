@@ -6,16 +6,16 @@ using System.Windows.Forms;
 
 namespace WordDocxEditor.Shared.Data
 {
-    public class DirectoryPaths
+    public class OutputDirectory
     {
-        public string DesktopOutput => Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        public string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
                        + $"\\Dokumenty - {DateTime.Today.ToString("yyyy.MM.dd")}";
 
         public void OpenOutputDirectoryInExplorer()
         {
-            if (Directory.Exists(DesktopOutput))
+            if (Directory.Exists(DesktopPath))
             {
-                Process.Start("explorer.exe", DesktopOutput);
+                Process.Start("explorer.exe", DesktopPath);
             }
             else
             {

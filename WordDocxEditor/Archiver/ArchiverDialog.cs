@@ -40,7 +40,7 @@ namespace WordDocxEditor.Archiver
         {
             ClearTextBoxes();
             _data = new List<ArchiverData>();
-            string generatedFilesDirectory = new DirectoryPaths().DesktopOutput;
+            string generatedFilesDirectory = new OutputDirectory().DesktopPath;
             int detectedFiles = 0;
 
             InsertDetectedHeader("Szukam plików...");

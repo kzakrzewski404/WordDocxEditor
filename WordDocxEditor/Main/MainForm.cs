@@ -100,7 +100,7 @@ namespace WordDocxEditor.Main
 
         private void menu_generatorOutputDirectory_Click(object sender, EventArgs e) => _helpMessages.generatorOutputDirectory();
 
-        private void button_outputDir_Click(object sender, EventArgs e) => new DirectoryPaths().OpenOutputDirectoryInExplorer();
+        private void button_outputDir_Click(object sender, EventArgs e) => new OutputDirectory().OpenOutputDirectoryInExplorer();
 
         private void cEIDGToolStripMenuItem_Click(object sender, EventArgs e)
         {

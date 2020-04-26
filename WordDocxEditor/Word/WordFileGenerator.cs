@@ -118,7 +118,7 @@ namespace WordDocxEditor.Word
             if (!_isInitialized)
             {
                 _isInitialized = true;
-                _desktopOutputDirectory = new DirectoryPaths().DesktopOutput;
+                _desktopOutputDirectory = new OutputDirectory().DesktopPath;
             }
         }
 
