@@ -1,6 +1,6 @@
 ﻿namespace WordDocxEditor.Shared.Config
 {
-    public enum IniEntry_Id
+    public enum IniEntryId
     { 
         MrHeader,
         MrsHeader,
