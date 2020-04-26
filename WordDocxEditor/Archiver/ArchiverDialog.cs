@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,11 +16,8 @@ namespace WordDocxEditor.Archiver
 {
     public partial class ArchiverDialog : Form
     {
-        private const string SPACER = "    - ";
-        private List<ArchiverData> _data = new List<ArchiverData>();
+        private List<ArchiverData> _data;
         private UiMessages _messages = new UiMessages();
-        private int failedToArchiveFiles;
-        private int archivedFiles;
 
 
         public ArchiverDialog()
@@ -31,21 +29,27 @@ namespace WordDocxEditor.Archiver
         {
             richTextBox_DetectedFiles.Clear();
             richTextBox_Archived.Clear();
-            richTextBox_FailedToArchive.Clear();
         }
 
-        private void ArchiverDialog_Load(object sender, EventArgs e)
+        private void OnArchiverDialogDisplay(object sender, EventArgs e)
+        {
+            FindFilesToArchive();
+        }
+
+        private void FindFilesToArchive()
         {
             ClearTextBoxes();
+            _data = new List<ArchiverData>();
             string generatedFilesDirectory = new DirectoryPaths().DesktopOutput;
             int detectedFiles = 0;
 
+            InsertDetectedHeader("Szukam plików...");
             if (Directory.Exists(generatedFilesDirectory))
             {
                 DirectoryInfo[] allTemplates = new DirectoryInfo(generatedFilesDirectory).GetDirectories();
                 List<DirectoryInfo> archivableTemplates = allTemplates.Where(x => x.Name.Contains(TemplatesCfg.ArchivableTemplateName)).ToList();
 
-                InsertDetectedFileTitle("Rozpoczynam sprawdzanie plików...\n\n");
+
                 if (archivableTemplates.Count > 0)
                 {
                     foreach (var template in archivableTemplates)
@@ -53,96 +57,88 @@ namespace WordDocxEditor.Archiver
                         ArchiverData newTemplateData = new ArchiverData(template.Name);
                         FileInfo[] files = template.GetFiles();
 
-                        InsertDetectedFileTitle($"Sprawdzam szablon \"{template.Name}\" ({files.Length})...\n");
+                        InsertDetectedTemplateName(template.Name, files.Length);
                         if (files.Length > 0)
                         {
                             foreach (var item in files)
                             {
-                                InsertDetectedText($"{item.Name}\n");
+                                InsertDetectedFile(item.Name);
                                 newTemplateData.AddFile(item.FullName);
                                 detectedFiles++;
                             }
-
-                            richTextBox_DetectedFiles.Text += "\n";
                         }
                         else
                         {
-                            InsertDetectedText($"Brak plików...\n\n");
+                            InsertDetectedFile("Brak plików...");
                         }
 
                         _data.Add(newTemplateData);
                     }
-                    InsertDetectedFileTitle("Zakończono.");
-                }
-                else
-                {
-                    InsertDetectedFileTitle("Nic nie znaleziono.");
                 }
             }
             else
             {
-                InsertDetectedFileTitle("Nie znaleziono folderu z wygenerowanymi plikami.");
+                InsertDetectedError("Nie znaleziono folderu z wygenerowanymi plikami.");
             }
 
-            label_FilesToArchive.Text = detectedFiles.ToString();
-            if (detectedFiles == 0)
-            {
-                button_Archive.Enabled = false;
-            }
+            InsertDetectedHeader("Zakończono szukanie plików.");
+            button_Archive.Enabled = detectedFiles > 0;
         }
 
-        private void InsertDetectedText(string msg) => InsertTextBoxMsg($"{SPACER}{msg}", richTextBox_DetectedFiles);
-        private void InsertDetectedFileTitle(string msg) => InsertTextBoxMsg($"# {msg}", richTextBox_DetectedFiles);
+        private void InsertDetectedHeader(string header) => InsertText($"# {header}\n", Color.Purple, richTextBox_DetectedFiles);
+        private void InsertDetectedTemplateName(string name, int numberOfFiles) => InsertText($"{name} ({numberOfFiles})\n", Color.Black, richTextBox_DetectedFiles);
+        private void InsertDetectedFile(string name) => InsertText($"   - {name}\n", Color.Black, richTextBox_DetectedFiles);
+        private void InsertDetectedError(string error) => InsertText($"# {error}\n", Color.Red, richTextBox_DetectedFiles);
 
-        private void InsertTextBoxMsg(string msg, RichTextBox target) => target.Text += msg;
+        private void InsertArchivedHeader(string header) => InsertText($"# {header}\n", Color.Purple, richTextBox_Archived);
+        private void InsertArchivedError(string error) => InsertText($"# {error}\n", Color.Red, richTextBox_Archived);
+        private void InsertArchivedTemplateName(string name) => InsertText($"{name}\n", Color.Black, richTextBox_Archived);
+        private void InsertArchivedFileSuccess(string name) => InsertText($"   - {name}\n", Color.Green, richTextBox_Archived);
+        private void InsertArchivedFileError(string name, string error) => InsertText($"   - {name} ({error})\n", Color.Red, richTextBox_Archived);
 
-        private void InsertArchivedFileText(string fileName, bool isSuccess)
+
+        private void InsertText(string msg, Color color, RichTextBox richTextBox)
         {
-            if (isSuccess)
-            {
-                archivedFiles++;
-                richTextBox_Archived.Text += $"{SPACER}{fileName}";
-            }
-            else
-            {
-                failedToArchiveFiles++;
-                richTextBox_FailedToArchive.Text += $"{SPACER}{fileName}";
-            }
+            richTextBox.SelectionStart = richTextBox.TextLength;
+            richTextBox.SelectionLength = 0;
+
+            richTextBox.SelectionColor = color;
+            richTextBox.AppendText(msg);
         }
 
-        private void InsertArchivingTemplate(string msg)
-        {
-            richTextBox_Archived.Text += msg;
-            richTextBox_FailedToArchive.Text += msg;
-        }
 
         private void button_Archive_Click(object sender, EventArgs e)
         {
             button_Archive.Enabled = false;
+            int succesFiles = 0;
+            int totalFiles = 0;
+            InsertArchivedHeader("Rozpoczynam archiwizację...");
             if (Directory.Exists(DirectoriesCfg.Archive))
             {
                 foreach (var template in _data)
                 {
                     if (template.NumberOfFiles > 0)
                     {
-                        InsertArchivingTemplate($"{template.Name}:\n");
+                        InsertArchivedTemplateName(template.Name);
 
                         foreach (var item in template.Files)
                         {
                             string name = Path.GetFileNameWithoutExtension(item);
                             string nameExt = Path.GetFileName(item);
                             string archiveTarget = $"{DirectoriesCfg.Archive}\\{name}";
+                            totalFiles++;
 
                             if (Directory.Exists(archiveTarget))
                             {
                                 string targetFilePath = $"{archiveTarget}\\{nameExt}";
                                 if (File.Exists(targetFilePath))
                                 {
-                                    InsertArchivedFileText($"{name} (już istnieje)\n", false);
+                                    InsertArchivedFileError(name, "plik już istnieje");
                                 }
                                 else
                                 {
-                                    InsertArchivedFileText($"{name}\n", true);
+                                    InsertArchivedFileSuccess(name);
+                                    succesFiles++;
                                     File.Copy(item, $"{archiveTarget}\\{nameExt}");
 
                                     string localArchivedDir = $"{Path.GetDirectoryName(item)}\\Zarchiwizowane";
@@ -152,28 +148,36 @@ namespace WordDocxEditor.Archiver
                             }
                             else
                             {
-                                InsertArchivedFileText($"{name} (nie znaleziono)\n", false);
+                                InsertArchivedFileError(name, "nie odnaleziono folderu");
                             }
                         }
-
-                        InsertArchivingTemplate("\n");
                     }
                 }
-
-                InsertArchivingTemplate("# Zakończono\n");
             }
             else
             {
-                _messages.ShowError("Nie można wykonać archiwizacji, folder docelowy jest nieosiągalny.");
+                InsertArchivedError($"Nie można wykonać archiwizacji, {DirectoriesCfg.Archive} jest nieosiągalny.");
             }
 
-            label_FilesArchived.Text = archivedFiles.ToString();
-            label_FilesFailedToArchive.Text = failedToArchiveFiles.ToString();
+            InsertArchivedHeader($"Zakończono archiwizację, przeniesiono {succesFiles} z {totalFiles} plików.");
         }
 
         private void button_OpenArchiveDir_Click(object sender, EventArgs e)
         {
-            Process.Start(DirectoriesCfg.Archive);
+            if (Directory.Exists(DirectoriesCfg.Archive))
+            {
+                Process.Start(DirectoriesCfg.Archive);
+            }
+            else
+            {
+                _messages.ShowError($"Nie można odnaleźć ścieżki {DirectoriesCfg.Archive}");
+            }
+            
+        }
+
+        private void button_Refresh_Click(object sender, EventArgs e)
+        {
+            FindFilesToArchive();
         }
     }
 }
