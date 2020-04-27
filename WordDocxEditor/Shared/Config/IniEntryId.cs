@@ -7,6 +7,7 @@
         CompanyHeader,
         ArchivableTemplateName,
         TemplatesDir,
-        ArchiveDir
+        ArchiveDir,
+        AutoUpdaterApp
     }
 }

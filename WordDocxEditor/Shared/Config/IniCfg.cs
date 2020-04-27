@@ -17,6 +17,7 @@ namespace WordDocxEditor.Shared.Config
         public string ArchivableTemplateNameHeader => GetValue(IniEntryId.ArchivableTemplateName);
         public string TemplatesDirectory => GetValue(IniEntryId.TemplatesDir);
         public string ArchiveDirectory => GetValue(IniEntryId.ArchiveDir);
+        public string AutoUpdaterApp => GetValue(IniEntryId.AutoUpdaterApp);
 
 
         public IniCfg()
@@ -40,6 +41,7 @@ namespace WordDocxEditor.Shared.Config
             _entries.Add(new IniEntry(IniEntryId.TemplatesDir, "sTemplatesDirectory", "Templates"));
             _entries.Add(new IniEntry(IniEntryId.ArchiveDir, "sArchiveDirectory", "C:\\Archive"));
             _entries.Add(new IniEntry(IniEntryId.ArchivableTemplateName, "sArchivableTemplateHeader", "praca.gov.pl"));
+            _entries.Add(new IniEntry(IniEntryId.AutoUpdaterApp, "sAutoUpdaterApp", "AutoUpdate.exe"));
         }
 
         private void LoadIni()
