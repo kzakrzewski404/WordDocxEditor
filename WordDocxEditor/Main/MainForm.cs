@@ -16,7 +16,7 @@ using WordDocxEditor.Shared.Config;
 using WordDocxEditor.Shared.Data;
 using WordDocxEditor.Shared.UI;
 using WordDocxEditor.Word;
-
+using System.IO;
 
 namespace WordDocxEditor.Main
 {
@@ -31,6 +31,7 @@ namespace WordDocxEditor.Main
         private TemplatesUiController _templatesUiController = new TemplatesUiController();
         private UiMessages _uiMessages = new UiMessages();
         private WordFileGenerator _wordFileGenerator = new WordFileGenerator();
+        private IniCfg _iniCfg = new IniCfg();
 
 
         public MainForm()
@@ -112,6 +113,24 @@ namespace WordDocxEditor.Main
         private void kRSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://ekrs.ms.gov.pl/web/wyszukiwarka-krs/strona-glowna/index.html");
+        }
+
+        private void aktualizujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Czy rozpocząć automatyczną aktualizację?", "Aktualizacja", 
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (File.Exists(_iniCfg.AutoUpdaterApp))
+                {
+                    Process.Start(_iniCfg.AutoUpdaterApp);
+                }
+                else
+                {
+                    _uiMessages.ShowError($"Nie odnaleziono aplikacji: {_iniCfg.AutoUpdaterApp}");
+                }
+            }
         }
     }
 }
