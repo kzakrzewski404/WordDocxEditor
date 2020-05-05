@@ -15,6 +15,10 @@ namespace WordDocxEditor.Main.Data
             {
                 return new VerifierResult("Błędnie wczytany szablon.");
             }
+            if (CheckIfNameContainsSpecialCharacter(summary.BasicInformations.Name))
+            {
+                return new VerifierResult("Nazwa zawiera niedozwolone znaki!");
+            }
             if (!VerifyIfTemplateExists(summary.Templates.GetFilePath(summary.BasicInformations.SelectedTemplate)))
             {
                 return new VerifierResult("Nie odnaleziono pliku z szablonem.");
@@ -33,6 +37,12 @@ namespace WordDocxEditor.Main.Data
 
 
         private bool VerifyName(string name) => !string.IsNullOrEmpty(name);
+
+        private bool CheckIfNameContainsSpecialCharacter(string str)
+        {
+            const string SPECIAL_CHARS = @"!@#$%^&*()_+={}|[]\:"";'<>?,./";
+            return SPECIAL_CHARS.Any(c => str.Contains(c));
+        }
 
         private bool VerifyAddress(string address) => !string.IsNullOrEmpty(address) && address.Any(char.IsDigit);
 

@@ -463,7 +463,7 @@
             // aktualizujToolStripMenuItem
             // 
             this.aktualizujToolStripMenuItem.Name = "aktualizujToolStripMenuItem";
-            this.aktualizujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aktualizujToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aktualizujToolStripMenuItem.Text = "Aktualizuj";
             this.aktualizujToolStripMenuItem.Click += new System.EventHandler(this.aktualizujToolStripMenuItem_Click);
             // 
@@ -607,7 +607,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.1.0";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.2.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
