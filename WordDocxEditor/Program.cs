@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 using WordDocxEditor.Main;
@@ -17,14 +18,16 @@ namespace WordDocxEditor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (Application.ExecutablePath[0] == '\\')
+            string allowedStartupDisks = "CDE";
+            char diskLetter = Application.ExecutablePath[0];
+            if (allowedStartupDisks.Contains(diskLetter))
             {
-                MessageBox.Show("Aplikacja nie może zostać uruchomiona ze ścieżki sieciowej!", "Nie można uruchomić",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Run(new MainForm());
             }
             else
             {
-                Application.Run(new MainForm());
+                MessageBox.Show("Aplikacja nie może zostać uruchomiona ze ścieżki sieciowej!", "Błąd",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
