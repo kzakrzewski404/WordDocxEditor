@@ -607,7 +607,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.2.0";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.3.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

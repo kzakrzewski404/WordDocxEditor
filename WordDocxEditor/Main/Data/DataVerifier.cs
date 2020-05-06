@@ -40,7 +40,7 @@ namespace WordDocxEditor.Main.Data
 
         private bool CheckIfNameContainsSpecialCharacter(string str)
         {
-            const string SPECIAL_CHARS = @"!@#$%^&*()_+={}|[]\:"";'<>?,./";
+            const string SPECIAL_CHARS = @"!@#$%^&*()_+={}|[]\:"";'<>?,/";
             return SPECIAL_CHARS.Any(c => str.Contains(c));
         }
 
