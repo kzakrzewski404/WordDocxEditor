@@ -47,7 +47,7 @@ namespace WordDocxEditor.Main
                 new Dictionary<TemplateId, RadioButton> { { TemplateId.Mr, radioButton_Mr },
                                                           { TemplateId.Mrs, radioButton_Mrs },
                                                           { TemplateId.Company, radioButton_Company } },
-                                                checkBox_addNumberToFileName);
+                                                checkBox_addNumberToFileName, checkBox_AutoIncrementCaseId);
         }
 
         private void button_Generate_Click(object sender, EventArgs e)

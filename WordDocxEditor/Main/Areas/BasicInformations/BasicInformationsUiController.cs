@@ -16,6 +16,7 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
         private NumericUpDown _caseId;
         private Dictionary<TemplateId, RadioButton> _templateChoice;
         private CheckBox _doAddCaseIdToFileName;
+        private CheckBox _autoIncrementCaseId;
 
         public override string Name => _name.Text;
         public override string Address => _address.Text;
@@ -28,7 +29,7 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
                          NumericUpDown id, Dictionary<TemplateId, RadioButton> templateChoice,
-                         CheckBox doAddCaseIdToFileName)
+                         CheckBox doAddCaseIdToFileName, CheckBox autoIncrementCaseId)
         {
             _name = name;
             _name.Leave += OnInputNameLeave;
@@ -40,6 +41,7 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
             _templateChoice = templateChoice;
             _templateChoice.First().Value.Checked = true;
             _doAddCaseIdToFileName = doAddCaseIdToFileName;
+            _autoIncrementCaseId = autoIncrementCaseId;
 
             Clear();
         }
@@ -50,6 +52,11 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
             _name.Clear();
             _isStreet.Checked = true;
             _city.SelectedIndex = 0;
+
+            if (_autoIncrementCaseId.Checked)
+            {
+                _caseId.Value++;
+            }
         }
 
 

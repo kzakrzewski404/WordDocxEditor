@@ -75,6 +75,7 @@
             this.button_history = new System.Windows.Forms.Button();
             this.button_outputDir = new System.Windows.Forms.Button();
             this.button_Archiver = new System.Windows.Forms.Button();
+            this.checkBox_AutoIncrementCaseId = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -269,6 +270,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox_AutoIncrementCaseId);
             this.groupBox3.Controls.Add(this.checkBox_addNumberToFileName);
             this.groupBox3.Controls.Add(this.checkBox_IsStreet);
             this.groupBox3.Controls.Add(this.numericUpDown_CaseId);
@@ -295,7 +297,7 @@
             // 
             this.checkBox_addNumberToFileName.AutoSize = true;
             this.checkBox_addNumberToFileName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_addNumberToFileName.Location = new System.Drawing.Point(10, 222);
+            this.checkBox_addNumberToFileName.Location = new System.Drawing.Point(10, 252);
             this.checkBox_addNumberToFileName.Name = "checkBox_addNumberToFileName";
             this.checkBox_addNumberToFileName.Size = new System.Drawing.Size(210, 23);
             this.checkBox_addNumberToFileName.TabIndex = 100;
@@ -587,6 +589,17 @@
             this.button_Archiver.UseVisualStyleBackColor = true;
             this.button_Archiver.Click += new System.EventHandler(this.button_Archiver_Click);
             // 
+            // checkBox_AutoIncrementCaseId
+            // 
+            this.checkBox_AutoIncrementCaseId.AutoSize = true;
+            this.checkBox_AutoIncrementCaseId.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_AutoIncrementCaseId.Location = new System.Drawing.Point(201, 177);
+            this.checkBox_AutoIncrementCaseId.Name = "checkBox_AutoIncrementCaseId";
+            this.checkBox_AutoIncrementCaseId.Size = new System.Drawing.Size(41, 23);
+            this.checkBox_AutoIncrementCaseId.TabIndex = 101;
+            this.checkBox_AutoIncrementCaseId.Text = "AI";
+            this.checkBox_AutoIncrementCaseId.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,7 +620,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.3.0";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.4.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -672,6 +685,7 @@
         private System.Windows.Forms.ToolStripMenuItem cEIDGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kRSToolStripMenuItem;
         private System.Windows.Forms.Button button_Archiver;
+        private System.Windows.Forms.CheckBox checkBox_AutoIncrementCaseId;
     }
 }
 
