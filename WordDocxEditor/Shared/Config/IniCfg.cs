@@ -11,14 +11,6 @@ namespace WordDocxEditor.Shared.Config
         private static bool _isLoaded;
         private static List<IniEntry> _entries;
 
-        public string MrTemplateHeader => GetValue(IniEntryId.MrHeader);
-        public string MrsTemplateHeader => GetValue(IniEntryId.MrsHeader);
-        public string CompanyTemplateHeader => GetValue(IniEntryId.CompanyHeader);
-        public string ArchivableTemplateNameHeader => GetValue(IniEntryId.ArchivableTemplateName);
-        public string TemplatesDirectory => GetValue(IniEntryId.TemplatesDir);
-        public string ArchiveDirectory => GetValue(IniEntryId.ArchiveDir);
-        public string AutoUpdaterApp => GetValue(IniEntryId.AutoUpdaterApp);
-
 
         public IniCfg()
         {
@@ -30,7 +22,9 @@ namespace WordDocxEditor.Shared.Config
             }
         }
 
-        private string GetValue(IniEntryId id) => _entries.Where(x => x.Id == id).Select(x => x.Value).FirstOrDefault();
+
+        public string GetEntry(IniEntryId id) => _entries.Where(x => x.Id == id).Select(x => x.Value).FirstOrDefault();
+
 
         private void InitializeDefaults()
         {
@@ -42,6 +36,8 @@ namespace WordDocxEditor.Shared.Config
             _entries.Add(new IniEntry(IniEntryId.ArchiveDir, "sArchiveDirectory", "C:\\Archive"));
             _entries.Add(new IniEntry(IniEntryId.ArchivableTemplateName, "sArchivableTemplateHeader", "praca.gov.pl"));
             _entries.Add(new IniEntry(IniEntryId.AutoUpdaterApp, "sAutoUpdaterApp", "AutoUpdate.exe"));
+            _entries.Add(new IniEntry(IniEntryId.UrlKRS, "sUrlKRS", "www.google.com/search?q=krs"));
+            _entries.Add(new IniEntry(IniEntryId.UrlCEIDG, "sUrlCEIDG", "www.google.com/search?q=ceidg"));
         }
 
         private void LoadIni()

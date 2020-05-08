@@ -21,9 +21,9 @@ namespace WordDocxEditor.Main.Areas.Templates
             DirectoryInfo directoryInfo = new DirectoryInfo(templateDirectoryPath);
             FileInfo[] files = directoryInfo.GetFiles();
 
-            _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, _cfg.MrTemplateHeader));
-            _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, _cfg.MrsTemplateHeader));
-            _filePaths.Add(TemplateId.Company, FindTemplateFile(files, _cfg.CompanyTemplateHeader));
+            _filePaths.Add(TemplateId.Mr, FindTemplateFile(files, _cfg.GetEntry(IniEntryId.MrHeader)));
+            _filePaths.Add(TemplateId.Mrs, FindTemplateFile(files, _cfg.GetEntry(IniEntryId.MrsHeader)));
+            _filePaths.Add(TemplateId.Company, FindTemplateFile(files, _cfg.GetEntry(IniEntryId.CompanyHeader)));
 
             Name = directoryInfo.Name;
         }

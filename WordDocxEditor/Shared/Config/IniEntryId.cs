@@ -8,6 +8,8 @@
         ArchivableTemplateName,
         TemplatesDir,
         ArchiveDir,
-        AutoUpdaterApp
+        AutoUpdaterApp,
+        UrlKRS,
+        UrlCEIDG
     }
 }

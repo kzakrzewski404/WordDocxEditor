@@ -105,16 +105,6 @@ namespace WordDocxEditor.Main
 
         private void button_outputDir_Click(object sender, EventArgs e) => new OutputDirectory().OpenOutputDirectoryInExplorer();
 
-        private void cEIDGToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://prod.ceidg.gov.pl/CEIDG/CEIDG.Public.UI/Search.aspx");
-        }
-
-        private void kRSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://ekrs.ms.gov.pl/web/wyszukiwarka-krs/strona-glowna/index.html");
-        }
-
         private void aktualizujToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Czy rozpocząć automatyczną aktualizację?", "Aktualizacja", 
@@ -122,15 +112,30 @@ namespace WordDocxEditor.Main
 
             if (result == DialogResult.Yes)
             {
-                if (File.Exists(_iniCfg.AutoUpdaterApp))
+                if (File.Exists(_iniCfg.GetEntry(IniEntryId.AutoUpdaterApp)))
                 {
-                    Process.Start(_iniCfg.AutoUpdaterApp);
+                    Process.Start(_iniCfg.GetEntry(IniEntryId.AutoUpdaterApp));
                 }
                 else
                 {
-                    _uiMessages.ShowError($"Nie odnaleziono aplikacji: {_iniCfg.AutoUpdaterApp}");
+                    _uiMessages.ShowError($"Nie odnaleziono aplikacji: {_iniCfg.GetEntry(IniEntryId.AutoUpdaterApp)}");
                 }
             }
+        }
+
+        private void cEIDGToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://prod.ceidg.gov.pl/CEIDG/CEIDG.Public.UI/Search.aspx");
+        }
+
+        private void kRSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://ekrs.ms.gov.pl/web/wyszukiwarka-krs/strona-glowna/index.html");
+        }
+
+        private void generowanieKartOcenyFormalnejToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
