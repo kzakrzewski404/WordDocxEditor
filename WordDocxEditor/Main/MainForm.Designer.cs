@@ -79,6 +79,8 @@
             this.button_history = new System.Windows.Forms.Button();
             this.button_outputDir = new System.Windows.Forms.Button();
             this.button_Archiver = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -86,6 +88,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -202,7 +205,7 @@
             this.radioButton_Mr.AutoSize = true;
             this.radioButton_Mr.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton_Mr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.radioButton_Mr.Location = new System.Drawing.Point(260, 252);
+            this.radioButton_Mr.Location = new System.Drawing.Point(260, 262);
             this.radioButton_Mr.Name = "radioButton_Mr";
             this.radioButton_Mr.Size = new System.Drawing.Size(51, 23);
             this.radioButton_Mr.TabIndex = 23;
@@ -215,7 +218,7 @@
             this.radioButton_Mrs.AutoSize = true;
             this.radioButton_Mrs.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton_Mrs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.radioButton_Mrs.Location = new System.Drawing.Point(317, 252);
+            this.radioButton_Mrs.Location = new System.Drawing.Point(317, 262);
             this.radioButton_Mrs.Name = "radioButton_Mrs";
             this.radioButton_Mrs.Size = new System.Drawing.Size(55, 23);
             this.radioButton_Mrs.TabIndex = 24;
@@ -228,7 +231,7 @@
             this.radioButton_Company.AutoSize = true;
             this.radioButton_Company.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton_Company.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.radioButton_Company.Location = new System.Drawing.Point(382, 252);
+            this.radioButton_Company.Location = new System.Drawing.Point(382, 262);
             this.radioButton_Company.Name = "radioButton_Company";
             this.radioButton_Company.Size = new System.Drawing.Size(63, 23);
             this.radioButton_Company.TabIndex = 25;
@@ -273,6 +276,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.numericUpDown1);
+            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.checkBox_AutoIncrementCaseId);
             this.groupBox3.Controls.Add(this.checkBox_addNumberToFileName);
             this.groupBox3.Controls.Add(this.checkBox_IsStreet);
@@ -291,7 +296,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.groupBox3.Location = new System.Drawing.Point(12, 230);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(458, 295);
+            this.groupBox3.Size = new System.Drawing.Size(458, 305);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
@@ -311,7 +316,7 @@
             // 
             this.checkBox_addNumberToFileName.AutoSize = true;
             this.checkBox_addNumberToFileName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_addNumberToFileName.Location = new System.Drawing.Point(10, 252);
+            this.checkBox_addNumberToFileName.Location = new System.Drawing.Point(10, 263);
             this.checkBox_addNumberToFileName.Name = "checkBox_addNumberToFileName";
             this.checkBox_addNumberToFileName.Size = new System.Drawing.Size(210, 23);
             this.checkBox_addNumberToFileName.TabIndex = 100;
@@ -365,7 +370,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label12.Location = new System.Drawing.Point(256, 226);
+            this.label12.Location = new System.Drawing.Point(256, 236);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 19);
             this.label12.TabIndex = 26;
@@ -377,7 +382,7 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.checkBox_doPrint);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.groupBox4.Location = new System.Drawing.Point(12, 531);
+            this.groupBox4.Location = new System.Drawing.Point(12, 541);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(458, 92);
             this.groupBox4.TabIndex = 30;
@@ -433,7 +438,7 @@
             // button_Generate
             // 
             this.button_Generate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Generate.Location = new System.Drawing.Point(333, 642);
+            this.button_Generate.Location = new System.Drawing.Point(333, 652);
             this.button_Generate.Name = "button_Generate";
             this.button_Generate.Size = new System.Drawing.Size(124, 31);
             this.button_Generate.TabIndex = 5;
@@ -597,7 +602,7 @@
             // button_history
             // 
             this.button_history.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_history.Location = new System.Drawing.Point(22, 642);
+            this.button_history.Location = new System.Drawing.Point(22, 652);
             this.button_history.Name = "button_history";
             this.button_history.Size = new System.Drawing.Size(70, 31);
             this.button_history.TabIndex = 31;
@@ -608,7 +613,7 @@
             // button_outputDir
             // 
             this.button_outputDir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_outputDir.Location = new System.Drawing.Point(98, 642);
+            this.button_outputDir.Location = new System.Drawing.Point(98, 652);
             this.button_outputDir.Name = "button_outputDir";
             this.button_outputDir.Size = new System.Drawing.Size(70, 31);
             this.button_outputDir.TabIndex = 32;
@@ -619,7 +624,7 @@
             // button_Archiver
             // 
             this.button_Archiver.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Archiver.Location = new System.Drawing.Point(174, 642);
+            this.button_Archiver.Location = new System.Drawing.Point(174, 652);
             this.button_Archiver.Name = "button_Archiver";
             this.button_Archiver.Size = new System.Drawing.Size(70, 31);
             this.button_Archiver.TabIndex = 33;
@@ -627,12 +632,41 @@
             this.button_Archiver.UseVisualStyleBackColor = true;
             this.button_Archiver.Click += new System.EventHandler(this.button_Archiver_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown1.Location = new System.Drawing.Point(10, 230);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(185, 27);
+            this.numericUpDown1.TabIndex = 102;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label6.Location = new System.Drawing.Point(6, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 19);
+            this.label6.TabIndex = 103;
+            this.label6.Text = "Id_2:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(482, 691);
+            this.ClientSize = new System.Drawing.Size(482, 701);
             this.Controls.Add(this.button_Archiver);
             this.Controls.Add(this.button_outputDir);
             this.Controls.Add(this.button_history);
@@ -659,6 +693,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -716,6 +751,8 @@
         private System.Windows.Forms.ToolStripMenuItem generowanieKartOcenyFormalnejToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cEIDGToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem kRSToolStripMenuItem1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label6;
     }
 }
 
