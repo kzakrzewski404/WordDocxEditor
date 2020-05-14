@@ -47,7 +47,8 @@ namespace WordDocxEditor.Main
                 new Dictionary<TemplateId, RadioButton> { { TemplateId.Mr, radioButton_Mr },
                                                           { TemplateId.Mrs, radioButton_Mrs },
                                                           { TemplateId.Company, radioButton_Company } },
-                                                checkBox_addNumberToFileName, checkBox_AutoIncrementCaseId);
+                                                checkBox_addNumberToFileName, checkBox_AutoIncrementCaseId, 
+                                                pokazUkryjPoleId2ToolStripMenuItem, numericUpDown_OptionalId2, label_optionalId2);
         }
 
         private void button_Generate_Click(object sender, EventArgs e)
@@ -135,7 +136,7 @@ namespace WordDocxEditor.Main
 
         private void generowanieKartOcenyFormalnejToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //todo
         }
     }
 }

@@ -46,6 +46,8 @@
             this.comboBox_Templates = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown_OptionalId2 = new System.Windows.Forms.NumericUpDown();
+            this.label_optionalId2 = new System.Windows.Forms.Label();
             this.checkBox_AutoIncrementCaseId = new System.Windows.Forms.CheckBox();
             this.checkBox_addNumberToFileName = new System.Windows.Forms.CheckBox();
             this.checkBox_IsStreet = new System.Windows.Forms.CheckBox();
@@ -65,6 +67,8 @@
             this.generowanieKartOcenyFormalnejToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualizujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pokazUkryjPoleId2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.daneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcjaUlicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,16 +83,14 @@
             this.button_history = new System.Windows.Forms.Button();
             this.button_outputDir = new System.Windows.Forms.Button();
             this.button_Archiver = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_OptionalId2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CaseId)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -276,8 +278,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.numericUpDown_OptionalId2);
+            this.groupBox3.Controls.Add(this.label_optionalId2);
             this.groupBox3.Controls.Add(this.checkBox_AutoIncrementCaseId);
             this.groupBox3.Controls.Add(this.checkBox_addNumberToFileName);
             this.groupBox3.Controls.Add(this.checkBox_IsStreet);
@@ -300,6 +302,35 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
+            // 
+            // numericUpDown_OptionalId2
+            // 
+            this.numericUpDown_OptionalId2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_OptionalId2.Location = new System.Drawing.Point(10, 230);
+            this.numericUpDown_OptionalId2.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericUpDown_OptionalId2.Name = "numericUpDown_OptionalId2";
+            this.numericUpDown_OptionalId2.Size = new System.Drawing.Size(185, 27);
+            this.numericUpDown_OptionalId2.TabIndex = 102;
+            this.numericUpDown_OptionalId2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label_optionalId2
+            // 
+            this.label_optionalId2.AutoSize = true;
+            this.label_optionalId2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_optionalId2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label_optionalId2.Location = new System.Drawing.Point(6, 208);
+            this.label_optionalId2.Name = "label_optionalId2";
+            this.label_optionalId2.Size = new System.Drawing.Size(41, 19);
+            this.label_optionalId2.TabIndex = 103;
+            this.label_optionalId2.Text = "Id_2:";
             // 
             // checkBox_AutoIncrementCaseId
             // 
@@ -452,6 +483,7 @@
             this.skrótyToolStripMenuItem,
             this.narzędziaToolStripMenuItem,
             this.ustawieniaToolStripMenuItem,
+            this.widokToolStripMenuItem,
             this.informacjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -511,6 +543,20 @@
             this.aktualizujToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aktualizujToolStripMenuItem.Text = "Aktualizuj";
             this.aktualizujToolStripMenuItem.Click += new System.EventHandler(this.aktualizujToolStripMenuItem_Click);
+            // 
+            // widokToolStripMenuItem
+            // 
+            this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pokazUkryjPoleId2ToolStripMenuItem});
+            this.widokToolStripMenuItem.Name = "widokToolStripMenuItem";
+            this.widokToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.widokToolStripMenuItem.Text = "Widok";
+            // 
+            // pokazUkryjPoleId2ToolStripMenuItem
+            // 
+            this.pokazUkryjPoleId2ToolStripMenuItem.Name = "pokazUkryjPoleId2ToolStripMenuItem";
+            this.pokazUkryjPoleId2ToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.pokazUkryjPoleId2ToolStripMenuItem.Text = "Pokaż/Ukryj pole Id_2";
             // 
             // informacjeToolStripMenuItem
             // 
@@ -632,35 +678,6 @@
             this.button_Archiver.UseVisualStyleBackColor = true;
             this.button_Archiver.Click += new System.EventHandler(this.button_Archiver_Click);
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(10, 230);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(185, 27);
-            this.numericUpDown1.TabIndex = 102;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label6.Location = new System.Drawing.Point(6, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 19);
-            this.label6.TabIndex = 103;
-            this.label6.Text = "Id_2:";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -687,13 +704,13 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_OptionalId2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CaseId)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumberOfCopies)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -751,8 +768,10 @@
         private System.Windows.Forms.ToolStripMenuItem generowanieKartOcenyFormalnejToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cEIDGToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem kRSToolStripMenuItem1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDown_OptionalId2;
+        private System.Windows.Forms.Label label_optionalId2;
+        private System.Windows.Forms.ToolStripMenuItem widokToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pokazUkryjPoleId2ToolStripMenuItem;
     }
 }
 

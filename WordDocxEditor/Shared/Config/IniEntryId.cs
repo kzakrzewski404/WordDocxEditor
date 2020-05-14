@@ -10,6 +10,8 @@
         ArchiveDir,
         AutoUpdaterApp,
         UrlKRS,
-        UrlCEIDG
+        UrlCEIDG,
+        OptionalId2DefaultValue,
+        OptionalId2LabelName
     }
 }

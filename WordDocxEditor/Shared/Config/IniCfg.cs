@@ -38,6 +38,8 @@ namespace WordDocxEditor.Shared.Config
             _entries.Add(new IniEntry(IniEntryId.AutoUpdaterApp, "sAutoUpdaterApp", "AutoUpdate.exe"));
             _entries.Add(new IniEntry(IniEntryId.UrlKRS, "sUrlKRS", "www.google.com/search?q=krs"));
             _entries.Add(new IniEntry(IniEntryId.UrlCEIDG, "sUrlCEIDG", "www.google.com/search?q=ceidg"));
+            _entries.Add(new IniEntry(IniEntryId.OptionalId2DefaultValue, "iOptionalId2FieldDefaultValue", "3"));
+            _entries.Add(new IniEntry(IniEntryId.OptionalId2LabelName, "sOptionalId2LabelName", "Id_2"));
         }
 
         private void LoadIni()
