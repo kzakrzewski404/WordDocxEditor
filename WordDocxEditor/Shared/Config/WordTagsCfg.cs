@@ -9,5 +9,6 @@
         public static string CaseId = "<id>";
         public static string ReceivedDate = "<dateIn>";
         public static string RespondedDate = "<dateOut>";
+        public static string OptionalId2 = "<id2>";
     }
 }

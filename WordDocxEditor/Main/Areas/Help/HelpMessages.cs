@@ -57,6 +57,7 @@ namespace WordDocxEditor.Main.Areas.Help
                      "<addr> - Adres (ulica i numer budynku).\n" +
                      "<city> - kod pocztowy i miejscowość.\n" +
                      "<id> - numer sprawy.\n" +
+                     "<id2> - opcjonalne id\n" +
                      "<dateIn> - data przyjęcia pisma.\n" +
                      "<dateOut> - data odpowiedzi na pismo.");
         }
