@@ -12,5 +12,7 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
         public abstract int CaseId { get; }
         public abstract TemplateId SelectedTemplate { get; }
         public abstract bool DoAddCaseIdToFileName { get; }
+
+        public abstract int OptionalId2 { get; }
     }
 }

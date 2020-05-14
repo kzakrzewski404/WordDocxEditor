@@ -95,6 +95,7 @@ namespace WordDocxEditor.Word
                 ReplaceTag(WordTagsCfg.CaseId, data.BasicInformations.CaseId.ToString());
                 ReplaceTag(WordTagsCfg.ReceivedDate, data.Date.Received.Date.ToString("dd.MM.yyyy"));
                 ReplaceTag(WordTagsCfg.RespondedDate, data.Date.Response.Date.ToString("dd.MM.yyyy"));
+                ReplaceTag(WordTagsCfg.OptionalId2, data.BasicInformations.OptionalId2.ToString());
 
                 _document.Save();
                 return true;

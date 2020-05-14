@@ -33,6 +33,7 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
         public override int CaseId => (int)_caseId.Value;
         public override TemplateId SelectedTemplate => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
         public override bool DoAddCaseIdToFileName => _doAddCaseIdToFileName.Checked;
+        public override int OptionalId2 => (int)_numericOptionalId2.Value;
 
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
