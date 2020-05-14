@@ -198,9 +198,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label5.Location = new System.Drawing.Point(6, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 19);
+            this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Numer dokumentu:";
+            this.label5.Text = "Numer teczki:";
             // 
             // radioButton_Mr
             // 
