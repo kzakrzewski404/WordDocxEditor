@@ -10,5 +10,6 @@
         public static string ReceivedDate = "<dateIn>";
         public static string RespondedDate = "<dateOut>";
         public static string OptionalId2 = "<id2>";
+        public static string OptionalName2 = "<name2>";
     }
 }

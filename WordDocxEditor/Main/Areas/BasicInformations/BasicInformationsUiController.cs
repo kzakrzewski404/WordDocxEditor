@@ -23,6 +23,8 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
         private ToolStripMenuItem _toolStripToogleFieldId2;
         private NumericUpDown _numericOptionalId2;
         private Label _labelOptionalId2;
+        private ToolStripMenuItem _toolStripMenuItemToggleName2;
+        private TextBox _optionalName2;
         private IniCfg _ini = new IniCfg();
 
 
@@ -34,12 +36,14 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
         public override TemplateId SelectedTemplate => _templateChoice.Where(x => x.Value.Checked).Select(x => x.Key).First();
         public override bool DoAddCaseIdToFileName => _doAddCaseIdToFileName.Checked;
         public override int OptionalId2 => (int)_numericOptionalId2.Value;
+        public override string OptionalName2 => _optionalName2.Text;
 
 
         public void Bind(TextBox name, TextBox address, CheckBox isStreet, ComboBox city,
                          NumericUpDown id, Dictionary<TemplateId, RadioButton> templateChoice,
                          CheckBox doAddCaseIdToFileName, CheckBox autoIncrementCaseId, 
-                         ToolStripMenuItem toolStripItemToogleFieldId2, NumericUpDown numericId2, Label labelId2)
+                         ToolStripMenuItem toolStripItemToogleFieldId2, NumericUpDown numericId2, Label labelId2,
+                         ToolStripMenuItem toolStripMenuItemToggleName2, TextBox optionalName2)
         {
             _name = name;
             _name.Leave += OnInputNameLeave;
@@ -57,6 +61,11 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
             _numericOptionalId2 = numericId2;
             _labelOptionalId2 = labelId2;
             _labelOptionalId2.Text = $"{_ini.GetEntry(IniEntryId.OptionalId2LabelName)}:";
+            _optionalName2 = optionalName2;
+            _toolStripMenuItemToggleName2 = toolStripMenuItemToggleName2;
+            _toolStripMenuItemToggleName2.Click += OnToggleName2Click;
+
+            ToggleOptionalName2TextBox(true);
             ToggleOptionalId2Field(true);
 
             Clear();
@@ -117,6 +126,23 @@ namespace WordDocxEditor.Main.Areas.BasicInformations
             {
                 _numericOptionalId2.Visible = !_numericOptionalId2.Visible;
                 _labelOptionalId2.Visible = !_labelOptionalId2.Visible;
+            }
+        }
+
+        private void OnToggleName2Click(object sender, System.EventArgs e) => ToggleOptionalName2TextBox();
+
+        private void ToggleOptionalName2TextBox(bool forceHide = false)
+        {
+            _optionalName2.Clear();
+            if (_optionalName2.Visible || forceHide)
+            {
+                _name.Width = 435;
+                _optionalName2.Visible = false;
+            }
+            else
+            {
+                _name.Width = 200;
+                _optionalName2.Visible = true;
             }
         }
     }

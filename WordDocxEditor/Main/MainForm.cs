@@ -48,7 +48,8 @@ namespace WordDocxEditor.Main
                                                           { TemplateId.Mrs, radioButton_Mrs },
                                                           { TemplateId.Company, radioButton_Company } },
                                                 checkBox_addNumberToFileName, checkBox_AutoIncrementCaseId, 
-                                                pokazUkryjPoleId2ToolStripMenuItem, numericUpDown_OptionalId2, label_optionalId2);
+                                                pokazUkryjPoleId2ToolStripMenuItem, numericUpDown_OptionalId2, label_optionalId2,
+                                                pokazUkryjPoleImie2ToolStripMenuItem, textBox_Name2);
         }
 
         private void button_Generate_Click(object sender, EventArgs e)

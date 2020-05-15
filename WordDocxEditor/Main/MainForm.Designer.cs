@@ -46,6 +46,7 @@
             this.comboBox_Templates = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox_Name2 = new System.Windows.Forms.TextBox();
             this.numericUpDown_OptionalId2 = new System.Windows.Forms.NumericUpDown();
             this.label_optionalId2 = new System.Windows.Forms.Label();
             this.checkBox_AutoIncrementCaseId = new System.Windows.Forms.CheckBox();
@@ -69,6 +70,7 @@
             this.aktualizujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pokazUkryjPoleId2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pokazUkryjPoleImie2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.daneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcjaUlicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +144,7 @@
             this.textBox_Name.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Name.Location = new System.Drawing.Point(10, 45);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(435, 27);
+            this.textBox_Name.Size = new System.Drawing.Size(200, 27);
             this.textBox_Name.TabIndex = 1;
             // 
             // label3
@@ -278,6 +280,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox_Name2);
             this.groupBox3.Controls.Add(this.numericUpDown_OptionalId2);
             this.groupBox3.Controls.Add(this.label_optionalId2);
             this.groupBox3.Controls.Add(this.checkBox_AutoIncrementCaseId);
@@ -302,6 +305,14 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dane";
+            // 
+            // textBox_Name2
+            // 
+            this.textBox_Name2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Name2.Location = new System.Drawing.Point(216, 45);
+            this.textBox_Name2.Name = "textBox_Name2";
+            this.textBox_Name2.Size = new System.Drawing.Size(229, 27);
+            this.textBox_Name2.TabIndex = 104;
             // 
             // numericUpDown_OptionalId2
             // 
@@ -547,7 +558,8 @@
             // widokToolStripMenuItem
             // 
             this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pokazUkryjPoleId2ToolStripMenuItem});
+            this.pokazUkryjPoleId2ToolStripMenuItem,
+            this.pokazUkryjPoleImie2ToolStripMenuItem});
             this.widokToolStripMenuItem.Name = "widokToolStripMenuItem";
             this.widokToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.widokToolStripMenuItem.Text = "Widok";
@@ -555,8 +567,14 @@
             // pokazUkryjPoleId2ToolStripMenuItem
             // 
             this.pokazUkryjPoleId2ToolStripMenuItem.Name = "pokazUkryjPoleId2ToolStripMenuItem";
-            this.pokazUkryjPoleId2ToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.pokazUkryjPoleId2ToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.pokazUkryjPoleId2ToolStripMenuItem.Text = "Pokaż/Ukryj pole Id_2";
+            // 
+            // pokazUkryjPoleImie2ToolStripMenuItem
+            // 
+            this.pokazUkryjPoleImie2ToolStripMenuItem.Name = "pokazUkryjPoleImie2ToolStripMenuItem";
+            this.pokazUkryjPoleImie2ToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.pokazUkryjPoleImie2ToolStripMenuItem.Text = "Pokaż/Ukryj pole Imię_2";
             // 
             // informacjeToolStripMenuItem
             // 
@@ -698,7 +716,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.6.0";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.7.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -772,6 +790,8 @@
         private System.Windows.Forms.Label label_optionalId2;
         private System.Windows.Forms.ToolStripMenuItem widokToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pokazUkryjPoleId2ToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox_Name2;
+        private System.Windows.Forms.ToolStripMenuItem pokazUkryjPoleImie2ToolStripMenuItem;
     }
 }
 
