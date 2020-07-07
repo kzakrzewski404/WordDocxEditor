@@ -85,6 +85,7 @@
             this.button_history = new System.Windows.Forms.Button();
             this.button_outputDir = new System.Windows.Forms.Button();
             this.button_Archiver = new System.Windows.Forms.Button();
+            this.comboBox_TemplatesGroup = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -245,6 +246,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_TemplatesGroup);
             this.groupBox1.Controls.Add(this.comboBox_Templates);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
@@ -259,9 +261,9 @@
             this.comboBox_Templates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Templates.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBox_Templates.FormattingEnabled = true;
-            this.comboBox_Templates.Location = new System.Drawing.Point(10, 29);
+            this.comboBox_Templates.Location = new System.Drawing.Point(201, 29);
             this.comboBox_Templates.Name = "comboBox_Templates";
-            this.comboBox_Templates.Size = new System.Drawing.Size(435, 27);
+            this.comboBox_Templates.Size = new System.Drawing.Size(244, 27);
             this.comboBox_Templates.TabIndex = 36;
             // 
             // groupBox2
@@ -696,6 +698,16 @@
             this.button_Archiver.UseVisualStyleBackColor = true;
             this.button_Archiver.Click += new System.EventHandler(this.button_Archiver_Click);
             // 
+            // comboBox_TemplatesGroup
+            // 
+            this.comboBox_TemplatesGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_TemplatesGroup.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_TemplatesGroup.FormattingEnabled = true;
+            this.comboBox_TemplatesGroup.Location = new System.Drawing.Point(10, 29);
+            this.comboBox_TemplatesGroup.Name = "comboBox_TemplatesGroup";
+            this.comboBox_TemplatesGroup.Size = new System.Drawing.Size(185, 27);
+            this.comboBox_TemplatesGroup.TabIndex = 37;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,7 +728,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.7.0";
+            this.Text = "WordDocxEditor - Zakrzewski Kamil - v1.8.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -792,6 +804,7 @@
         private System.Windows.Forms.ToolStripMenuItem pokazUkryjPoleId2ToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox_Name2;
         private System.Windows.Forms.ToolStripMenuItem pokazUkryjPoleImie2ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox_TemplatesGroup;
     }
 }
 

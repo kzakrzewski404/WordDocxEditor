@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,6 +13,8 @@ namespace WordDocxEditor.Main.Areas.Templates
     public class TemplatesUiController : TemplatesData
     {
         private ComboBox _comboBoxTemplates;
+        private ComboBox _comboBoxGroups;
+        private List<DirectoryInfo> _loadedGroups = new List<DirectoryInfo>();
         private List<LoadedTemplates> _loadedTemplates = new List<LoadedTemplates>();
         private UiMessages _uiMessages = new UiMessages();
         private IniCfg _cfg = new IniCfg();
@@ -20,14 +23,17 @@ namespace WordDocxEditor.Main.Areas.Templates
         private int SelectedId => _comboBoxTemplates.SelectedIndex;
 
 
-        public void Bind(ComboBox templatesComboBox)
+        public void Bind(ComboBox groupsComboBox, ComboBox templatesComboBox)
         {
             _comboBoxTemplates = templatesComboBox;
+            _comboBoxGroups = groupsComboBox;
+            _comboBoxGroups.SelectionChangeCommitted += OnSelectedGroupChanged;
 
-            AutoLoadTemplates();
-            if (_comboBoxTemplates.Items.Count > 0)
+            AutoLoadGroups();
+            if (_comboBoxGroups.Items.Count > 0)
             {
-                _comboBoxTemplates.SelectedIndex = 0;
+                _comboBoxGroups.SelectedIndex = 0;
+                OnSelectedGroupChanged(null, null); //Force update
             }
         }
 
@@ -47,11 +53,39 @@ namespace WordDocxEditor.Main.Areas.Templates
                     files.Any(x => x.Name.Contains(_cfg.GetEntry(IniEntryId.CompanyHeader))));
         }
 
-        private void AutoLoadTemplates()
+        private void AutoLoadGroups()
         {
             if (Directory.Exists(_cfg.GetEntry(IniEntryId.TemplatesDir)))
             {
                 DirectoryInfo[] templatesDirs = new DirectoryInfo(_cfg.GetEntry(IniEntryId.TemplatesDir)).GetDirectories();
+                if (templatesDirs.Length != 0)
+                {
+                    _comboBoxGroups.Items.Clear();
+                    _loadedGroups.Clear();
+
+                    foreach (var dir in templatesDirs)
+                    {
+                        _loadedGroups.Add(dir);
+                        _comboBoxGroups.Items.Add(dir.Name);
+                    }
+                }
+                else
+                {
+                    _uiMessages.ShowError($"W folderze \"{_cfg.GetEntry(IniEntryId.TemplatesDir)}\" nie znaleziono żadnych folderów.");
+                }
+            }
+            else
+            {
+                _uiMessages.ShowError($"Nie znaleziono folderu \"{_cfg.GetEntry(IniEntryId.TemplatesDir)}\".");
+            }
+        }
+
+        private void AutoLoadTemplates()
+        {
+            if (Directory.Exists(_cfg.GetEntry(IniEntryId.TemplatesDir)))
+            {
+                //DirectoryInfo[] templatesDirs = new DirectoryInfo(_cfg.GetEntry(IniEntryId.TemplatesDir)).GetDirectories();
+                DirectoryInfo[] templatesDirs = new DirectoryInfo(_loadedGroups.Where(x => x.Name == _comboBoxGroups.SelectedItem.ToString()).FirstOrDefault().FullName).GetDirectories();
                 if (templatesDirs.Length != 0)
                 {
                     _comboBoxTemplates.Items.Clear();
@@ -80,6 +114,15 @@ namespace WordDocxEditor.Main.Areas.Templates
             else
             {
                 _uiMessages.ShowError($"Nie znaleziono folderu \"{_cfg.GetEntry(IniEntryId.TemplatesDir)}\".");
+            }
+        }
+
+        private void OnSelectedGroupChanged(object sender, EventArgs e)
+        {
+            AutoLoadTemplates();
+            if (_comboBoxTemplates.Items.Count > 0)
+            {
+                _comboBoxTemplates.SelectedIndex = 0;
             }
         }
     }

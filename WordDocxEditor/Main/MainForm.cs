@@ -41,7 +41,7 @@ namespace WordDocxEditor.Main
 
             _dateUiController.Bind(dateTimePicker_Received, dateTimePicker_Response);
             _printUiController.Bind(checkBox_doPrint, numericUpDown_NumberOfCopies);
-            _templatesUiController.Bind(comboBox_Templates);
+            _templatesUiController.Bind(comboBox_TemplatesGroup, comboBox_Templates);
 
             _basicInformationsUiController.Bind(textBox_Name, textBox_Address, checkBox_IsStreet, comboBox_City, numericUpDown_CaseId,
                 new Dictionary<TemplateId, RadioButton> { { TemplateId.Mr, radioButton_Mr },
